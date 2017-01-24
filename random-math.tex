@@ -1,0 +1,65 @@
+\documentclass{thomasclass}
+
+\begin{document}
+	\tableofcontents
+	\section{Sommen}
+ 		Onthoud:
+ 		\begin{align*}
+ 			\sum_{k=c}^{\infty} r^k &= \frac{r^c}{1-r} \\
+ 			\sum_{k=1}^{\infty} \frac{1}{k^2} &= \frac{\pi^2}{6} \\
+ 			\sum_{k=0}^\infty \frac{x^k}{k!} &= e^x \\
+ 		\end{align*}
+ 		
+ 		Uit de eerste kunnen we andere sommen afleiden. bijvoorbeeld 
+ 		$\displaystyle \sum_{k=0}^{\infty} kr^k: $
+ 		\begin{align*}
+ 				\sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { differenti\"eren aan beide kanten } \to \\
+ 				\sum_{k=0}^{\infty} kr^{k-1} &= \frac{1}{(1-r)^2} \\
+ 				\sum_{k=0}^{\infty} kr^k &= \frac{r}{(1-r)^2} \\
+ 		\end{align*}
+ 		Op dezelfde manier $\displaystyle \sum_{k=1}^{\infty} \frac{1}{k2^k}$:
+ 		\begin{align*}
+ 				\sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { integreren aan beide kanten } \to \\
+ 				\sum_{k=0}^{\infty} \frac{1}{k+1} r^{k+1} &= -\log_e (1-r) \\
+ 				\sum_{k-1}^\infty \frac{1}{k} r^k &= \log_e (\frac{1}{1-r})
+ 		\end{align*}
+ 		Eindig sommen kunnen we nu ook:
+ 		\begin{align*}
+ 			\sum_{k=c}^n r^k &= \sum_{k=c}^\infty r^k - \sum_{k=n}^\infty r^k
+ 		\end{align*}
+	\section{Partieel integreren}
+		\[ 
+			\int_a^b f(x) g'(x) \d x = \big[f(x)g(x)\big]_a^b - \int_a^b f'(x) g(x) \d x
+		 \]
+		 dus kies $f$ en $g$ zodanig dat $f'(x)g(x)$ makkelijk integreert.
+ 			 
+	 \section{Gonioformules}
+		 Onthoud:
+ 		 \begin{align*}
+ 			 \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
+ 			 \sin (2\alpha) &= \cos \alpha \sin \alpha 
+ 		 \end{align*}
+ 		 
+ 		 Mocht je iets willen integreren met $\cos^2$ dan volgt uit de eerste regel
+ 		 \begin{align*}
+ 		 		 \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
+ 		 		 &=  \cos^2 \alpha + \cos^2 \alpha - \cos^2 \alpha - \sin^2 \alpha \\
+ 		 		 &= 2\cos^2 \alpha -1
+ 		 	 \end{align*}
+ 		 	 en evenzo voor $\sin^2$.
+	 \section{Co\"ordinaten}
+		 Bij cilindercoordinaten is een extra \textbf{factor $\bm r$} verplicht als je integreert, bij bolcoordinaten $\rho^2 \sin \phi$
+		 
+		 Om bolco\"ordinaten te onthouden, gebruik poolco\"ordinaten en druk $r$ uit in $\rho$ en $\phi$ met behulp van onderstaand driehoekje, zodat $r=\rho \sin \phi$, en vul deze in, in poolco\"ordinaten $r \cos \theta,r \sin \theta$ om $x$ en $y$ te krijgen. Vind de $z$-co\"ordinaat op dezelfde manier zodat $z=\rho \cos \phi$.
+		 					
+		\begin{tikzpicture}[thick]
+		\draw(0,0) 
+		-- (90:2cm) node[midway,left]{$z$-as} 
+		-- (30:4cm) node[midway,above]{$r$} % node of point
+		-- (0,0) node[midway,below right]{$\rho$};
+		\draw[fill=lightgray, thick] (0,0) 
+		-- (30:0.8cm) arc (0:112:0.5cm) node at (60:0.5cm) {$\phi$} 
+-- cycle;
+		
+		\end{tikzpicture}
+\end{document}
