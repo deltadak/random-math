@@ -2,6 +2,8 @@
 \ProvidesClass{thomasclass}[]
 
 %CHANGELOG
+%2017/1/29
+% added determinant
 %2016/10/3
 % added \ep and \bep, epsilon and bold epsilon
 %2016/9/10
@@ -114,6 +116,9 @@
 
 % Vertical vector
 \newcommand{\vvec}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+
+% Determinant
+\renewcommand{\det}[1]{\left| \begin{matrix} #1 \end{matrix} \right|}
 
 % Linear maps
 \newcommand{\map}[1]{\mathcal{#1}}
