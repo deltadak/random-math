@@ -36,17 +36,43 @@
 		 	\[ \f_k \text { \textbf{convergeert uniform} naar } \f \implies \lim \int \f_k = \int \lim \f_k = \int \f \,. \]
 	 	\end{stelling}
 	 	
-	\section{Partieel integreren}
-		\[ 
-			\int_a^b f(x) g'(x) \d x = \big[f(x)g(x)\big]_a^b - \int_a^b f'(x) g(x) \d x
-		 \]
-		 dus kies $f$ en $g$ zodanig dat $f'(x)g(x)$ makkelijk integreert.
- 			 
+	\section{Integreren}
+        \subsection{Partieel integreren}
+            \[
+                \int_a^b f(x) g'(x) \d x = \big[f(x)g(x)\big]_a^b - \int_a^b f'(x) g(x) \d x
+             \]
+             dus kies $f$ en $g$ zodanig dat $f'(x)g(x)$ makkelijk integreert.
+
+        \subsection{Integreren door twee keer partieel}
+            Als je een integraal van bijvoorbeeld de vorm
+            \[
+                \int \sin t \cdot e^t \d t
+            \]
+            hebt, kun je opmerken dat als je een sinus twee keer integreert je weer een sinus
+            krijgt, en dus weer dezelfde integraal. Dit kunnen we toepassen
+            door twee keer partieel te integreren (grenzen weggelaten voor de duidelijkheid).
+            \begin{align*}
+                \int \sin t \cdot e^t \d t &= \sin t \cdot e^t - \int \cos t \cdot e^t \d t
+                \quad \text{ met $f=\sin t$ en $g'=e^t$} \\
+                &= \sin t \cdot e^t - \left( \cos t \cdot e^t - \int - \sin t \cdot e^t \d t \right)
+                \quad \text{ met $f=\cos t$ en $g'=e^t$} \\
+                &= ( \sin t - \cos t ) e^t -  \int \sin t \cdot e^t \d t
+            \end{align*}
+            Hieruit volgt dat
+            \[  \int \sin t \cdot e^t \d t = \frac{1}{2} ( \sin t - \cos t ) e^t\,. \]
+
+        \subsection{Integreren door breuksplitsen}
+            We integreren
+            \begin{align*}
+                \int \frac{1}{u(1-u)} \d u &= \int \
+            \end{align*}
+        \subsection{Integreren door substitutie}
+ 			 % todo
 	 \section{Gonioformules}
 		 Onthoud:
  		 \begin{align*}
  			 \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
- 			 \sin (2\alpha) &= \cos \alpha \sin \alpha 
+ 			 \sin (2\alpha) &= 2 \cos \alpha \sin \alpha
  		 \end{align*}
  		 
  		 Mocht je iets willen integreren met $\cos^2$ dan volgt uit de eerste regel
