@@ -37,6 +37,10 @@
 	 	\end{stelling}
 	 	
 	\section{Integreren}
+        Onthoud:
+        \begin{align*}
+            \int \frac{1}{\sin^2 u} \d u = \cotan u = \frac{1}{\tan u}
+        \end{align*}
         \subsection{Partieel integreren}
             \[
                 \int_a^b f(x) g'(x) \d x = \big[f(x)g(x)\big]_a^b - \int_a^b f'(x) g(x) \d x
@@ -62,12 +66,32 @@
             \[  \int \sin t \cdot e^t \d t = \frac{1}{2} ( \sin t - \cos t ) e^t\,. \]
 
         \subsection{Integreren door breuksplitsen}
-            We integreren
+            We bekijken
             \begin{align*}
-                \int \frac{1}{u(1-u)} \d u &= \int \
+                \int \frac{1}{u(1-u)} \d u &= \int \frac{A}{u} + \frac{B}{1-u} \d u \\
+                &= \int \frac{A(1-u)+Bu}{u(1-u)} \d u
             \end{align*}
+            waaruit volgt $A=B=1$ en dus
+            \[ \int \frac{1}{u(1-u)} \d u = \ln |u| + \ln |1-u|\,. \]
         \subsection{Integreren door substitutie}
- 			 % todo
+            We bekijken
+            \[ \int \sin t \cdot \cos t \cdot e^{\sin t} \d t\,. \]
+            Hierin zou je een functie en zijn afgeleide kunnen herkennen, namelijk
+            $\sin t$ en $\cos t$ waarbij een eventuele factor natuurlijk niet uitmaakt.
+            We substitueren $u = \sin t$, waaruit volgt $\d u = \cos t \d t$
+            zodat de integraal overgaat in
+            \[ \int u e^u \d u \]
+            wat we kunnen uitrekenen met partieel integeren. Er volgt
+            \begin{align*}
+                \int u e^u \d u &= u e^u - \int e^u \d u \\
+                &=  u e^u -  e^u + c \\
+                &= (\sin t -1) e^{\sin t} \,.
+            \end{align*}
+            Mochten er grenzen zijn, bijvoorbeeld
+            \[ \int_0^{\frac{\pi}{2}} \sin t \cdot \cos t \cdot e^{\sin t} \d t\,. \]
+            dan moeten we deze grenzen meesubstitueren, dus
+            \[ \int_{\sin 0}^{\sin \frac{\pi}{2}} u e^u \d u = 1\,. \]
+
 	 \section{Gonioformules}
 		 Onthoud:
  		 \begin{align*}
