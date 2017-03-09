@@ -1,0 +1,227 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{rufapa}[2016/02/01 Ruben's Fantastic Package]
+
+% Language
+\newcommand{\rufapa@lang}{dutch}
+\DeclareOption{nl}{
+	\renewcommand{\rufapa@lang}{dutch}
+}
+\DeclareOption{en}{
+	\renewcommand{\rufapa@lang}{english}
+}
+
+\DeclareOption{noheader}{
+	\newcommand{\rufapa@header}{}
+}
+\DeclareOption{authorheader}{
+	\newcommand{\rufapa@authorheader}{}
+}
+
+\ProcessOptions\relax
+
+% Pre-Amble
+\usepackage{a4wide,amsmath,amssymb,marvosym,amsthm}
+\usepackage{amsfonts,stmaryrd,tikz,fancyhdr,ulem}
+\usepackage[\rufapa@lang]{babel}
+\usepackage{iflang}
+
+% Setup graphics
+\graphicspath{{img/}}
+
+% Alter default math symbols.
+\let\goodepsilon\varepsilon
+\let\varepsilon\epsilon
+\let\epsilon\goodepsilon
+
+% Style
+\let\bf\textbf
+\let\em\emph
+\let\ul\underline
+\let\it\textit
+\let\sl\textsl
+\let\mono\texttt
+\let\code\texttt
+\let\sc\textsc
+\let\sans\textsf
+\let\dash\dashuline
+
+%% Mathematical Symbols
+\let\Lim\lim
+\let\leq\leqq
+\let\geq\geqq
+\renewcommand{\and}{\wedge}
+\renewcommand{\or}{\vee}
+\newcommand{\rufapa}{Ruben's Fantastic Package}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\dN}{\mathbb{N}}
+\newcommand{\dZ}{\mathbb{Z}}
+\newcommand{\dQ}{\mathbb{Q}}
+\newcommand{\dR}{\mathbb{R}}
+\newcommand{\dC}{\mathbb{C}}
+\newcommand{\dP}{\mathbb{P}}
+\newcommand{\minitab}{\hspace{0.8em}}
+\newcommand{\Minitab}{\hspace{0.6em}}
+\newcommand{\MInitab}{\hspace{0.5em}}
+\newcommand{\MINitab}{\hspace{0.4em}}
+\newcommand{\MINItab}{\hspace{0.2em}}
+\newcommand{\tab}{\hspace{1em}}
+\newcommand{\Tab}{\hspace{2em}}
+\newcommand{\TAb}{\hspace{3em}}
+\newcommand{\TAB}{\hspace{4em}}
+\newcommand{\deltadak}{\ifmmode \hat{\delta} \else $\hat{\delta}$\fi}
+\renewcommand{\qedsymbol}{\ifmmode\boxempty \textsc{q.e.d.}\else$\boxempty$ \textsc{q.e.d.}\fi}
+\renewcommand{\implies}{\ifmmode\Rightarrow\else$\Rightarrow$\fi}
+\newcommand{\seilpmi}{\ifmmode\Leftarrow\else$\Leftarrow$\fi}
+\newcommand{\notimplies}{\nRightarrow}
+\newcommand{\pwto}[1]{\xrightarrow[\dddot{}]{#1}\MINItab}
+\newcommand{\unito}[1]{\xrightarrow[\text{uni}]{#1}\MINItab}
+\newcommand{\contradiction}{\text{\Lightning}}
+\newcommand{\inftynorm}[1]{\left\|{#1}\right\|_\infty}
+\newcommand{\parenth}[1]{\left({#1}\right)}
+\newcommand{\tparenth}[1]{$\parenth{\text{#1}}$}
+\newcommand{\squarebr}[1]{\left[{#1}\right]}
+\newcommand{\anglebr}[1]{\left<{#1}\right>}
+\newcommand{\squiggly}[1]{\left\lbrace {#1}\right\rbrace}
+\newcommand{\abs}[1]{\left|{#1}\right|}
+\newcommand{\length}[1]{\left\| {#1} \right\| }
+\newcommand{\floor}[1]{\lfloor {#1} \rfloor}
+\newcommand{\ceil}[1]{\lceil {#1} \rceil}
+\newcommand{\leqtriangle}{\scalebox{0.7}{$\;\leq$}\raisebox{1.2ex}{\scalebox{0.7}{$\!\!\!\!\!\triangle\;$}}}
+\newcommand{\defeq}{\overset{\text{def}}{=}}
+\newcommand{\IH}[1]{\overset{\text{IH}}{#1}}
+\newcommand{\IHeq}{\IH{=}}
+\newcommand{\IHlt}{\IH{<}}
+\newcommand{\IHgt}{\IH{>}}
+\newcommand{\IHleq}{\IH{\leq}}
+\newcommand{\IHgeq}{\IH{\geq}}
+\newcommand{\Log}[2]{{}^{#1}\hspace{-1pt}\log\hspace{-2pt}\parenth{#2}}
+\newcommand{\Sin}[1]{\sin\hspace{-2pt}\parenth{#1}}
+\newcommand{\Cos}[1]{\cos\hspace{-2pt}\parenth{#1}}
+\newcommand{\Tan}[1]{\tan\hspace{-2pt}\parenth{#1}}
+\newcommand{\Asin}[1]{\arcsin\hspace{-2pt}\parenth{#1}}
+\newcommand{\Acos}[1]{\arccos\hspace{-2pt}\parenth{#1}}
+\newcommand{\Atan}[1]{\arctan\hspace{-2pt}\parenth{#1}}
+\newcommand{\Cosh}[1]{\cosh\hspace{-2pt}\parenth{#1}}
+\newcommand{\Sinh}[1]{\sinh\hspace{-2pt}\parenth{#1}}
+\newcommand{\Tanh}[1]{\tanh\hspace{-2pt}\parenth{#1}}
+\newcommand{\Csc}[1]{\csc\hspace{-2pt}\parenth{#1}}
+\newcommand{\Cot}[1]{\cot\hspace{-2pt}\parenth{#1}}
+\newcommand{\Coth}[1]{\coth\hspace{-2pt}\parenth{#1}}
+\newcommand{\Ln}[1]{\ln\hspace{-2pt}\parenth{#1}}
+\newcommand{\Sup}[1]{\sup\hspace{-2pt}\parenth{#1}}
+\newcommand{\Sups}[2]{\sup_{#2}\hspace{-2pt}\parenth{#1}}
+\newcommand{\Inf}[1]{\inf\hspace{-2pt}\parenth{#1}}
+\newcommand{\Infs}[2]{\inf_{#2}\hspace{-2pt}\parenth{#1}}
+\newcommand{\real}[1]{\text{Re}\hspace{-2pt}\parenth{#1}}
+\newcommand{\imag}[1]{\text{Im}\hspace{-2pt}\parenth{#1}}
+\newcommand{\Gcd}[1]{\gcd\hspace{-2pt}\parenth{#1}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Lcm}[1]{\lcm\hspace{-2pt}\parenth{#1}}
+\newcommand{\Dim}[1]{\dcd\hspace{-2pt}\parenth{#1}}
+\newcommand{\Exp}[1]{\exp\hspace{-2pt}\parenth{#1}}
+\newcommand{\Arg}[1]{\arg\hspace{-2pt}\parenth{#1}}
+\newcommand{\Deg}[1]{\deg\hspace{-2pt}\parenth{#1}}
+\renewcommand{\limsup}[1]{ \underset{#1}{\lim \hspace{-2pt} \sup \hspace{2pt}} }
+\newcommand{\Limsup}[2]{\limsup{#1}\hspace{-2pt}\parenth{#2}}
+\newcommand{\Min}[1]{\min\hspace{-2pt}\parenth{#1}}
+\newcommand{\Mins}[1]{\min\hspace{-2pt}\squiggly{#1}}
+\newcommand{\Max}[1]{\max\hspace{-2pt}\parenth{#1}}
+\newcommand{\Maxs}[1]{\max\hspace{-2pt}\squiggly{#1}}
+\newcommand{\Select}[2]{$\sigma_{\text{#1}}\parenth{\text{#2}}$}
+\newcommand{\Project}[2]{$\Pi_{\text{#1}}\parenth{\text{#2}}$}
+\newcommand{\Rename}[2]{$\rho_{\text{#1}}\parenth{\text{#2}}$}
+\newcommand{\Assign}[2]{$#1 \leftarrow $ #2}
+\newcommand{\Union}{$\cup$}
+\newcommand{\Intersection}{$\cap$\hspace{0.3em}}
+\newcommand{\Joins}{$\bowtie$\hspace{0.3em}}
+\newcommand{\Division}{$\div$\hspace{0.3em}}
+\newcommand{\Difference}{--\hspace{0.3em}}
+\newcommand{\Product}{$\times$\hspace{0.3em}}
+\newcommand{\Not}{$\neg$}
+\newcommand{\Notp}[1]{\Not$\parenth{\text{#1}}$}
+\newcommand{\tsup}[1]{$^\text{#1}$}
+\newcommand{\tsub}[1]{$_\text{#1}$}
+\newcommand{\hsep}{\MINItab|\MINItab}
+
+% Keywords
+\newcommand{\keyword}[1]{\mono{#1}}
+\newcommand{\true}{\keyword{true}}
+\newcommand{\false}{\keyword{false}}
+\newcommand{\Null}{\keyword{null}}
+
+% Create Title
+\newcommand{\@subtitle}{}
+\newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
+
+\renewcommand{\maketitle}{
+	\raggedright
+	{\Huge\bfseries \@title\vspace{-1pt}\par}
+	{\LARGE \@subtitle \par\vspace{12pt}}
+	{\Large \textit{\@author} \hfill \sc{\@date}}
+	\vspace{10pt}
+	\hrule width \hsize \kern 0.75mm \hrule width \hsize height 1pt
+	\vspace{4pt}
+}
+
+% Fancy Header
+\ifdefined\rufapa@header
+\else
+	\pagestyle{fancy}
+	\renewcommand{\sectionmark}[1]{\markright{#1}}
+	\fancyhf{}
+	\fancyhead[RO,LE]{\thepage}
+	\fancyhead[LO]{\@title\ifdefined\rufapa@authorheader
+								, \@author
+							\else
+								: \@subtitle
+							\fi}
+	\fancyhead[RE]{\@title\ifdefined\rufapa@authorheader
+								, \@author
+							\else
+								: \@subtitle
+							\fi}
+	\thispagestyle{empty}
+\fi
+
+% Stuff regarding proofs.
+\newcommand{\toprove}[1]{\bf{\IfLanguageName{english}{To Prove}{Te Bewijzen}}. #1}
+\newcommand{\lemma}[1]{\bf{\IfLanguageName{english}{Lemma}{Lemma}}. #1}
+\newcommand{\lemmanum}[2]{\bf{\IfLanguageName{english}{Lemma}{Lemma} #1}. #2}
+\newcommand{\theorem}[1]{\bf{\IfLanguageName{english}{Theorem}{Stelling}}. #1}
+\newcommand{\theoremnum}[2]{\bf{\IfLanguageName{english}{Theorem}{Stelling} #1}. #2}
+
+% Random aliases
+\let\hr\hrulefill
+
+\endinput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
