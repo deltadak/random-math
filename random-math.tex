@@ -4,10 +4,11 @@
 
 \begin{document}
 	\tableofcontents
+	\newpage
 	\section{Sommen}
  		Onthoud:
  		\begin{align*}
- 			\sum_{k=c}^{\infty} r^k &= \frac{r^c}{1-r} \\
+ 			\sum_{k=c}^{\infty} r^k &= \frac{r^c}{1-r} \text{ als $|r|<1$}\\
  			\sum_{k=1}^{\infty} \frac{1}{k^2} &= \frac{\pi^2}{6} \\
  			\sum_{k=0}^\infty \frac{x^k}{k!} &= e^x \\
  		\end{align*}
@@ -16,7 +17,7 @@
  		$\displaystyle \sum_{k=0}^{\infty} kr^k: $
  		\begin{align*}
  				\sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { differenti\"eren aan beide kanten } \to \\
- 				\sum_{k=0}^{\infty} kr^{k-1} &= \frac{1}{(1-r)^2} \\
+ 				\sum_{k=1}^{\infty} kr^{k-1} &= \frac{1}{(1-r)^2} \\
  				\sum_{k=0}^{\infty} kr^k &= \frac{r}{(1-r)^2} \\
  		\end{align*}
  		Op dezelfde manier $\displaystyle \sum_{k=1}^{\infty} \frac{1}{k2^k}$:
@@ -25,7 +26,7 @@
  				\sum_{k=0}^{\infty} \frac{1}{k+1} r^{k+1} &= -\log_e (1-r) \\
  				\sum_{k-1}^\infty \frac{1}{k} r^k &= \log_e (\frac{1}{1-r})
  		\end{align*}
- 		Eindig sommen kunnen we nu ook:
+ 		Eindige sommen kunnen we nu ook, \textbf{deze formule geldt algemener voor $r\neq 1$} maar dan is de afleiding natuurlijk anders.
  		\begin{align*}
  			\sum_{k=c}^n r^k &= \sum_{k=c}^\infty r^k - \sum_{k=n}^\infty r^k
  		\end{align*}
