@@ -1,0 +1,24 @@
+# This is Thomas' git config.
+[user]
+	name = Thomas
+	email = hollandpirates@gmail.com
+[core]
+	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession
+[mergetool "intellij"]
+	cmd = 'C:/Program Files (x86)/JetBrains/IntelliJ IDEA 2017.1/bin/idea.bat' merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = intellij
+[mergetool]
+	keepBackup = false
+[rerere]
+	enabled = true
+[alias]
+	br = checkout -b
+	st = status -sb
+	ci = commit -am
+	co = checkout
+	fancylog = log --graph --decorate --oneline --all
+	cp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
+[merge "theirs"]
+	driver = true

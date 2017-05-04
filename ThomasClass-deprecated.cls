@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{thomasclass}[]
+\ProvidesClass{thomasclass-deprecated}[]
 
 %CHANGELOG
 %2017/1/29

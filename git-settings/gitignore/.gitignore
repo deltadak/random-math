@@ -2,7 +2,7 @@
 
 *
 !.gitattributes
-!**/*.gitignore
+!.gitignore
 # Unignores all src folders and content
 !src/
 !*.tex
@@ -12,7 +12,3 @@
 !*.jpg
 !*.PNG
 !*.png
-
-!IntelliJ-inspections/
-!PyCharm-inspections/
-!git-settings/.gitconfig
