@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{thomaspackage}
+% place notes in the margin
+% replace 'draft' with 'final' to compile without notes
+% To override with inline locally, use e.g. \tnote[inline]{}
+\usepackage[margin, draft]{fixme}
+\usepackage{listings} % code
+\lstset{
+    frame=single,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
+% A 'hack' to replace Author Note: with Author: ...
+\fxsetup{theme=color, mode=multiuser}
+\FXRegisterAuthor{j}{jj}{Jan} % use with \jnote{this is a comment}
+
+\begin{document}
+
+    % Template adapted from https://www.sharelatex.com/project/58ba90f167955af8215e5022
+
+    \begin{titlepage}
+        \begin{center}
+
+            % Title
+            \rule{\linewidth}{0.5mm} \\[0.4cm]
+        { \huge \bfseries Project X \\[0.4cm] }
+            \rule{\linewidth}{0.5mm} \\[1.5cm]
+            
+             {\large  Eindhoven University of Technology, Department of Mathematics and Computer Science}\\[0.5cm]
+
+        {\large 2WX42 course X}\\[0.5cm]
+        {\large Group Y} \\[0.5cm]
+            
+             \includegraphics[width=0.9\textwidth]{front}\\[1cm]
+
+            % Author and supervisor
+            \noindent
+            \begin{minipage}{0.4\textwidth}
+                \begin{flushleft} \large
+                    \emph{Authors :}\\
+                    Thomas Schouten \textit{0938927}
+                \end{flushleft}
+            \end{minipage}%
+            \begin{minipage}{0.4\textwidth}
+                \begin{flushright} \large
+                    \emph{Tutor :} \\
+                    L. Federico MSc \\
+                    \emph{Lecturer :} \\
+                    prof.dr.ir. O.J. Boxma
+                \end{flushright}
+            \end{minipage}
+
+            \vfill
+
+            % Bottom of the page
+            {\large \today}
+
+        \end{center}
+    \end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+    % list the fix me notes
+    \listoffixmes
+
+    % Mocht je je afvragen waar alles is gebleven: zie bestand 'content'
+    \input{content}
+
+\cleardoublepage
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\end{document}

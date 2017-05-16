@@ -74,6 +74,20 @@
 		\right|_{#2} % this is the delimiter
 	}}
 
+% ceiling which scales
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+% bol
+\DeclareMathOperator{\B}{\mathop{B}}
+
+% binary ops
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+
+% Imaginary/real part
+% DeclareMathOperator doesn't like parameters
+\newcommand{\im}[1]{\mathop{\mathrm{Im}}(#1)}
+\newcommand{\re}[1]{\mathop{\mathrm{Re}}(#1)}
 
 % cotangens
 \DeclareMathOperator{\cotan}{\mathop{cotan}}

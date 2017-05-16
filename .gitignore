@@ -5,6 +5,7 @@
 !**/*.gitignore
 # Unignores all src folders and content
 !src/
+!file-templates
 !*.tex
 !*.sty
 !*.cls
