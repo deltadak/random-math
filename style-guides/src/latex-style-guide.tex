@@ -1,0 +1,69 @@
+%%
+%% Author: Thomas
+%%
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{thomaspackage}
+\usepackage{showexpl}
+
+% Setup
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{magenta},
+}
+
+%\renewcommand{\verb}{\lstinline}
+
+\title{\LaTeX\ style guide}
+\author{Thomas Schouten}
+
+% Document
+\begin{document}
+
+    \maketitle
+    \begin{enumerate}
+        \item Do not use \verb|\\| outside of tabular or math environments.
+
+        \item All sentences should start with a Capital and end with a full stop whenever reasonably possible.
+
+        \item Use \verb|$...$| for inline math, and \verb|\[...\]| for display math (on its own line).
+
+        \item Use \verb|\left( ... \right)| to scale brackets, so the result is $\left( \frac{\pi^2}{i} \right)$ instead of $(\frac{\pi^2}{i})$.
+
+        \item For integrals use \verb|\d x| instead of \verb|dx|, which results in $\d x$ instead of $dx$.
+
+        \item To place headers above your text, use \verb|\section{title}|, \verb|\subsection{title}|, \verb|\subsubsection{title}| or \verb|\paragraph{title}|.
+
+        \item Use \verb|\sin| and \verb|\cos|, so $\cos$ instead of $cos$.
+
+        \item Use \verb|\implies| and not \verb|\Rightarrow|, \verb|\iff| and not \verb|\Leftrightarrow|.
+
+        \item Use the align environment for multiple line math.
+            \begin{lstlisting}
+\begin{align*}
+    3x &= 1 \\
+    &= x_3
+\end{align*}
+            \end{lstlisting}
+
+        \item Use indentation in environments, like
+            \begin{lstlisting}
+\begin{equation}
+    \det
+    \begin{pmatrix}
+        1 & 2 \\
+        3 & 4
+    \end{pmatrix}
+    = -2 \,.
+\end{equation}
+            \end{lstlisting}
+    \end{enumerate}
+
+\end{document}

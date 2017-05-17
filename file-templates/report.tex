@@ -4,12 +4,6 @@
 % replace 'draft' with 'final' to compile without notes
 % To override with inline locally, use e.g. \tnote[inline]{}
 \usepackage[margin, draft]{fixme}
-\usepackage{listings} % code
-\lstset{
-    frame=single,
-    breaklines=true,
-    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
-}
 % A 'hack' to replace Author Note: with Author: ...
 \fxsetup{theme=color, mode=multiuser}
 \FXRegisterAuthor{j}{jj}{Jan} % use with \jnote{this is a comment}
