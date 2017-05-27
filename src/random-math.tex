@@ -5,6 +5,12 @@
 \begin{document}
 	\tableofcontents
 	\newpage
+
+	\section{Limieten}
+    Bekende limieten zijn
+    \[
+        \lim_{x\to 0} \frac{x}{\sin x} = 1
+    \]
 	\section{Sommen}
  		Onthoud:
  		\begin{align*}
@@ -189,6 +195,20 @@
 		\end{tikzpicture}
 	\section{Bol}
 		Inhoud is $\frac{4}{3} \pi r^3$, neem afgeleide voor oppervlakte.
+
+    \section{Tussenwaarde/middelwaardestelling}
+    \begin{theorem}[\indx{Tussenwaardestelling}/Intermediate Value Theorem]
+        Zij $a,b \in \reals,\ a<b,\
+            f:[a,b]\to \reals \text{ continu}\,.
+        $
+        Zij $f(a)<y<f(b)$. Dan $ \exists_{c\in(a,b)}:f(c)=y $.
+    \end{theorem}
+    \begin{theorem}[\indx{Middelwaardestelling}/Mean Value Theorem]
+        Zij $f\:[a,b] \to \reals$ continu, $f|_{(a,b)}$ differentieerbaar. Dan
+        \[
+        \exists_{c \in (a,b)} : f'(c) = \frac{f(b)-b(a)}{b-a}\,.
+        \]
+    \end{theorem}
 		
 	\section{Kwadraat afsplitsen}
         Om een kwadratische vergelijking $x^2 + ax + b = 0$ op te lossen voor $x$ kunnen we in plaats van de abc-formule ook kwadraat afsplitsen. Let wel op dat de co\"efficient voor de $x^2$ een 1 is.
