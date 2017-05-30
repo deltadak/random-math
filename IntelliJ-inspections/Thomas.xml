@@ -107,6 +107,9 @@
     <option name="myAdditionalJavadocTags" value="post,modifies,bound,pre" />
   </inspection_tool>
   <inspection_tool class="LabeledStatement" enabled="true" level="WARNING" enabled_by_default="true" />
+  <inspection_tool class="LawOfDemeter" enabled="true" level="WARNING" enabled_by_default="true">
+    <option name="ignoreLibraryCalls" value="true" />
+  </inspection_tool>
   <inspection_tool class="LocalCanBeFinal" enabled="true" level="INFORMATION" enabled_by_default="true">
     <option name="REPORT_VARIABLES" value="false" />
     <option name="REPORT_PARAMETERS" value="true" />
@@ -121,13 +124,13 @@
     <option name="m_maxLength" value="0" />
   </inspection_tool>
   <inspection_tool class="LoopWithImplicitTerminationCondition" enabled="true" level="INFORMATION" enabled_by_default="true" />
-  <inspection_tool class="MagicNumber" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="MagicNumber" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="MethodOnlyUsedFromInnerClass" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="ignoreMethodsAccessedFromAnonymousClass" value="false" />
     <option name="ignoreStaticMethodsFromNonStaticInnerClass" value="false" />
     <option name="onlyReportStaticMethods" value="false" />
   </inspection_tool>
-  <inspection_tool class="MethodReturnOfConcreteClass" enabled="false" level="WARNING" enabled_by_default="false">
+  <inspection_tool class="MethodReturnOfConcreteClass" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="ignoreAbstractClasses" value="true" />
   </inspection_tool>
   <inspection_tool class="MissingDeprecatedAnnotation" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -170,6 +173,11 @@
   </inspection_tool>
   <inspection_tool class="SimplifiableEqualsExpression" enabled="true" level="INFORMATION" enabled_by_default="true" />
   <inspection_tool class="SizeReplaceableByIsEmpty" enabled="true" level="INFORMATION" enabled_by_default="true" />
+  <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
+    <option name="processCode" value="true" />
+    <option name="processLiterals" value="true" />
+    <option name="processComments" value="true" />
+  </inspection_tool>
   <inspection_tool class="StandardVariableNames" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="StaticMethodOnlyUsedInOneClass" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="StaticVariableOfConcreteClass" enabled="true" level="WARNING" enabled_by_default="true" />

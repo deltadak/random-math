@@ -37,7 +37,20 @@
  			\sum_{k=c}^n r^k &= \sum_{k=c}^\infty r^k - \sum_{k=n}^\infty r^k
  		\end{align*}
 
+\section{Taylorreeksen}
+
+	Onthoud: de cosinus is even (symmetrisch rond $y$-as) en deze heeft even machten, evenzo is de sinus oneven.
+	\begin{align*}
+		\cos x &\coloneqq \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!} \\
+		\sin x &\coloneqq \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!} \\
+		e^x &\coloneqq \sum_{n=0}^\infty \frac{x^n}{n!} \\
+		\ln (1+x) &= \sum_{n=0}^\infty (-1)^{n} \frac{x^{n+1}}{n+1} \\
+		\arctan x &= \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1} \\
+	\end{align*}
+
+
 	\subsection{Cosinus en sinus hyperbolicus}
+		Merk op dat deze definities gelijk zijn aan de gewone sinus en cosinus maar dan niet alternerend.
 		\begin{align*}
 			\cosh z &\coloneqq \frac{1}{2} (e^z + e^{-z}) = \sum_{k=0}^\infty \frac{z^{2k}}{(2k)!} = \text{ alle even termen van de e-machtreeks} \\
 			\sinh z &\coloneqq \frac{1}{2} (e^z - e^{-z}) = \sum_{k=0}^\infty \frac{z^{2k+1}}{(2k+1)!} = \text{ alle oneven termen van de e-machtreeks}
