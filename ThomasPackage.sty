@@ -17,10 +17,11 @@
 \RequirePackage{hyperref} % should make index clickable
 \RequirePackage{bookmark} % Used for pdf bookmarks, needs to be loaded AFTER hyperref
 \RequirePackage{pgfplots} % Drawings!
-\usepackage{stmaryrd} % \lightning
-\usepgfplotslibrary{fillbetween}
+\RequirePackage{stmaryrd} % \lightning
 \RequirePackage{bm} % bold math, \bm{}
 \RequirePackage{listings} % to include code with env. lstlisting
+
+\usepgfplotslibrary{fillbetween}
 
 % Listings setup
 \lstset{
@@ -82,6 +83,9 @@
 		\right|_{#2} % this is the delimiter
 	}}
 
+% Sign function
+\DeclareMathOperator{\sign}{\mathop{sign}}
+
 % Residue
 \DeclareMathOperator{\Res}{\mathop{Res}}
 
@@ -101,10 +105,10 @@
 \newcommand{\AND}{\wedge}
 \newcommand{\OR}{\vee}
 
-% Imaginary/real part
-% DeclareMathOperator doesn't like parameters
-\newcommand{\im}[1]{\mathop{\mathrm{Im}}(#1)}
-\newcommand{\re}[1]{\mathop{\mathrm{Re}}(#1)}
+% Imaginary/real part, use with parameter \re{a}
+% for some reaons \Re won't work
+\DeclareMathOperator{\re}{\mathop{Re}}
+\DeclareMathOperator{\im}{\mathop{Im}}
 
 % cotangens
 \DeclareMathOperator{\cotan}{\mathop{cotan}}
