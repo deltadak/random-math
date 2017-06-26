@@ -68,6 +68,9 @@
 \newtheorem*{notatie}{Notatie}
 \newtheorem*{valkuil}{\textcolor{red}{Valkuil}}
 
+% Shortcut to set question prefix, to get e.g. x.y.q
+\newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1.\thequestion}}
+
 \newtheorem*{toprove}{Te bewijzen}
 %% Credits to Sten
 % Inline to prove env. To be used when `toprove' is the first content in a question. Then normally the text would end up on a new line, which is ugly. In these cases, use this environment instead.
@@ -174,9 +177,15 @@
 \renewcommand{\:}{\colon}
 
 %Macro's Maubach
+
+\def\up#1{^{(#1)}}
+
 \def\set#1{\lbrace#1\rbrace}
+
 \def\abs#1{{\left|#1\right|}}
+
 \def\vectorstat#1{{\textbf{#1}}} % vectors are defined as bold
+
 \protected\def\a{\vectorstat{a}}
 \protected\def\b{\vectorstat{b}}
 \protected\def\c{\vectorstat{c}}
@@ -230,7 +239,6 @@
 \protected\def\zero{\vectorstat{0}}
 \protected\def\one{\vectorstat{1}}
 \protected\def\two{\vectorstat{2}}
-\def\up#1{^{(#1)}}
 \protected\def\red#1{{\color{red}#1}}
 \protected\def\ore#1{{\color{orange}#1}}
 \protected\def\grn#1{{\color{green}#1}}

@@ -39,7 +39,11 @@
 
 \section{Taylorreeksen}
 
+	\subsection{Standaard Taylorreeksen}
+
 	Onthoud: de cosinus is even (symmetrisch rond $y$-as) en deze heeft even machten, evenzo is de sinus oneven.
+
+	De standaard Taylorreeksen rond 0 om te onthouden zijn
 	\begin{align*}
 		\cos x &\coloneqq \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!} \\
 		\sin x &\coloneqq \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!} \\
@@ -48,6 +52,41 @@
 		\arctan x &= \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1} \\
 	\end{align*}
 
+	De reeks van $\sqrt{1+x}$ kun je vinden door te stellen
+	\begin{align*}
+		\left( c_0 + c_1 x + c_2 x^2 + \dotsm \right)^2 &= 1+x \\
+		c_0^2 + 2 c_0 c_1 x + \dotsm &= 1+x
+	\end{align*}
+	waaruit de eerste paar termen snel te vinden zijn, namelijk $c_0=1$ en dus $c_1 = \frac 1 2$ enzovoorts.
+
+	\subsection{Gonioformules} \label{gonioformules}
+		 De verdubbelingsformules kunnen we afleiden met behulp van e-machten.
+
+		 We gebruiken
+		 \begin{align*}
+			\cos x = \frac 1 2 \left( e^{ix} + e^{-ix} \right) \\
+			\sin x = \frac 1 {2i} \left( e^{ix} - e^{-ix} \right) \\
+		 \end{align*}
+		 en als je niet meer weet waar de plussen en de minnen zaten dan vul je $\cos 0 = 1$ of $\sin 0 = 0$ in.
+
+		 Nu schrijven we
+		 \begin{align*}
+			2 \cos x \sin x &= 2 \cdot \frac 1 2 \left( e^{i x} + e^{-ix} \right) \frac 1 {2i} \left( e^{ix} - e^{-ix} \right) \\
+			&= \frac 1 {2i} \left(e^{2 i x} - e^{-2ix} \right) \\
+			&= \sin 2 x
+		\end{align*}
+		en evenzo
+		 \begin{align*}
+			\cos^2 x - \sin^2 x &= \frac 1 4 \left( e^{ix} + e^{-ix} \right)^2  - \frac 1 {2i} \frac 1 {2i} \left( e^{ix} - e^{-ix} \right)^2 \\
+			&= \frac 1 4 \left( e^{2ix} + 2 + e^{-2ix} \right) - \frac {-1} {4} \left( e^{2ix} - 2 + e^{-2ix} \right) \\
+			&= \frac {1} {2} \left( e^{2ix} + e^{-2ix} \right) \\
+			&= \cos 2\alpha \,.
+		\end{align*}
+
+ 		 \begin{align*}
+			 \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
+			 \sin (2\alpha) &= 2 \cos \alpha \sin \alpha
+		 \end{align*}
 
 	\subsection{Cosinus en sinus hyperbolicus}
 		Merk op dat deze definities gelijk zijn aan de gewone sinus en cosinus maar dan niet alternerend.
@@ -55,6 +94,26 @@
 			\cosh z &\coloneqq \frac{1}{2} (e^z + e^{-z}) = \sum_{k=0}^\infty \frac{z^{2k}}{(2k)!} = \text{ alle even termen van de e-machtreeks} \\
 			\sinh z &\coloneqq \frac{1}{2} (e^z - e^{-z}) = \sum_{k=0}^\infty \frac{z^{2k+1}}{(2k+1)!} = \text{ alle oneven termen van de e-machtreeks}
 		\end{align*}
+
+	\subsection{Versimplificeren van de sinus van de arccosinus en dergelijke}
+
+	In het geval van $\sin (\arccos \alpha)$, noem $\arccos \alpha \eqqcolon \beta$ en denk aan de driehoek met schuine zijde van lengte 1. Nu zien we dat, omdat $\alpha = \cos \beta$, er geldt dat de lengte van de aanliggende zijde gelijk is aan $\alpha$ en dus is de overstaande zijde van lengte $\sqrt{1-\alpha^2}$.
+
+	\begin{tikzpicture}[thick]
+		\draw(4,0)
+		-- (0,0) node[midway,below]{$\alpha$}
+		-- (0,2) node[midway,left]{$\sqrt{1-\alpha^2}$} % node of point
+		-- (4,0) node[midway,above right]{$1$};
+		\draw[fill=lightgray, thick] (4,0)
+		-- (3,0) arc (180:153:1cm) node at (2.7,0.3) {$\beta$}
+		-- cycle;
+
+	\end{tikzpicture}
+
+	Nu is
+	\[ \sin (\arccos \alpha) = \sin \beta = \sqrt{1-\alpha^2}\,. \]
+
+
 	\subsection{Matrix in e-macht}
 		Deze definitie lijkt op de gewone definitie van $e^x$. Als $A$ een matrix, dan geldt
 		\[ e^{At} \coloneqq \sum_{k=0}^\infty \frac{A^k t^k}{k!} \]
@@ -74,7 +133,7 @@
  	\section{Integralen}
 
 		\begin{stelling}[Bell curve]
-			\[ \int_{-\infty}^\infty e^{-x^2} \d x = \sqrt \pi .\]
+			\[ \int_{-\infty}^\infty e^{-\alpha x^2} \d x = \sqrt {\frac \pi \alpha}.\]
 		\end{stelling}
 
 	 	\begin{stelling}[Limiet door de integraal halen]
@@ -87,11 +146,28 @@
         \begin{align*}
             \int \frac{1}{\sin^2 u} \d u = \cotan u = \frac{1}{\tan u}
         \end{align*}
+
+		\subsection{Integreren van even machten cosinus of sinus}
+		Mocht je iets willen integreren met $\cos^2$ dan volgt uit de verdubbelingsformules van sectie \ref{gonioformules}
+ 		 \begin{align*}
+				  \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
+ 		 		 &=  \cos^2 \alpha + \cos^2 \alpha - \cos^2 \alpha - \sin^2 \alpha \\
+ 		 		 &= 2\cos^2 \alpha -1
+ 		 	 \end{align*}
+ 		 	 en evenzo voor $\sin^2 \alpha$.
+
         \subsection{Partieel integreren}
             \[
                 \int_a^b f(x) g'(x) \d x = \big[f(x)g(x)\big]_a^b - \int_a^b f'(x) g(x) \d x
              \]
              dus kies $f$ en $g$ zodanig dat $f'(x)g(x)$ makkelijk integreert.
+
+             \subsubsection{Integeren van de (re\"ele) logaritme}
+				We nemen $f(x)=\ln x$ en $g'(x)=1$ zodat
+				\begin{align*}
+					\int \ln x \cdot 1 \d x &= \int f(x)g'(x) \d x \\
+					&= x \ln x - x \,.
+				\end{align*}
 
         \subsection{Integreren door twee keer partieel}
             Als je een integraal van bijvoorbeeld de vorm
@@ -138,20 +214,16 @@
             dan moeten we deze grenzen meesubstitueren, dus
             \[ \int_{\sin 0}^{\sin \frac{\pi}{2}} u e^u \d u = 1\,. \]
 
-	 \section{Gonioformules}
-		 Onthoud:
- 		 \begin{align*}
- 			 \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
- 			 \sin (2\alpha) &= 2 \cos \alpha \sin \alpha
- 		 \end{align*}
- 		 
- 		 Mocht je iets willen integreren met $\cos^2$ dan volgt uit de eerste regel
- 		 \begin{align*}
- 		 		 \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
- 		 		 &=  \cos^2 \alpha + \cos^2 \alpha - \cos^2 \alpha - \sin^2 \alpha \\
- 		 		 &= 2\cos^2 \alpha -1
- 		 	 \end{align*}
- 		 	 en evenzo voor $\sin^2$.
+			\subsubsection{Integreren van oneven machten van de sinus}
+				We bekijken
+				\begin{align*}
+					\int \sin^{2n+1} x \d x = \int \left( 1-\cos^2 x \right)^n \sin x \d x \,.
+				\end{align*}
+				We substitueren $u=\cos x$ dus $\d u = - \sin x \d x$. Dan wordt dit
+				\begin{align*}
+					\int -(1-u^2)^n \d u\,.
+				\end{align*}
+
 	 \section{Co\"ordinaten}
 		 Bij cilindercoordinaten is een extra \textbf{factor $\bm r$} verplicht als je integreert, bij bolcoordinaten $\rho^2 \sin \phi$
 		 
@@ -211,7 +283,8 @@
 			(m-4-2) edge[-] (m-5-1) % min phi_1 keer y
 			;
 		\end{tikzpicture}
-	\section{Bol}
+
+	\section{Inhoud bol}
 		Inhoud is $\frac{4}{3} \pi r^3$, neem afgeleide voor oppervlakte.
 
     \section{Tussenwaarde/middelwaardestelling}
