@@ -155,7 +155,7 @@
 	 \section{Co\"ordinaten}
 		 Bij cilindercoordinaten is een extra \textbf{factor $\bm r$} verplicht als je integreert, bij bolcoordinaten $\rho^2 \sin \phi$
 		 
-		 Om bolco\"ordinaten te onthouden, gebruik poolco\"ordinaten en druk $r$ uit in $\rho$ en $\phi$ met behulp van onderstaand driehoekje, zodat $r=\rho \sin \phi$, en vul deze in, in poolco\"ordinaten $r \cos \theta,r \sin \theta$ om $x$ en $y$ te krijgen. Vind de $z$-co\"ordinaat op dezelfde manier zodat $z=\rho \cos \phi$.
+		 Om bolco\"ordinaten te onthouden, gebruik poolco\"ordinaten en druk $r$ uit in $\rho$ en $\phi$ met behulp van onderstaand driehoekje, zodat $r=\rho \sin \phi$, en vul deze in, in poolco\"ordinaten $r \cos \theta,r \sin \theta$ om $x$ en $y$ te krijgen. Vind de $z$-co\"ordinaat op dezelfde manier zodat $z=\rho \cos \phi$. Zie figuur \ref{bolMMa} in de appendix om je gekozen co\"ordinaten te controleren met Mathematica.
 		 					
 		\begin{tikzpicture}[thick]
 		\draw(0,0) 
@@ -240,4 +240,35 @@
             x + \frac{1}{2} a &= \pm \sqrt{\left( \frac{1}{2}a \right)^2 - b} \\
             x &= -  \frac{1}{2} a \pm \sqrt{\left(\frac{1}{2}a \right)^2 - b}
         \end{align*}
+
+    \newpage
+    \section{Appendix}
+    \begin{lstlisting}{language=mathematica}
+(* Transparent sphere *)
+pp = ParametricPlot3D[
+    {Cos[u] Sin[v],
+    Sin[u] Sin[v],
+    Cos[v]},
+   {u, 0, 2 Pi}, {v, 0, Pi}, Boxed -> False, Axes -> False,
+   PlotStyle -> Opacity[0.05]];
+(* Part on the sphere (hold r) *)
+pp1 = ParametricPlot3D[
+    {Cos[u] Sin[v],
+    Sin[u] Sin[v],
+    Cos[v]},
+   {u, 0, 2 Pi}, {v, 0, Pi/6}, Axes -> False, Boxed -> False];
+(* Cone (hold v) *)
+pp2 = ParametricPlot3D[
+    {r Cos[u] Sin[Pi/6],
+     r Sin[u] Sin[Pi/6],
+    r Cos[Pi/6]},
+   {r, 0, 1}, {u, 0, 2 Pi}, Axes -> False, Boxed -> False];
+(* Combine the three parts *)
+Show[pp, pp1, pp2, ImageSize -> Large]
+    \end{lstlisting}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=.5\textwidth]{bolMMa.png}
+    \caption{Bol in Mathematica}\label{bolMMa}
+    \end{figure}
 \end{document}
