@@ -2,6 +2,7 @@
 \usepackage{thomaspackage}
 \usetikzlibrary{matrix}
 
+
 \begin{document}
 	\tableofcontents
 	\newpage
@@ -60,6 +61,38 @@
 	waaruit de eerste paar termen snel te vinden zijn, namelijk $c_0=1$ en dus $c_1 = \frac 1 2$ enzovoorts.
 
 	\subsection{Gonioformules} \label{gonioformules}
+
+        \subsubsection{Waardes van de sinus en de cosinus}
+
+            \begin{figure}[h!]
+                \centering
+                \begin{tikzpicture}[scale=5]
+                    \draw (1,0) node [below] {1};
+
+                    % assen
+                    \draw [->, thick] (0,0) -- (1.2,0) node [right] {$x = \cos(\theta)$};
+                    \draw [->, thick] node [below left] {0} (0,0) -- (0,1.2) node [above] {$y = \sin (\theta)$};
+
+                    % kwart cirkel
+                    \draw [thick,domain=0:90] plot ({cos(\x)}, {sin(\x)}) node [left] {1};
+
+                    % driehoeken
+                    \draw (0,0) -- (.866, .5) node [right] {$\frac{1}{6} \pi$};
+                    \draw [dashed] (.866, .5) -- (.866, 0) node [below] {$\frac{1}{2} \sqrt{3}$};
+                    \draw [dashed] (.866, .5) -- (0, .5) node [left] {$\frac{1}{2}$};
+
+                    \draw (0,0) -- (.707, .707) node [above right] {$\frac{1}{4} \pi$};
+                    \draw [dashed] (.707, .707) -- (.707, 0) node [below] {$\frac{1}{2} \sqrt{2}$};
+                    \draw [dashed] (.707, .707) -- (0, .707) node [left] {$\frac{1}{2} \sqrt{2}$};
+
+                    \draw (0,0) -- (.5, .866) node [above] {$\frac{1}{3} \pi$};
+                    \draw [dashed] (.5, .866) -- (.5, 0) node [below] {$\frac{1}{2}$};
+                    \draw [dashed] (.5, .866) -- (0, .866) node [left] {$\frac{1}{2} \sqrt{3}$};
+                \end{tikzpicture}
+            \end{figure}
+
+
+		\subsubsection{Verdubbelingsformules}
 		 De verdubbelingsformules kunnen we afleiden met behulp van e-machten.
 
 		 We gebruiken
