@@ -2,12 +2,12 @@
 %% Homework document class
 %%
 %% Author: Delta Dak
-%% Version: 1.0
-%% Date: 2017-09-13
+%% Version: 1.1
+%% Date: 2017-09-14
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{homework}[2017/09/13 Homework document class by Delta Dak]
+\ProvidesPackage{homework}[2017/09/14 Version 1.1 Homework document class by Delta Dak]
 
 %
 % Key-value options
@@ -20,6 +20,12 @@
 
 %
 % Changelog
+%
+% Version 1.1 :: 2017-09-14
+%  - Fixed issues with \let and \newcommand.
+%  - Modified some command definitions to a TeXiFy-friendly format.
+%  - Added \Var command for variance in probability theory.
+%  - Moved \firstquestion definition into cls, for cleaner documents.
 %
 % Version 1.0 :: 2017-09-13
 %  - Normalized to first version.
@@ -103,6 +109,15 @@
 % Equation labels per question
 \numberwithin{equation}{question}
 
+% Question spacing
+\let\old@questions\questions
+\let\old@endquestions\endquestions
+\renewenvironment{questions}{%
+    \old@questions%
+    \let\firstquestion\question%
+    \renewcommand*{\question}{\vspace{7mm}\firstquestion}%
+}{\old@endquestions}
+
 
 %
 % Redefinitions of standard commands
@@ -120,17 +135,17 @@
 
 % Better phi
 \newcommand\hw@temp{\phi}
-\renewcommand{\phi}{\varphi}
-\renewcommand{\varphi}{\hw@temp}
+\let\phi\varphi
+\let\varphi\hw@temp
 
 % Better epsilon
 \renewcommand\hw@temp{\epsilon}
-\renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\varepsilon}{\hw@temp}
+\let\epsilon\varepsilon
+\let\varepsilon\hw@temp
 
 % Better empty set
-\newcommand{\oldemptyset}{\emptyset}
-\renewcommand{\emptyset}{\varnothing}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
 
 % Paragraphs have a line break after the title
 \newcommand{\oldparagraph}{\paragraph}
@@ -164,8 +179,8 @@
 \newcommand{\questiongroup}[1]{\fullwidth{\Large \textbf{#1}}}
 
 % Internal helper commands
-\DeclarePairedDelimiter\paren\lparen\rparen
-\DeclarePairedDelimiter\brackets\lbrack\rbrack
+\DeclarePairedDelimiter{\paren}\lparen\rparen
+\DeclarePairedDelimiter{\brackets}\lbrack\rbrack
 
 \patchcmd\g@matrix
 {\vbox\bgroup}
@@ -239,8 +254,8 @@ _{\copy0}%
 \newcommand{\rationals}{\mathbb{Q}}
 
 % Upright constants
-\newcommand\ex{\ensuremath{\mathrm{e}}}
-\newcommand\im{\ensuremath{\mathrm{i}}}
+\newcommand{\ex}{\ensuremath{\mathrm{e}}}
+\newcommand{\im}{\ensuremath{\mathrm{i}}}
 
 % Interior
 \DeclareMathOperator{\intr}{int}
@@ -253,7 +268,7 @@ _{\copy0}%
 \def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
 
 % Set complement
-\newcommand\scomp[1]{#1^\mathsf{c}}
+\newcommand{\scomp}[1]{#1^\mathsf{c}}
 
 
 %%% Geometry
@@ -289,7 +304,7 @@ _{\copy0}%
 %%% Vectors and linear algebra
 
 % Vectors
-\renewcommand\vec[1]{\mathbf{#1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
 
 % (Vector) underline shortcut
 \newcommand{\ul}[1]{\underline{#1}}
@@ -315,7 +330,7 @@ _{\copy0}%
 %%% Asymptotics
 
 % Big-O notation
-\newcommand\bigO{\mathcal O}
+\newcommand{\bigO}{\mathcal O}
 
 
 %%% Complex numbers
@@ -327,19 +342,22 @@ _{\copy0}%
 \DeclareMathOperator{\Im}{Im}
 
 % Conjecture
-\newcommand\conj[1]{\ensuremath{\overline{#1}}}
+\newcommand{\conj}[1]{\ensuremath{\overline{#1}}}
 
 
 %%% Probability theory
 
 % Probability
-\renewcommand\P[1]{\mathbb{P}\paren*{#1}}
+\renewcommand{\P}[1]{\mathbb{P}\paren*{#1}}
 
 % Expected value
-\newcommand\E[1]{\mathbb{E}\brackets*{#1}}
+\newcommand{\E}[1]{\mathbb{E}\brackets*{#1}}
 
 % Distributions
 \DeclareMathOperator{\Exp}{Exp}
 \DeclareMathOperator{\Geo}{Geo}
+
+% Variance
+\DeclareMathOperator{\Var}{Var}
 
 \endinput
