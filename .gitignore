@@ -17,3 +17,5 @@
 !IntelliJ-inspections/
 !PyCharm-inspections/
 !git-settings/.gitconfig
+!personal-packages
+!readme.md

@@ -1,14 +1,26 @@
 # This is a gitignore for LaTeX projects.
 
+
 *
+
 !.gitattributes
+
 !.gitignore
+
 # Unignores all src folders and content
+
 !src/
+
 !*.tex
+
 !*.sty
+
 !*.cls
+
 !*.JPG
+
 !*.jpg
+
 !*.PNG
+
 !*.png
