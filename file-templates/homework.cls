@@ -76,7 +76,7 @@
 
 
 % Sets title page and footer
-\footer{}{}{}
+\footer{}{\small Made with \href{https://github.com/Ruben-Sten/TeXiFy-IDEA}{TeXiFy-IDEA}}{}
 \date{\today}
 \title{\textbf{\hw@coursename}\\\expandafter\ifstrequal\expandafter{\hw@language}{dutch}{Huiswerk}{Homework}~\hw@number}%
 \author{\ifstrempty{\hw@group}{}{\textbf{\hw@group}\\}\hw@author}%
