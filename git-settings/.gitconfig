@@ -1,7 +1,8 @@
-# This is Thomas' git config.
+# This is Git's per-user configuration file.
 [user]
 	name = Thomas
 	email = hollandpirates@gmail.com
+	signingkey = BB71073A25B9B76C # Which GPG key to use
 [core]
 	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession
 [mergetool "intellij"]

@@ -62,7 +62,15 @@
 \RequirePackage{needspace}
 \RequirePackage{enumitem}
 \RequirePackage{mathtools}
+\RequirePackage{hyperref} % links
 
+% Hyperlink setup
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta,
+urlcolor=cyan,
+}
 
 %
 % Page layout
