@@ -251,6 +251,14 @@ _{\copy0}%
 \let\@ifnextchar\new@ifnextchar
 \array{#1}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathematics                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Standard sums
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\sumk}{\sum_{k=0}^\infty}
+\newcommand{\prodin}{\prod_{i=1}^n}
 
 %%% Sets and constants
 
@@ -301,12 +309,9 @@ _{\copy0}%
 \renewcommand*{\d}{\mathop{}\!\mathrm{d}}
 
 % Function restrictions
-\newcommand{\restr}[2]{{
-    \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
-    #1 % the function
-    \vphantom{\big|} % pretend it's a little taller at normal size
-    \right|_{#2} % this is the delimiter
-}}
+\newcommand*\eval[1]{\left.#1\right\rvert}
+% Backwards compatibility
+\newcommand*\restr[2]{\eval{#1}_{#2}}
 
 
 %%% Vectors and linear algebra
@@ -361,11 +366,20 @@ _{\copy0}%
 % Expected value
 \newcommand{\E}[1]{\mathbb{E}\brackets*{#1}}
 
+% Indicator function, less spacing after the 1
+\newcommand{\1}[1]{\mathbbm{1}\mathopen{}\mathclose\bgroup\left\{#1\aftergroup\egroup\right\}}
+% Backwards compatibility
+\newcommand{\I}[1]{\1{#1}}
+
 % Distributions
 \DeclareMathOperator{\Exp}{Exp}
 \DeclareMathOperator{\Geo}{Geo}
+\DeclareMathOperator{\Poi}{Poi}
 
 % Variance
 \DeclareMathOperator{\Var}{Var}
+
+% Mean squared error
+\DeclareMathOperator{\MSE}{MSE}
 
 \endinput
