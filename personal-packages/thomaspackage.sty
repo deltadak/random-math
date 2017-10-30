@@ -6,6 +6,8 @@
 \RequirePackage{mathtools} % improvement over amsmath, like \coloneqq 
 \RequirePackage{enumerate} % numbered list
 \RequirePackage{thmtools} % define custom to prove environments
+\RequirePackage{stmaryrd} % \lightning
+
 \RequirePackage{xcolor} % colors
 \RequirePackage{pdfpages} % to include external pdfs
 \RequirePackage{centernot} % \centernot \implies looks correct
@@ -15,7 +17,6 @@
 \RequirePackage{hyperref} % should make index clickable
 \RequirePackage{bookmark} % Used for pdf bookmarks, needs to be loaded AFTER hyperref
 \RequirePackage{pgfplots} % Drawings!
-\RequirePackage{stmaryrd} % \lightning
 \RequirePackage{bm} % bold math, \bm{}
 \RequirePackage{listings} % to include code with env. lstlisting
 \RequirePackage{graphicx} % to use \includegraphics
@@ -24,9 +25,9 @@
 
 % Listings setup
 \lstset{
-    frame=single,
-    breaklines=true,
-    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+frame=single,
+breaklines=true,
+postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
 }
 
 % To quiet some warning about compatibility mode.
@@ -34,10 +35,10 @@
 
 % Hyperlink setup
 \hypersetup{
-	colorlinks=true,
-	linkcolor=blue,
-	filecolor=magenta,      
-	urlcolor=cyan,
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta,
+urlcolor=cyan,
 }
 
 %--------------------Make usable space all of page
@@ -55,7 +56,7 @@
 \renewcommand{\indent}{\hspace*{\tindent}}
 
 % To remove the section numbering
-\renewcommand\@seccntformat[1]{} 
+\renewcommand\@seccntformat[1]{}
 
 \theoremstyle{definition}
 \newtheorem*{voorbeeld}{Voorbeeld}
@@ -79,11 +80,11 @@
 
 % Function restrictions
 \newcommand\restr[2]{{
-		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
-		#1 % the function
-		\vphantom{\big|} % pretend it's a little taller at normal size
-		\right|_{#2} % this is the delimiter
-	}}
+\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+#1 % the function
+\vphantom{\big|} % pretend it's a little taller at normal size
+\right|_{#2} % this is the delimiter
+}}
 
 % Sign function
 \DeclareMathOperator{\sign}{\mathop{sign}}
@@ -144,17 +145,13 @@
 \newcommand{\ul}[1]{\underline{#1}}
 
 % Better empty set
-\let\emptyset\varnothing
+\renewcommand{\emptyset}{\varnothing}
 
 % Better phi
-\let\temp\phi
-\let\phi\varphi
-\let\varphi\temp
+\renewcommand{\phi}{\varphi}
 
 % Better epsilon
-\let\temp\epsilon
-\let\epsilon\varepsilon
-\let\varepsilon\temp
+\renewcommand{\epsilon}{\varepsilon}
 
 % \ep for epsilon, \bep for bold epsilon
 \newcommand{\ep}{\epsilon}
@@ -201,7 +198,7 @@
 \protected\def\n{\vectorstat{n}}
 \protected\def\p{\vectorstat{p}}
 \protected\def\q{\vectorstat{q}}
-\protected\def\r{\vectorstat{r}}
+%\protected\def\r{\vectorstat{r}} % Already defined where?
 \protected\def\s{\vectorstat{s}}
 \protected\def\t{\vectorstat{t}}
 \protected\def\u{\vectorstat{u}}
@@ -211,7 +208,7 @@
 \protected\def\y{\vectorstat{y}}
 \protected\def\z{\vectorstat{z}}
 \protected\def\A{\vectorstat{A}}
-\protected\def\B{\vectorstat{B}}
+%\protected\def\B{\vectorstat{B}} % Replace by ball
 \protected\def\C{\vectorstat{C}}
 \protected\def\D{\vectorstat{D}}
 \protected\def\E{\vectorstat{E}}
