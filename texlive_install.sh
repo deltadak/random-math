@@ -28,6 +28,10 @@ tlmgr install luatex
 # Needed for TeX Live 2017
 tlmgr install xkeyval
 
+# Installing babel languages
+sudo apt-get install texlive-lang-european
+sudo apt-get install texlive-lang-dutch
+
 # A kind of minimum set of packages needed
 #tlmgr install collection-latex
 
