@@ -2,7 +2,7 @@
 [user]
 	name = Thomas
 	email = hollandpirates@gmail.com
-	signingkey = BB71073A25B9B76C # Which GPG key to use
+	signingkey = BB71073A25B9B76C
 [core]
 	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession
 [mergetool "intellij"]
@@ -26,4 +26,6 @@
 [commit]
 	gpgsign = true
 [gpg]
-	program = C:/Program Files (x86)/GnuPG/bin/gpg.exe
+	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
+[pull]
+	rebase = true

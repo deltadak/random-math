@@ -7,12 +7,12 @@
 	\tableofcontents
 	\newpage
 
-	\section{Limieten}
+	\section{Limieten}\label{sec:limieten}
     Bekende limieten zijn
     \[
         \lim_{x\to 0} \frac{x}{\sin x} = 1
     \]
-	\section{Sommen}
+	\section{Sommen}\label{sec:sommen}
  		Onthoud:
  		\begin{align*}
  			\sum_{k=c}^{\infty} r^k &= \frac{r^c}{1-r} \text{ als $|r|<1$}\\
@@ -20,7 +20,8 @@
  			\sum_{k=0}^\infty \frac{x^k}{k!} &= e^x \\
  		\end{align*}
  		
- 		Uit de eerste kunnen we andere sommen afleiden. bijvoorbeeld 
+ 		Uit de eerste kunnen we andere sommen afleiden.
+ 		bijvoorbeeld
  		$\displaystyle \sum_{k=0}^{\infty} kr^k: $
  		\begin{align*}
  				\sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { differenti\"eren aan beide kanten } \to \\
@@ -38,132 +39,10 @@
  			\sum_{k=c}^n r^k &= \sum_{k=c}^\infty r^k - \sum_{k=n}^\infty r^k
  		\end{align*}
 
-\section{Taylorreeksen}
+	\section{Taylorreeksen}\label{sec:taylorreeksen}
+	\input{Taylorreeksen}
 
-	\subsection{Standaard Taylorreeksen}
-
-	Onthoud: de cosinus is even (symmetrisch rond $y$-as) en deze heeft even machten, evenzo is de sinus oneven.
-
-	De standaard Taylorreeksen rond 0 om te onthouden zijn
-	\begin{align*}
-		\cos x &\coloneqq \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!} \\
-		\sin x &\coloneqq \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!} \\
-		e^x &\coloneqq \sum_{n=0}^\infty \frac{x^n}{n!} \\
-		\ln (1+x) &= \sum_{n=0}^\infty (-1)^{n} \frac{x^{n+1}}{n+1} \\
-		\arctan x &= \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1} \\
-	\end{align*}
-
-	De reeks van $\sqrt{1+x}$ kun je vinden door te stellen
-	\begin{align*}
-		\left( c_0 + c_1 x + c_2 x^2 + \dotsm \right)^2 &= 1+x \\
-		c_0^2 + 2 c_0 c_1 x + \dotsm &= 1+x
-	\end{align*}
-	waaruit de eerste paar termen snel te vinden zijn, namelijk $c_0=1$ en dus $c_1 = \frac 1 2$ enzovoorts.
-
-	\subsection{Gonioformules} \label{gonioformules}
-
-        \subsubsection{Waardes van de sinus en de cosinus}
-
-            \begin{figure}[h!]
-                \centering
-                \begin{tikzpicture}[scale=5]
-                    \draw (1,0) node [below] {1};
-
-                    % assen
-                    \draw [->, thick] (0,0) -- (1.2,0) node [right] {$x = \cos(\theta)$};
-                    \draw [->, thick] node [below left] {0} (0,0) -- (0,1.2) node [above] {$y = \sin (\theta)$};
-
-                    % kwart cirkel
-                    \draw [thick,domain=0:90] plot ({cos(\x)}, {sin(\x)}) node [left] {1};
-
-                    % driehoeken
-                    \draw (0,0) -- (.866, .5) node [right] {$\frac{1}{6} \pi$};
-                    \draw [dashed] (.866, .5) -- (.866, 0) node [below] {$\frac{1}{2} \sqrt{3}$};
-                    \draw [dashed] (.866, .5) -- (0, .5) node [left] {$\frac{1}{2}$};
-
-                    \draw (0,0) -- (.707, .707) node [above right] {$\frac{1}{4} \pi$};
-                    \draw [dashed] (.707, .707) -- (.707, 0) node [below] {$\frac{1}{2} \sqrt{2}$};
-                    \draw [dashed] (.707, .707) -- (0, .707) node [left] {$\frac{1}{2} \sqrt{2}$};
-
-                    \draw (0,0) -- (.5, .866) node [above] {$\frac{1}{3} \pi$};
-                    \draw [dashed] (.5, .866) -- (.5, 0) node [below] {$\frac{1}{2}$};
-                    \draw [dashed] (.5, .866) -- (0, .866) node [left] {$\frac{1}{2} \sqrt{3}$};
-                \end{tikzpicture}
-            \end{figure}
-
-
-		\subsubsection{Verdubbelingsformules}
-		 De verdubbelingsformules kunnen we afleiden met behulp van e-machten.
-
-		 We gebruiken
-		 \begin{align*}
-			\cos x = \frac 1 2 \left( e^{ix} + e^{-ix} \right) \\
-			\sin x = \frac 1 {2i} \left( e^{ix} - e^{-ix} \right) \\
-		 \end{align*}
-		 en als je niet meer weet waar de plussen en de minnen zaten dan vul je $\cos 0 = 1$ of $\sin 0 = 0$ in.
-
-		 Nu schrijven we
-		 \begin{align*}
-			2 \cos x \sin x &= 2 \cdot \frac 1 2 \left( e^{i x} + e^{-ix} \right) \frac 1 {2i} \left( e^{ix} - e^{-ix} \right) \\
-			&= \frac 1 {2i} \left(e^{2 i x} - e^{-2ix} \right) \\
-			&= \sin 2 x
-		\end{align*}
-		en evenzo
-		 \begin{align*}
-			\cos^2 x - \sin^2 x &= \frac 1 4 \left( e^{ix} + e^{-ix} \right)^2  - \frac 1 {2i} \frac 1 {2i} \left( e^{ix} - e^{-ix} \right)^2 \\
-			&= \frac 1 4 \left( e^{2ix} + 2 + e^{-2ix} \right) - \frac {-1} {4} \left( e^{2ix} - 2 + e^{-2ix} \right) \\
-			&= \frac {1} {2} \left( e^{2ix} + e^{-2ix} \right) \\
-			&= \cos 2\alpha \,.
-		\end{align*}
-
- 		 \begin{align*}
-			 \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
-			 \sin (2\alpha) &= 2 \cos \alpha \sin \alpha
-		 \end{align*}
-
-	\subsection{Cosinus en sinus hyperbolicus}
-		Merk op dat deze definities gelijk zijn aan de gewone sinus en cosinus maar dan niet alternerend.
-		\begin{align*}
-			\cosh z &\coloneqq \frac{1}{2} (e^z + e^{-z}) = \sum_{k=0}^\infty \frac{z^{2k}}{(2k)!} = \text{ alle even termen van de e-machtreeks} \\
-			\sinh z &\coloneqq \frac{1}{2} (e^z - e^{-z}) = \sum_{k=0}^\infty \frac{z^{2k+1}}{(2k+1)!} = \text{ alle oneven termen van de e-machtreeks}
-		\end{align*}
-
-	\subsection{Versimplificeren van de sinus van de arccosinus en dergelijke}
-
-	In het geval van $\sin (\arccos \alpha)$, noem $\arccos \alpha \eqqcolon \beta$ en denk aan de driehoek met schuine zijde van lengte 1. Nu zien we dat, omdat $\alpha = \cos \beta$, er geldt dat de lengte van de aanliggende zijde gelijk is aan $\alpha$ en dus is de overstaande zijde van lengte $\sqrt{1-\alpha^2}$.
-
-	\begin{tikzpicture}[thick]
-		\draw(4,0)
-		-- (0,0) node[midway,below]{$\alpha$}
-		-- (0,2) node[midway,left]{$\sqrt{1-\alpha^2}$} % node of point
-		-- (4,0) node[midway,above right]{$1$};
-		\draw[fill=lightgray, thick] (4,0)
-		-- (3,0) arc (180:153:1cm) node at (2.7,0.3) {$\beta$}
-		-- cycle;
-
-	\end{tikzpicture}
-
-	Nu is
-	\[ \sin (\arccos \alpha) = \sin \beta = \sqrt{1-\alpha^2}\,. \]
-
-
-	\subsection{Matrix in e-macht}
-		Deze definitie lijkt op de gewone definitie van $e^x$. Als $A$ een matrix, dan geldt
-		\[ e^{At} \coloneqq \sum_{k=0}^\infty \frac{A^k t^k}{k!} \]
-		Voor $\displaystyle A = \vvec{0 & 1 \\ 1 & 0}$ geldt dan
-		\[ e^{At} =
-		\vvec{1 + \frac{t^2}{2!} + \frac{t^4}{4!} + \dots & t + \frac{t^3}{3!} + \dots \\
-			t + \frac{t^3}{3!} + \dots & 1 + \frac{t^2}{2!} + \frac{t^4}{4!} + \dots}
-		= \vvec{\cosh t & \sinh t \\ \sinh t & \cosh t}\]
-
-	\subsection{Imaginaire e-macht}
-
-	\begin{align*}
-		e^{ix} &= \cos x + i \sin x \\
-		e^{-ix} &= \sin x + i \cos x
-	\end{align*}
- 		
- 	\section{Integralen}
+ 	\section{Integralen}\label{sec:integralen}
 
 		\begin{stelling}[Bell curve]
 			\[ \int_{-\infty}^\infty e^{-\alpha x^2} \d x = \sqrt {\frac \pi \alpha}.\]
@@ -174,93 +53,15 @@
 		 	\[ \f_k \text { \textbf{convergeert uniform} naar } \f \implies \lim \int \f_k = \int \lim \f_k = \int \f \,. \]
 	 	\end{stelling}
 	 	
-	\section{Integreren}
-        Onthoud:
-        \begin{align*}
-            \int \frac{1}{\sin^2 u} \d u = \cotan u = \frac{1}{\tan u}
-        \end{align*}
+	\section{Integreren}\label{sec:integreren}
+	\input{Integreren}
 
-		\subsection{Integreren van even machten cosinus of sinus}
-		Mocht je iets willen integreren met $\cos^2$ dan volgt uit de verdubbelingsformules van sectie \ref{gonioformules}
- 		 \begin{align*}
-				  \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
- 		 		 &=  \cos^2 \alpha + \cos^2 \alpha - \cos^2 \alpha - \sin^2 \alpha \\
- 		 		 &= 2\cos^2 \alpha -1
- 		 	 \end{align*}
- 		 	 en evenzo voor $\sin^2 \alpha$.
-
-        \subsection{Partieel integreren}
-            \[
-                \int_a^b f(x) g'(x) \d x = \big[f(x)g(x)\big]_a^b - \int_a^b f'(x) g(x) \d x
-             \]
-             dus kies $f$ en $g$ zodanig dat $f'(x)g(x)$ makkelijk integreert.
-
-             \subsubsection{Integeren van de (re\"ele) logaritme}
-				We nemen $f(x)=\ln x$ en $g'(x)=1$ zodat
-				\begin{align*}
-					\int \ln x \cdot 1 \d x &= \int f(x)g'(x) \d x \\
-					&= x \ln x - x \,.
-				\end{align*}
-
-        \subsection{Integreren door twee keer partieel}
-            Als je een integraal van bijvoorbeeld de vorm
-            \[
-                \int \sin t \cdot e^t \d t
-            \]
-            hebt, kun je opmerken dat als je een sinus twee keer integreert je weer een sinus
-            krijgt, en dus weer dezelfde integraal. Dit kunnen we toepassen
-            door twee keer partieel te integreren (grenzen weggelaten voor de duidelijkheid).
-            \begin{align*}
-                \int \sin t \cdot e^t \d t &= \sin t \cdot e^t - \int \cos t \cdot e^t \d t
-                \quad \text{ met $f=\sin t$ en $g'=e^t$} \\
-                &= \sin t \cdot e^t - \left( \cos t \cdot e^t - \int - \sin t \cdot e^t \d t \right)
-                \quad \text{ met $f=\cos t$ en $g'=e^t$} \\
-                &= ( \sin t - \cos t ) e^t -  \int \sin t \cdot e^t \d t
-            \end{align*}
-            Hieruit volgt dat
-            \[  \int \sin t \cdot e^t \d t = \frac{1}{2} ( \sin t - \cos t ) e^t\,. \]
-
-        \subsection{Integreren door breuksplitsen}
-            We bekijken
-            \begin{align*}
-                \int \frac{1}{u(1-u)} \d u &= \int \frac{A}{u} + \frac{B}{1-u} \d u \\
-                &= \int \frac{A(1-u)+Bu}{u(1-u)} \d u
-            \end{align*}
-            waaruit volgt $A=B=1$ en dus
-            \[ \int \frac{1}{u(1-u)} \d u = \ln |u| + \ln |1-u|\,. \]
-        \subsection{Integreren door substitutie}
-            We bekijken
-            \[ \int \sin t \cdot \cos t \cdot e^{\sin t} \d t\,. \]
-            Hierin zou je een functie en zijn afgeleide kunnen herkennen, namelijk
-            $\sin t$ en $\cos t$ waarbij een eventuele factor natuurlijk niet uitmaakt.
-            We substitueren $u = \sin t$, waaruit volgt $\d u = \cos t \d t$
-            zodat de integraal overgaat in
-            \[ \int u e^u \d u \]
-            wat we kunnen uitrekenen met partieel integeren. Er volgt
-            \begin{align*}
-                \int u e^u \d u &= u e^u - \int e^u \d u \\
-                &=  u e^u -  e^u + c \\
-                &= (\sin t -1) e^{\sin t} \,.
-            \end{align*}
-            Mochten er grenzen zijn, bijvoorbeeld
-            \[ \int_0^{\frac{\pi}{2}} \sin t \cdot \cos t \cdot e^{\sin t} \d t\,. \]
-            dan moeten we deze grenzen meesubstitueren, dus
-            \[ \int_{\sin 0}^{\sin \frac{\pi}{2}} u e^u \d u = 1\,. \]
-
-			\subsubsection{Integreren van oneven machten van de sinus}
-				We bekijken
-				\begin{align*}
-					\int \sin^{2n+1} x \d x = \int \left( 1-\cos^2 x \right)^n \sin x \d x \,.
-				\end{align*}
-				We substitueren $u=\cos x$ dus $\d u = - \sin x \d x$. Dan wordt dit
-				\begin{align*}
-					\int -(1-u^2)^n \d u\,.
-				\end{align*}
-
-	 \section{Co\"ordinaten}
+	 \section{Co\"ordinaten}\label{sec:coordinaten}
 		 Bij cilindercoordinaten is een extra \textbf{factor $\bm r$} verplicht als je integreert, bij bolcoordinaten $\rho^2 \sin \phi$
 		 
-		 Om bolco\"ordinaten te onthouden, gebruik poolco\"ordinaten en druk $r$ uit in $\rho$ en $\phi$ met behulp van onderstaand driehoekje, zodat $r=\rho \sin \phi$, en vul deze in, in poolco\"ordinaten $r \cos \theta,r \sin \theta$ om $x$ en $y$ te krijgen. Vind de $z$-co\"ordinaat op dezelfde manier zodat $z=\rho \cos \phi$. Zie figuur \ref{bolMMa} in de appendix om je gekozen co\"ordinaten te controleren met Mathematica.
+		 Om bolco\"ordinaten te onthouden, gebruik poolco\"ordinaten en druk $r$ uit in $\rho$ en $\phi$ met behulp van onderstaand driehoekje, zodat $r=\rho \sin \phi$, en vul deze in, in poolco\"ordinaten $r \cos \theta,r \sin \theta$ om $x$ en $y$ te krijgen.
+		 Vind de $z$-co\"ordinaat op dezelfde manier zodat $z=\rho \cos \phi$.
+		 Zie figuur~\ref{bolMMa} in de appendix om je gekozen co\"ordinaten te controleren met Mathematica.
 		 					
 		\begin{tikzpicture}[thick]
 		\draw(0,0) 
@@ -273,7 +74,7 @@
 		
 		\end{tikzpicture}
 
-	\section{Determinant}
+	\section{Determinant}\label{sec:determinant}
 
 		\[
 			\det{
@@ -291,7 +92,7 @@
 				+ & - & +
 			}
 		 \]
-	\section{Inproduct/uitproduct}
+	\section{Inproduct/uitproduct}\label{sec:inproduct/uitproduct}
 		\paragraph{Inproduct (dot product)}
 		\[ \x \bullet \bm \phi = \vvec{x \\ y \\ z} \bullet \vvec{\phi_1 \\ \phi_2 \\\phi_3} = x \phi_1 + y \phi_2 + z \phi_3 \]
 		\paragraph{Uitproduct (Vector/Cross product)}
@@ -317,28 +118,31 @@
 			;
 		\end{tikzpicture}
 
-	\section{Inhoud bpol}
+	\section{Inhoud bpol}\label{sec:inhoudBpol}
 		Inhoud is $\frac{4}{3} \pi r^3$, neem afgeleide voor oppervlakte.
 
-    \section{Tussenwaarde/middelwaardestelling}
+    \section{Tussenwaarde/middelwaardestelling}\label{sec:tussenwaarde/middelwaardestelling}
     \begin{stelling}[\indx{Tussenwaardestelling}/Intermediate Value Theorem]
 
         Zij $a,b \in \reals,\ a<b,\
             f:[a,b]\to \reals \text{ continu}\,.
         $
-        Zij $f(a)<y<f(b)$. Dan \[ \exists_{c\in(a,b)}:f(c)=y . \]
+        Zij $f(a)<y<f(b)$.
+        Dan \[ \exists_{c\in(a,b)}:f(c)=y. \]
     \end{stelling}
 
     \begin{stelling}[\indx{Middelwaardestelling}/Mean Value Theorem]
 
-        Zij $f\:[a,b] \to \reals$ continu, $f|_{(a,b)}$ differentieerbaar. Dan
+        Zij $f\:[a,b] \to \reals$ continu, $f|_{(a,b)}$ differentieerbaar.
+        Dan
         \[
         \exists_{c \in (a,b)} : f'(c) = \frac{f(b)-b(a)}{b-a}\,.
         \]
     \end{stelling}
 		
-	\section{Kwadraat afsplitsen}
-        Om een kwadratische vergelijking $x^2 + ax + b = 0$ op te lossen voor $x$ kunnen we in plaats van de abc-formule ook kwadraat afsplitsen. Let wel op dat de co\"efficient voor de $x^2$ een 1 is.
+	\section{Kwadraat afsplitsen}\label{sec:kwadraatAfsplitsen}
+        Om een kwadratische vergelijking $x^2 + ax + b = 0$ op te lossen voor $x$ kunnen we in plaats van de abc-formule ook kwadraat afsplitsen.
+        Let wel op dat de co\"efficient voor de $x^2$ een 1 is.
         \begin{align*}
             x^2 + a x + b &= 0 \\
             \left(x + \frac{1}{2} a\right)^2 - \left( \frac{1}{2}a \right)^2 &= - b \\
@@ -348,7 +152,7 @@
         \end{align*}
 
     \newpage
-    \section{Appendix}
+    \section{Appendix}\label{sec:appendix}
     \begin{lstlisting}{language=mathematica}
 (* Transparent sphere *)
 pp = ParametricPlot3D[

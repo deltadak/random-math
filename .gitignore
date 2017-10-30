@@ -1,21 +1,6 @@
-# This is a gitignore for LaTeX projects.
+## A gitignore for LaTeX projects
 
-*
-!.gitattributes
-!**/*.gitignore
-# Unignores all src folders and content
-!src/
-!file-templates
-!*.tex
-!*.sty
-!*.cls
-!*.JPG
-!*.jpg
-!*.PNG
-!*.png
-
-!IntelliJ-inspections/
-!PyCharm-inspections/
-!git-settings/.gitconfig
-!personal-packages
-!readme.md
+*.iml
+.idea/
+auxil/
+out/

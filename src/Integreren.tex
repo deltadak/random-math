@@ -1,0 +1,78 @@
+      Onthoud:
+      \begin{align*}
+          \int \frac{1}{\sin^2 u} \d u = \cotan u = \frac{1}{\tan u}
+      \end{align*}
+\subsection{Integreren van even machten cosinus of sinus}\label{subsec:integrerenVanEvenMachtenCosinusOfSinus}
+Mocht je iets willen integreren met $\cos^2$ dan volgt uit de verdubbelingsformules van sectie~\ref{gonioformules}
+	 \begin{align*}
+		  \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
+	 		 &=  \cos^2 \alpha + \cos^2 \alpha - \cos^2 \alpha - \sin^2 \alpha \\
+	 		 &= 2\cos^2 \alpha -1
+	 	 \end{align*}
+	 	 en evenzo voor $\sin^2 \alpha$.
+      \subsection{Partieel integreren}\label{subsec:partieelIntegreren}
+          \[
+              \int_a^b f(x) g'(x) \d x = \big[f(x)g(x)\big]_a^b - \int_a^b f'(x) g(x) \d x
+           \]
+           dus kies $f$ en $g$ zodanig dat $f'(x)g(x)$ makkelijk integreert.
+           \subsubsection{Integeren van de (re\"ele) logaritme}
+		We nemen $f(x)=\ln x$ en $g'(x)=1$ zodat
+		\begin{align*}
+			\int \ln x \cdot 1 \d x &= \int f(x)g'(x) \d x \\
+			&= x \ln x - x \,.
+		\end{align*}
+      \subsection{Integreren door twee keer partieel}\label{subsec:integrerenDoorTweeKeerPartieel}
+          Als je een integraal van bijvoorbeeld de vorm
+          \[
+              \int \sin t \cdot e^t \d t
+          \]
+          hebt, kun je opmerken dat als je een sinus twee keer integreert je weer een sinus
+          krijgt, en dus weer dezelfde integraal.
+          Dit kunnen we toepassen
+          door twee keer partieel te integreren (grenzen weggelaten voor de duidelijkheid).
+          \begin{align*}
+              \int \sin t \cdot e^t \d t &= \sin t \cdot e^t - \int \cos t \cdot e^t \d t
+              \quad \text{ met $f=\sin t$ en $g'=e^t$} \\
+              &= \sin t \cdot e^t - \left( \cos t \cdot e^t - \int - \sin t \cdot e^t \d t \right)
+              \quad \text{ met $f=\cos t$ en $g'=e^t$} \\
+              &= ( \sin t - \cos t ) e^t -  \int \sin t \cdot e^t \d t
+          \end{align*}
+          Hieruit volgt dat
+          \[  \int \sin t \cdot e^t \d t = \frac{1}{2} ( \sin t - \cos t ) e^t\,. \]
+      \subsection{Integreren door breuksplitsen}\label{subsec:integrerenDoorBreuksplitsen}
+          We bekijken
+          \begin{align*}
+              \int \frac{1}{u(1-u)} \d u &= \int \frac{A}{u} + \frac{B}{1-u} \d u \\
+              &= \int \frac{A(1-u)+Bu}{u(1-u)} \d u
+          \end{align*}
+          waaruit volgt $A=B=1$ en dus
+          \[ \int \frac{1}{u(1-u)} \d u = \ln |u| + \ln |1-u|\,. \]
+      \subsection{Integreren door substitutie}\label{subsec:integrerenDoorSubstitutie}
+          We bekijken
+          \[ \int \sin t \cdot \cos t \cdot e^{\sin t} \d t\,. \]
+          Hierin zou je een functie en zijn afgeleide kunnen herkennen, namelijk
+          $\sin t$ en $\cos t$ waarbij een eventuele factor natuurlijk niet uitmaakt.
+          We substitueren $u = \sin t$, waaruit volgt $\d u = \cos t \d t$
+          zodat de integraal overgaat in
+          \[ \int u e^u \d u \]
+          wat we kunnen uitrekenen met partieel integeren.
+          Er volgt
+          \begin{align*}
+              \int u e^u \d u &= u e^u - \int e^u \d u \\
+              &=  u e^u -  e^u + c \\
+              &= (\sin t -1) e^{\sin t} \,.
+          \end{align*}
+          Mochten er grenzen zijn, bijvoorbeeld
+          \[ \int_0^{\frac{\pi}{2}} \sin t \cdot \cos t \cdot e^{\sin t} \d t\,. \]
+          dan moeten we deze grenzen meesubstitueren, dus
+          \[ \int_{\sin 0}^{\sin \frac{\pi}{2}} u e^u \d u = 1\,. \]
+	\subsubsection{Integreren van oneven machten van de sinus}
+		We bekijken
+		\begin{align*}
+			\int \sin^{2n+1} x \d x = \int \left( 1-\cos^2 x \right)^n \sin x \d x \,.
+		\end{align*}
+		We substitueren $u=\cos x$ dus $\d u = - \sin x \d x$.
+		Dan wordt dit
+		\begin{align*}
+			\int -(1-u^2)^n \d u\,.
+		\end{align*}
