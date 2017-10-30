@@ -1,13 +1,13 @@
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{thomaspackage}[2017/02/01 v2.1 My math package]
 
-\RequirePackage[dutch]{babel} % maths goes in dutch, so far
+\RequirePackage[dutch]{babel} % May be necessary to delete auxiliary files after changing.
 \RequirePackage[fleqn]{amsmath} % left align equations option
 \RequirePackage{amsthm} % proof environments
 \RequirePackage{amssymb} % some symbols like probability P, or real number R
 \RequirePackage{mathtools} % improvement over amsmath, like \coloneqq 
 \RequirePackage{enumerate} % numbered list
 \RequirePackage{thmtools} % define custom to prove environments
+\RequirePackage{stmaryrd} % \lightning
+
 \RequirePackage{xcolor} % colors
 \RequirePackage{pdfpages} % to include external pdfs
 \RequirePackage{centernot} % \centernot \implies looks correct
@@ -17,11 +17,11 @@
 \RequirePackage{hyperref} % should make index clickable
 \RequirePackage{bookmark} % Used for pdf bookmarks, needs to be loaded AFTER hyperref
 \RequirePackage{pgfplots} % Drawings!
-\usepackage{stmaryrd} % \lightning
-\usepgfplotslibrary{fillbetween}
 \RequirePackage{bm} % bold math, \bm{}
 \RequirePackage{listings} % to include code with env. lstlisting
 \RequirePackage{graphicx} % to use \includegraphics
+
+\usepgfplotslibrary{fillbetween}
 
 % Listings setup
 \lstset{
@@ -56,7 +56,7 @@
 \renewcommand{\indent}{\hspace*{\tindent}}
 
 % To remove the section numbering
-\renewcommand\@seccntformat[1]{}
+\renewcommand\@seccntformat[1]{} 
 
 \theoremstyle{definition}
 \newtheorem*{voorbeeld}{Voorbeeld}
@@ -67,6 +67,9 @@
 \newtheorem*{gevolg}{Gevolg}
 \newtheorem*{notatie}{Notatie}
 \newtheorem*{valkuil}{\textcolor{red}{Valkuil}}
+
+% Shortcut to set question prefix, to get e.g. x.y.q
+\newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1.\thequestion}}
 
 \newtheorem*{toprove}{Te bewijzen}
 %% Credits to Sten
@@ -83,6 +86,18 @@
 		\right|_{#2} % this is the delimiter
 	}}
 
+% Sign function
+\DeclareMathOperator{\sign}{\mathop{sign}}
+
+% Residue
+\DeclareMathOperator{\Res}{\mathop{Res}}
+
+% Main valued logarithm
+\DeclareMathOperator{\Log}{\mathop{Log}}
+
+% Triangle inequality
+\newcommand{\triangleineq}{\overset{\triangle}{\le}}
+
 % ceiling which scales
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
@@ -93,10 +108,10 @@
 \newcommand{\AND}{\wedge}
 \newcommand{\OR}{\vee}
 
-% Imaginary/real part
-% DeclareMathOperator doesn't like parameters
-\newcommand{\im}[1]{\mathop{\mathrm{Im}}(#1)}
-\newcommand{\re}[1]{\mathop{\mathrm{Re}}(#1)}
+% Imaginary/real part, use with parameter \re{a}
+% for some reaons \Re won't work
+\DeclareMathOperator{\re}{\mathop{Re}}
+\DeclareMathOperator{\im}{\mathop{Im}}
 
 % cotangens
 \DeclareMathOperator{\cotan}{\mathop{cotan}}
@@ -111,7 +126,7 @@
 \renewcommand*\d{\mathop{}\!\mathrm{d}}
 
 % Set interior and distance
-\DeclareMathOperator{\intr}{\mathop{int}} 
+\DeclareMathOperator{\intr}{\mathop{int}}
 \DeclareMathOperator{\dist}{\mathop{dist}}
 
 % Infinity norm
@@ -162,9 +177,15 @@
 \renewcommand{\:}{\colon}
 
 %Macro's Maubach
+
+\def\up#1{^{(#1)}}
+
 \def\set#1{\lbrace#1\rbrace}
+
 \def\abs#1{{\left|#1\right|}}
+
 \def\vectorstat#1{{\textbf{#1}}} % vectors are defined as bold
+
 \protected\def\a{\vectorstat{a}}
 \protected\def\b{\vectorstat{b}}
 \protected\def\c{\vectorstat{c}}
@@ -218,7 +239,6 @@
 \protected\def\zero{\vectorstat{0}}
 \protected\def\one{\vectorstat{1}}
 \protected\def\two{\vectorstat{2}}
-\def\up#1{^{(#1)}}
 \protected\def\red#1{{\color{red}#1}}
 \protected\def\ore#1{{\color{orange}#1}}
 \protected\def\grn#1{{\color{green}#1}}

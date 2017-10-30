@@ -35,9 +35,25 @@ tlmgr install xkeyval
 # texlive-latex-base is needed to run pdflatex
 tlmgr install   \
   exam          \
-  amsfonts      \
+  amsmath       \
+  amsthm        \
+  amssymb       \
+  mathtools     \
+  enumerate     \
+  thmtools      \
   stmaryrd      \
-  amsmath
+  xcolor        \
+  pdfpages      \
+  centernot     \
+  tikz          \
+  cancel        \
+  hyperref      \
+  bookmark      \
+  pgfplots      \
+  bm            \
+  listings      \
+  graphicx      \
+  imakeidx
 
 # Keep no backups (not required, simply makes cache bigger)
 tlmgr option -- autobackup 0
