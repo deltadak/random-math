@@ -29,7 +29,7 @@ tlmgr install luatex
 tlmgr install xkeyval
 
 # Installing babel languages
-tlmgr install collection-langeuropean # todo this worked? https://tex.stackexchange.com/questions/139700/package-babel-error-unknown-option-francais
+tlmgr install collection-langeuropean
 #tlmgr install babel-dutch
 #tlmgr install babel-english
 
