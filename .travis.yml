@@ -8,7 +8,7 @@ cache:
 before_script: cd ./src/
 script:
 - mkdir _build
-- travis_wait 3 pdflatex -output-directory _build ./src/random-math.tex
+- travis_wait 3 pdflatex -output-directory _build ./random-math.tex
 deploy:
   provider: releases
   api_key:
