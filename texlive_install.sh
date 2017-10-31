@@ -29,11 +29,11 @@ tlmgr install luatex
 tlmgr install xkeyval
 
 # Installing babel languages
-tlmgr install texlive-lang-european
-tlmgr install texlive-lang-dutch
+tlmgr install collection-langeuropean
+#tlmgr install texlive-lang-dutch
 
 # A kind of minimum set of packages needed
-#tlmgr install collection-latex
+tlmgr install collection-latex
 
 # Other contrib packages: done as a block to avoid multiple calls to tlmgr
 # pgf includes tikz
