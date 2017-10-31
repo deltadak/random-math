@@ -29,14 +29,14 @@ tlmgr install luatex
 tlmgr install xkeyval
 
 # Installing babel languages
-sudo apt-get install texlive-lang-european
-sudo apt-get install texlive-lang-dutch
+tlmgr install texlive-lang-european
+tlmgr install texlive-lang-dutch
 
 # A kind of minimum set of packages needed
 #tlmgr install collection-latex
 
 # Other contrib packages: done as a block to avoid multiple calls to tlmgr
-# texlive-latex-base is needed to run pdflatex
+# pgf includes tikz
 tlmgr install   \
   exam          \
   amsmath       \
@@ -49,7 +49,7 @@ tlmgr install   \
   xcolor        \
   pdfpages      \
   centernot     \
-  tikz          \
+  pgf           \
   cancel        \
   hyperref      \
   bookmark      \
