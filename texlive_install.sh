@@ -29,12 +29,15 @@ tlmgr install luatex
 tlmgr install xkeyval
 
 # Installing babel languages
-tlmgr install collection-langeuropean
-#tlmgr install texlive-lang-dutch
+tlmgr install collection-langeuropean # todo this worked? https://tex.stackexchange.com/questions/139700/package-babel-error-unknown-option-francais
+#tlmgr install babel-dutch
+#tlmgr install babel-english
 
 # A kind of minimum set of packages needed
 tlmgr install collection-latex
 
+
+# Index of packages: http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/archive/
 # Other contrib packages: done as a block to avoid multiple calls to tlmgr
 # pgf includes tikz
 tlmgr install   \
