@@ -31,7 +31,7 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 }
 
 % To quiet some warning about compatibility mode.
-\pgfplotsset{compat=1.15}
+\pgfplotsset{compat=1.14}
 
 % Hyperlink setup
 \hypersetup{
@@ -41,7 +41,7 @@ filecolor=magenta,
 urlcolor=cyan,
 }
 
-%--------------------Make usable space all of page
+% Adjust margins
 \setlength{\oddsidemargin}{0in}
 \setlength{\evensidemargin}{0in}
 \setlength{\topmargin}{0in}
@@ -49,7 +49,7 @@ urlcolor=cyan,
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{8.5in}
 
-%--------------------Indention
+% Indention
 \newlength\tindent
 \setlength{\tindent}{\parindent}
 \setlength{\parindent}{0pt}
@@ -58,7 +58,10 @@ urlcolor=cyan,
 % To remove the section numbering
 \renewcommand\@seccntformat[1]{}
 
+% Define new environments
 \theoremstyle{definition}
+
+% Dutch
 \newtheorem*{voorbeeld}{Voorbeeld}
 \newtheorem*{definitie}{Definitie}
 \newtheorem*{stelling}{Stelling}
@@ -67,6 +70,25 @@ urlcolor=cyan,
 \newtheorem*{gevolg}{Gevolg}
 \newtheorem*{notatie}{Notatie}
 \newtheorem*{valkuil}{\textcolor{red}{Valkuil}}
+
+% English
+\newtheorem*{definition}{Definition}
+\newtheorem*{question}{Question}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{answer}{Answer}
+\newtheorem*{notation}{Notation}
+
+% Bold theorem titles
+\makeatletter
+\def\th@plain{%
+\thm@notefont{}% same as heading font
+\itshape % body font
+}
+\def\th@definition{%
+\thm@notefont{}% same as heading font
+\normalfont % body font
+}
+\makeatother
 
 % Shortcut to set question prefix, to get e.g. x.y.q
 \newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1.\thequestion}}
@@ -86,6 +108,91 @@ urlcolor=cyan,
 \right|_{#2} % this is the delimiter
 }}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mathematics                      $$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% General
+%
+
+% Triangle inequality
+\newcommand{\triangleineq}{\overset{\triangle}{\le}}
+
+% binary ops
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+
+% Underline shortcut
+\newcommand{\ul}[1]{\underline{#1}}
+
+% Better phi
+\renewcommand{\phi}{\varphi}
+
+% Better epsilon
+\renewcommand{\epsilon}{\varepsilon}
+
+% \ep for epsilon, \bep for bold epsilon
+\newcommand{\ep}{\epsilon}
+\newcommand{\bep}{\bm{\epsilon}}
+
+% Circled numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% ceiling which scales
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+% Index as superscript
+\newcommand{\up}[1]{#1{^{(#1)}}}
+
+% Absolute value
+\newcommand{\abs}[1]{\left|#1\right|}
+
+%
+% Set theory
+%
+
+% Set, use with \set{a | b}, which produces \{ a \mid b \}
+\DeclarePairedDelimiterX{\set}[1]\lbrace\rbrace{\setaux #1||\endsetaux}
+\def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
+
+% Number sets
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\integers}{\mathbb{Z}}
+
+% Because as Aart said, they are the same anyway.
+% Defining using \newcommand won't work this way.
+\let\strictsubset\subset
+\let\subset\subseteq
+\let\strictsupset\supset
+\let\supset\supseteq
+
+% Better empty set
+\renewcommand{\emptyset}{\varnothing}
+
+% Set boundary
+\newcommand{\bound}{\partial}
+
+%
+% Analysis
+%
+
+% Standard sums
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\sumk}{\sum_{k=0}^\infty}
+\newcommand{\prodin}{\prod_{i=1}^n}
+
+% Imaginary/real part, use with parameter \re{a}
+% for some reaons \Re won't work
+\DeclareMathOperator{\re}{\mathop{Re}}
+\DeclareMathOperator{\im}{\mathop{Im}}
+
 % Sign function
 \DeclareMathOperator{\sign}{\mathop{sign}}
 
@@ -94,24 +201,6 @@ urlcolor=cyan,
 
 % Main valued logarithm
 \DeclareMathOperator{\Log}{\mathop{Log}}
-
-% Triangle inequality
-\newcommand{\triangleineq}{\overset{\triangle}{\le}}
-
-% ceiling which scales
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-
-% bol
-\DeclareMathOperator{\B}{\mathop{B}}
-
-% binary ops
-\newcommand{\AND}{\wedge}
-\newcommand{\OR}{\vee}
-
-% Imaginary/real part, use with parameter \re{a}
-% for some reaons \Re won't work
-\DeclareMathOperator{\re}{\mathop{Re}}
-\DeclareMathOperator{\im}{\mathop{Im}}
 
 % cotangens
 \DeclareMathOperator{\cotan}{\mathop{cotan}}
@@ -125,62 +214,108 @@ urlcolor=cyan,
 % d used for integrals
 \renewcommand*\d{\mathop{}\!\mathrm{d}}
 
-% Set interior and distance
-\DeclareMathOperator{\intr}{\mathop{int}}
-\DeclareMathOperator{\dist}{\mathop{dist}}
-
-% Infinity norm
-\newcommand{\inftynorm}[1]{\left\|#1\right\|_\infty}
-
-% Vertical vector
-\newcommand{\vvec}[1]{\begin{pmatrix} #1 \end{pmatrix}}
-
-% Determinant
-\renewcommand{\det}[1]{\left| \begin{matrix} #1 \end{matrix} \right|}
-
-% Linear maps
-\newcommand{\map}[1]{\mathcal{#1}}
-
-% Vector underline shortcut
-\newcommand{\ul}[1]{\underline{#1}}
-
-% Better empty set
-\renewcommand{\emptyset}{\varnothing}
-
-% Better phi
-\renewcommand{\phi}{\varphi}
-
-% Better epsilon
-\renewcommand{\epsilon}{\varepsilon}
-
-% \ep for epsilon, \bep for bold epsilon
-\newcommand{\ep}{\epsilon}
-\newcommand{\bep}{\bm{\epsilon}}
-
-% Number sets
-\newcommand{\naturals}{\mathbb{N}}
-\newcommand{\reals}{\mathbb{R}}
-\newcommand{\complex}{\mathbb{C}}
-\newcommand{\rationals}{\mathbb{Q}}
-
 %Riemann multi-variable
 \newcommand{\R}{\mathcal{R}}
 
 % Big-O
 \newcommand{\bigO}{\mathcal{O}}
 
-%Short colon
+% A \to arrow with optionally something above
+\newcommand{\upto}[1]{\xrightarrow{#1}}
+
+% Function restrictions
+\newcommand*\eval[1]{\left.#1\right\rvert}
+
+%
+% Linear Algebra
+%
+
+% Matrix with vertical lines, use with parameter {cc|c}, for internal use below.
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+\hskip -\arraycolsep
+\let\@ifnextchar\new@ifnextchar
+\array{#1}}
+\makeatother
+
+% Define matrix with optional parameter
+% Use with \matrix[c|c]{1 & 2 \\ 3 & 4 }
+% To improve, could surround with \@ifundefined
+\makeatletter
+% In this case the [ is not part of a pair of brackets enclosing an argument. The \@ifnextchar[ looks at the next character in the stream and tests to see if it is [ to see if there is an optional argument or not. Thus in this case [ is playing the role of just a simple single character.
+\def\matrix{\@ifnextchar[{\@with}{\@without}}
+\def\@with[#1]#2{\begin{bmatrix}[#1] #2 \end{bmatrix}}
+\def\@without#1{\begin{bmatrix} #1 \end{bmatrix}}
+\makeatother
+
+% bol
+\DeclareMathOperator{\B}{\mathop{B}}
+
+% Set interior
+\DeclareMathOperator{\intr}{\mathop{int}}
+
+% distance
+\DeclareMathOperator{\dist}{\mathop{dist}}
+
+% Infinity norm
+\newcommand{\inftynorm}[1]{\left\|#1\right\|_\infty}
+
+% Determinant
+\renewcommand{\det}[1]{\left| \matrix{#1} \right|}
+
+% Linear maps
+\newcommand{\map}[1]{\mathcal{#1}}
+
+%Short colon, to be used for maps
 \renewcommand{\:}{\colon}
 
-%Macro's Maubach
+% A good looking transpose T
+\renewcommand{\t}{\mathsf{T}}
 
-\def\up#1{^{(#1)}}
+% Cone
+\DeclareMathOperator{\cone}{\mathop{cone}}
 
-\def\set#1{\lbrace#1\rbrace}
+% Set of vertices of polyhedron
+\DeclareMathOperator{\V}{\mathrm{V}}
 
-\def\abs#1{{\left|#1\right|}}
+% Lineality space
+\DeclareMathOperator{\lin}{\mathop{lin}}
 
-\def\vectorstat#1{{\textbf{#1}}} % vectors are defined as bold
+% Convex hull
+\DeclareMathOperator{\convhull}{\mathop{conv.hull}}
+
+%
+% Probability Theory
+%
+
+% Probability
+\renewcommand{\P}[1]{\mathbb{P}\paren*{#1}}
+
+% Expected value
+\newcommand{\E}[1]{\mathbb{E}\brackets*{#1}}
+
+% Indicator function, less spacing after the 1
+\newcommand{\1}[1]{\mathbbm{1}\mathopen{}\mathclose\bgroup\left\{#1\aftergroup\egroup\right\}}
+
+% Distributions
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Geo}{Geo}
+\DeclareMathOperator{\Poi}{Poi}
+
+% Variance
+\DeclareMathOperator{\Var}{Var}
+
+% Mean squared error
+\DeclareMathOperator{\MSE}{MSE}
+
+%%%%%% Vectors %%%%%%
+% Original vector definitions by Jos Maubach
+
+\newcommand{\indx}[1]{\index{#1}\textsl{#1}}
+\def\exclamation{!}% use \exclamation instead of '!' inside \indx ('!' is active in \index)
+
+% Define vector format
+\def\vectorstat#1{{\textbf{#1}}}
 
 \protected\def\a{\vectorstat{a}}
 \protected\def\b{\vectorstat{b}}
@@ -202,7 +337,7 @@ urlcolor=cyan,
 \protected\def\s{\vectorstat{s}}
 \protected\def\t{\vectorstat{t}}
 \protected\def\u{\vectorstat{u}}
-\protected\def\v{\vectorstat{v}}
+%\protected\def\v{\vectorstat{v}} % Is already defined by LaTeX as caron
 \protected\def\w{\vectorstat{w}}
 \protected\def\x{\vectorstat{x}}
 \protected\def\y{\vectorstat{y}}
@@ -235,6 +370,7 @@ urlcolor=cyan,
 \protected\def\zero{\vectorstat{0}}
 \protected\def\one{\vectorstat{1}}
 \protected\def\two{\vectorstat{2}}
+
 \protected\def\red#1{{\color{red}#1}}
 \protected\def\ore#1{{\color{orange}#1}}
 \protected\def\grn#1{{\color{green}#1}}
@@ -244,8 +380,7 @@ urlcolor=cyan,
 \protected\def\gry#1{{\color{gray}#1}}
 \protected\def\mgn#1{{\color{magenta}#1}}
 \protected\def\prp#1{{\color{purple}#1}}
-\newcommand{\indx}[1]{\index{#1}\textsl{#1}} % Do not use \sl 
-\def\exclamation{!}% use \exclamation instead of '!' inside \indx ('!' is active in \index)
+
 \makeindex
 
 \endinput
