@@ -21,6 +21,10 @@
 	co = checkout
 	fancylog = log --graph --decorate --oneline --all
 	cp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
+	# The ! is to make the | work
+	# To use, configure git config sendemail.to address@mail.com. Then this will automatically send the latest commit.
+    sendcommit = ! git format-patch -M HEAD^ | xargs git send-email && rm *.patch
+
 [merge "theirs"]
 	driver = true
 [commit]
@@ -29,3 +33,11 @@
 	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 [pull]
 	rebase = true
+[sendemail]
+  smtpencryption = tls
+  smtpserver = smtp.gmail.com
+  smtpuser = todo@gmail.com
+  smtppass = todo
+  smtpserverport = 587
+  suppresscc = self # Do send email also to author
+  confirm = auto # Automatically confirm before sending mail
