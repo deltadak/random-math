@@ -21,6 +21,12 @@
 \RequirePackage{listings} % to include code with env. lstlisting
 \RequirePackage{graphicx} % to use \includegraphics
 
+\renewcommand{\titlepage}{
+    \maketitle
+    \thispagestyle{empty}
+    \newpage
+}
+
 \usepgfplotslibrary{fillbetween}
 
 % Listings setup
@@ -92,20 +98,16 @@ urlcolor=cyan,
 % Shortcut to set question prefix, to get e.g. x.y.q
 \newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1.\thequestion}}
 
+% Internal helper commands
+\DeclarePairedDelimiter{\paren}\lparen\rparen
+\DeclarePairedDelimiter{\brackets}\lbrack\rbrack
+
 \newtheorem*{toprove}{Te bewijzen}
 %% Credits to Sten
 % Inline to prove env. To be used when `toprove' is the first content in a question. Then normally the text would end up on a new line, which is ugly. In these cases, use this environment instead.
 \newenvironment{inlinetoprove}
 {\enskip\textbf{Te bewijzen.\space}}% \begin{inlinetoprove}
 {\enskip}% \end{inlinetoprove}
-
-% Function restrictions
-\newcommand\restr[2]{{
-\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
-#1 % the function
-\vphantom{\big|} % pretend it's a little taller at normal size
-\right|_{#2} % this is the delimiter
-}}
 
 % Better bar, between \bar and \overline size
 % \overbar{symb}
@@ -226,7 +228,16 @@ urlcolor=cyan,
 % A \to arrow with optionally something above
 \newcommand{\upto}[1]{\xrightarrow{#1}}
 
+% @Deprecated
 % Function restrictions
+\newcommand\restr[2]{{
+\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+#1 % the function
+\vphantom{\big|} % pretend it's a little taller at normal size
+\right|_{#2} % this is the delimiter
+}}
+
+% Function restrictions, \eval{x^2}_{x=3}
 \newcommand*\eval[1]{\left.#1\right\rvert}
 
 %
@@ -304,6 +315,7 @@ urlcolor=cyan,
 \DeclareMathOperator{\Exp}{Exp}
 \DeclareMathOperator{\Geo}{Geo}
 \DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\Unif}{Unif}
 
 % Variance
 \DeclareMathOperator{\Var}{Var}
@@ -346,10 +358,10 @@ urlcolor=cyan,
 \protected\def\y{\vectorstat{y}}
 \protected\def\z{\vectorstat{z}}
 \protected\def\A{\vectorstat{A}}
-%\protected\def\B{\vectorstat{B}} % Replace by sphere
+%\protected\def\B{\vectorstat{B}} % Replaced by sphere
 \protected\def\C{\vectorstat{C}}
 \protected\def\D{\vectorstat{D}}
-\protected\def\E{\vectorstat{E}}
+%\protected\def\E{\vectorstat{E}} % Replaced by expectation
 \protected\def\F{\vectorstat{F}}
 \protected\def\G{\vectorstat{G}}
 \protected\def\H{\vectorstat{H}}
@@ -359,7 +371,7 @@ urlcolor=cyan,
 \protected\def\L{\vectorstat{L}}
 \protected\def\M{\vectorstat{M}}
 \protected\def\N{\vectorstat{N}}
-\protected\def\P{\vectorstat{P}}
+%\protected\def\P{\vectorstat{P}} % Replaced by probability
 \protected\def\Q{\vectorstat{Q}}
 %\protected\def\R{\vectorstat{R}} % replaced by Riemann
 \protected\def\S{\vectorstat{S}}
