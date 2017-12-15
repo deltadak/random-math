@@ -2,5 +2,10 @@
 
 *.iml
 .idea/
-**/*/out/
-**/*/auxil/
+out/**
+auxil/**
+
+# Generated files by SageTeX
+!auxil/*.sagetex.scmd
+!auxil/*.sagetex.sout
+!sagetex.sty
