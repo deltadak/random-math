@@ -57,9 +57,6 @@ This sentence starts on a new line.
 
         \item For bold math in math environments (used for e.g. vectors), use \verb|$\bm{\delta}$| instead of \verb|$\textbf{\delta}$|, as        \verb|\textbf{...}| does not work on math characters like $\delta$.
 
-        \item When referring to something, the something starts with a Capital and we use a non-breaking space.
-        So \verb|Figure~\ref{...}| instead of \verb|figure \ref{...}|.
-
         \item Use the align environment for multiple line math.
             \begin{lstlisting}
 \begin{align*}
@@ -80,7 +77,7 @@ This sentence starts on a new line.
 \end{equation}
             \end{lstlisting}
         \item Use backticks for opening quotes, so ``quote'' and `quote'.
-        \item Use non-breaking spaces in front of references, so \verb|text~\ref{fig:myplaatje}|
+        \item Use non-breaking spaces in front of references and start the referring thing with a capital, so \verb|Figure~\ref{fig:myplaatje}| instead of \verb|figure \ref{fig:myplaatje}|.
         \item For separators in filenames, references etc. use a hyphen/dash, so eq:power-example.
     \end{enumerate}
 
