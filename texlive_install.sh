@@ -60,6 +60,21 @@ tlmgr install   \
   bm            \
   listings      \
   graphicx      \
+  scalerel      \
+  stackengine   \
+  etoolbox      \
+  listofitems   \
+  marvosym      \
+  amsfonts      \
+  opensans      \
+  slantsc       \
+  fancyhdr      \
+  ulem          \
+  algorithms    \
+  algorithmicx  \
+  float         \
+  booktabs      \
+  enumitem      \
   imakeidx
 
 # Keep no backups (not required, simply makes cache bigger)
