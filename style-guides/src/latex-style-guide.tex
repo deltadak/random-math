@@ -22,7 +22,7 @@
 %\renewcommand{\verb}{\lstinline}
 
 \title{\LaTeX\ style guide}
-\author{Thomas Schouten}
+\author{Thomas Schouten \\ Abby Berkers}
 
 % Document
 \begin{document}
@@ -32,6 +32,14 @@
         \item Do not use \verb|\\| or \verb|\newline| outside of tabular or math environments.
 
         \item All sentences should start with a Capital and end with a full stop whenever reasonably possible.
+
+        \item All sentences should start on a new line (in the source code).
+        \begin{lstlisting}
+This is a first sentence.
+This sentence starts on a new line.
+        \end{lstlisting}
+        This is a first sentence.
+        This sentence starts on a new line.
 
         \item Use \verb|$...$| for inline math, and \verb|\[...\]| for display math (on its own line).
 
@@ -43,9 +51,11 @@
 
         \item Use \verb|\sin| and \verb|\cos|, so $\cos$ instead of $cos$.
 
-        \item Use \verb|\implies| and not \verb|\Rightarrow|, \verb|\iff| and not \verb|\Leftrightarrow|.
+        \item Use \verb|\implies| ($\implies$) and not \verb|\Rightarrow| ($\Rightarrow$), \verb|\iff| ($\iff$) and not \verb|\Leftrightarrow| ($\Leftrightarrow$).
 
         \item Use \verb|``...''| for ``quotes'', not \verb|"..."| for "strange quotes".
+
+        \item For bold math in math environments (used for e.g. vectors), use \verb|$\bm{\delta}$| instead of \verb|$\textbf{\delta}$|, as        \verb|\textbf{...}| does not work on math characters like $\delta$.
 
         \item Use the align environment for multiple line math.
             \begin{lstlisting}
@@ -67,7 +77,7 @@
 \end{equation}
             \end{lstlisting}
         \item Use backticks for opening quotes, so ``quote'' and `quote'.
-        \item Use non-breaking spaces in front of references, so \verb|text~\ref{fig:myplaatje}|
+        \item Use non-breaking spaces in front of references and start the referring thing with a capital, so \verb|Figure~\ref{fig:myplaatje}| instead of \verb|figure \ref{fig:myplaatje}|.
         \item For separators in filenames, references etc. use a hyphen/dash, so eq:power-example.
     \end{enumerate}
 
