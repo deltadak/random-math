@@ -1,0 +1,298 @@
+% thomaspackage adapted to extend rufapa
+
+%\RequirePackage[english]{babel} % May be necessary to delete auxiliary files after changing.
+%\RequirePackage[fleqn]{amsmath} % left align equations option
+%\RequirePackage{amsthm} % proof environments
+%\RequirePackage{amssymb} % some symbols like probability P, or real number R
+\RequirePackage{mathtools} % improvement over amsmath, like \coloneqq
+%\RequirePackage{enumerate} % numbered list
+%\RequirePackage{thmtools} % define custom to prove environments
+%\RequirePackage{stmaryrd} % \lightning
+%
+%\RequirePackage{xcolor} % colors
+%\RequirePackage{pdfpages} % to include external pdfs
+%\RequirePackage{centernot} % \centernot \implies looks correct
+%\RequirePackage{tikz} % Used for drawings
+%\RequirePackage{imakeidx} % Used for index
+%\RequirePackage[makeroom]{cancel} % to draw a diagonal line through formulas
+%\RequirePackage{hyperref} % should make index clickable
+%\RequirePackage{bookmark} % Used for pdf bookmarks, needs to be loaded AFTER hyperref
+%\RequirePackage{pgfplots} % Drawings!
+%\RequirePackage{bm} % bold math, \bm{}
+\RequirePackage{listings} % to include code with env. lstlisting
+%\RequirePackage{graphicx} % to use \includegraphics
+
+% Internal helper commands
+\DeclarePairedDelimiter{\paren}\lparen\rparen
+\DeclarePairedDelimiter{\brackets}\lbrack\rbrack
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mathematics                      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% General
+%
+
+% Triangle inequality
+\newcommand{\triangleineq}{\overset{\triangle}{\le}}
+
+% binary ops
+%\newcommand{\AND}{\wedge}
+%\newcommand{\OR}{\vee}
+
+% Underline shortcut
+\newcommand{\ul}[1]{\underline{#1}}
+
+% Better phi
+\renewcommand{\phi}{\varphi}
+
+% Better epsilon
+\renewcommand{\epsilon}{\varepsilon}
+
+% \ep for epsilon, \bep for bold epsilon
+\newcommand{\ep}{\epsilon}
+\newcommand{\bep}{\bm{\epsilon}}
+
+% Circled numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% Ceiling which scales
+%\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+% Index as superscript
+\newcommand{\up}[1]{#1{^{(#1)}}}
+
+% Absolute value
+%\newcommand{\abs}[1]{\left|#1\right|}
+
+%
+% Set theory
+%
+
+% Set, use with \set{a | b}, which produces \{ a \mid b \}
+\DeclarePairedDelimiterX{\set}[1]\lbrace\rbrace{\setaux #1||\endsetaux}
+\def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
+
+% Number sets
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\integers}{\mathbb{Z}}
+
+% Because as Aart said, they are the same anyway.
+% Defining using \newcommand won't work this way.
+\let\strictsubset\subset
+\let\subset\subseteq
+\let\strictsupset\supset
+\let\supset\supseteq
+
+% Better empty set
+\renewcommand{\emptyset}{\varnothing}
+
+% Set boundary
+\newcommand{\bound}{\partial}
+
+%
+% Analysis
+%
+
+% Standard sums
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\sumk}{\sum_{k=0}^\infty}
+\newcommand{\prodin}{\prod_{i=1}^n}
+
+% Imaginary/real part, use with parameter \re{a}
+% for some reaons \Re won't work
+\DeclareMathOperator{\re}{\mathop{Re}}
+\DeclareMathOperator{\im}{\mathop{Im}}
+
+% Sign function
+\DeclareMathOperator{\sign}{\mathop{sign}}
+
+% Residue
+\DeclareMathOperator{\Res}{\mathop{Res}}
+
+% Main valued logarithm
+%\DeclareMathOperator{\Log}{\mathop{Log}}
+
+% Cotangens
+\DeclareMathOperator{\cotan}{\mathop{cotan}}
+
+% Float function
+\DeclareMathOperator{\fl}{\mathop{fl}}
+
+% Volume
+\DeclareMathOperator{\Vol}{Vol}
+
+% d used for integrals
+\renewcommand*\d{\mathop{}\!\mathrm{d}}
+
+% Riemann multi-variable
+\newcommand{\R}{\mathcal{R}}
+
+% Big-O
+\newcommand{\bigO}{\mathcal{O}}
+
+% A \to arrow with optionally something above
+\newcommand{\upto}[1]{\xrightarrow{#1}}
+
+% @Deprecated
+% Function restrictions
+\newcommand\restr[2]{{
+\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+#1 % the function
+\vphantom{\big|} % pretend it's a little taller at normal size
+\right|_{#2} % this is the delimiter
+}}
+
+% Function restrictions, \eval{x^2}_{x=3}
+\newcommand*\eval[1]{\left.#1\right\rvert}
+
+%
+% Linear Algebra
+%
+
+% Matrix with vertical lines, use with parameter {cc|c}, for internal use below.
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+\hskip -\arraycolsep
+\let\@ifnextchar\new@ifnextchar
+\array{#1}}
+\makeatother
+
+% Define matrix with optional parameter
+% Use with \matrix[c|c]{1 & 2 \\ 3 & 4 }
+% To improve, could surround with \@ifundefined
+\makeatletter
+% In this case the [ is not part of a pair of brackets enclosing an argument. The \@ifnextchar[ looks at the next character in the stream and tests to see if it is [ to see if there is an optional argument or not. Thus in this case [ is playing the role of just a simple single character.
+\def\matrix{\@ifnextchar[{\@with}{\@without}}
+\def\@with[#1]#2{\begin{bmatrix}[#1] #2 \end{bmatrix}}
+\def\@without#1{\begin{bmatrix} #1 \end{bmatrix}}
+\makeatother
+
+% Sphere
+\DeclareMathOperator{\B}{\mathop{B}}
+
+% Set interior
+\DeclareMathOperator{\intr}{\mathop{int}}
+
+% Distance
+\DeclareMathOperator{\dist}{\mathop{dist}}
+
+% Infinity norm
+%\newcommand{\inftynorm}[1]{\left\|#1\right\|_\infty}
+
+% Determinant
+\renewcommand{\det}[1]{\left| \matrix{#1} \right|}
+
+% Linear maps
+\newcommand{\map}[1]{\mathcal{#1}}
+
+% Short colon, to be used for maps
+\renewcommand{\:}{\colon}
+
+% A good looking transpose T
+\renewcommand{\t}{\mathsf{T}}
+
+% Cone
+\DeclareMathOperator{\cone}{\mathop{cone}}
+
+% Set of vertices of polyhedron
+\DeclareMathOperator{\V}{\mathrm{V}}
+
+% Lineality space
+\DeclareMathOperator{\lin}{\mathop{lin}}
+
+% Convex hull
+\DeclareMathOperator{\convhull}{\mathop{conv.hull}}
+
+%
+% Probability Theory
+%
+
+% Probability
+\renewcommand{\P}[1]{\mathbb{P}\paren*{#1}}
+
+% Expected value
+\newcommand{\E}[1]{\mathbb{E}\brackets*{#1}}
+
+% Indicator function, less spacing after the 1
+\newcommand{\1}[1]{\mathbbm{1}\mathopen{}\mathclose\bgroup\left\{#1\aftergroup\egroup\right\}}
+
+% Distributions
+%\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Geo}{Geo}
+\DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\Unif}{Unif}
+
+% Variance
+\DeclareMathOperator{\Var}{Var}
+
+% Mean squared error
+\DeclareMathOperator{\MSE}{MSE}
+
+%%%%%% Vectors %%%%%%
+% Original vector definitions by Jos Maubach
+
+% Define vector format
+\def\vectorstat#1{{\textbf{#1}}}
+
+\protected\def\a{\vectorstat{a}}
+\protected\def\b{\vectorstat{b}}
+\protected\def\c{\vectorstat{c}}
+%\protected\def\d{\vectorstat{d}} % replaced by integral d
+\protected\def\e{\vectorstat{e}}
+\protected\def\f{\vectorstat{f}}
+\protected\def\g{\vectorstat{g}}
+\protected\def\h{\vectorstat{h}}
+%\protected\def\i{\vectorstat{i}}
+\protected\def\j{\vectorstat{j}}
+\protected\def\k{\vectorstat{k}}
+\protected\def\l{\vectorstat{l}}
+\protected\def\m{\vectorstat{m}}
+\protected\def\n{\vectorstat{n}}
+\protected\def\p{\vectorstat{p}}
+\protected\def\q{\vectorstat{q}}
+%\protected\def\r{\vectorstat{r}} % Already defined where?
+\protected\def\s{\vectorstat{s}}
+\protected\def\t{\vectorstat{t}}
+\protected\def\u{\vectorstat{u}}
+%\protected\def\v{\vectorstat{v}} % Is already defined by LaTeX as caron
+\protected\def\w{\vectorstat{w}}
+\protected\def\x{\vectorstat{x}}
+\protected\def\y{\vectorstat{y}}
+\protected\def\z{\vectorstat{z}}
+\protected\def\A{\vectorstat{A}}
+%\protected\def\B{\vectorstat{B}} % Replaced by sphere
+\protected\def\C{\vectorstat{C}}
+\protected\def\D{\vectorstat{D}}
+%\protected\def\E{\vectorstat{E}} % Replaced by expectation
+\protected\def\F{\vectorstat{F}}
+\protected\def\G{\vectorstat{G}}
+\protected\def\H{\vectorstat{H}}
+\protected\def\I{\vectorstat{I}}
+\protected\def\J{\vectorstat{J}}
+\protected\def\K{\vectorstat{K}}
+\protected\def\L{\vectorstat{L}}
+\protected\def\M{\vectorstat{M}}
+\protected\def\N{\vectorstat{N}}
+%\protected\def\P{\vectorstat{P}} % Replaced by probability
+\protected\def\Q{\vectorstat{Q}}
+%\protected\def\R{\vectorstat{R}} % replaced by Riemann
+\protected\def\S{\vectorstat{S}}
+\protected\def\T{\vectorstat{T}}
+\protected\def\U{\vectorstat{U}}
+\protected\def\V{\vectorstat{V}}
+\protected\def\W{\vectorstat{W}}
+\protected\def\X{\vectorstat{X}}
+\protected\def\Y{\vectorstat{Y}}
+\protected\def\Z{\vectorstat{Z}}
+\protected\def\zero{\vectorstat{0}}
+\protected\def\one{\vectorstat{1}}
+\protected\def\two{\vectorstat{2}}
+
+\endinput
