@@ -99,7 +99,7 @@ urlcolor=cyan,
 \makeatother
 
 % Shortcut to set question prefix, to get e.g. x.y.q
-\newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1.\thequestion}}
+\newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1\thequestion}}
 
 % Internal helper commands
 \DeclarePairedDelimiter{\paren}\lparen\rparen
@@ -159,6 +159,12 @@ urlcolor=cyan,
 % Absolute value
 \newcommand{\abs}[1]{\left|#1\right|}
 
+% Degree of polynomial
+\DeclareMathOperator{\degree}{\mathop{deg}}
+
+% Leading term of polynomial
+\DeclareMathOperator{\lt}{\mathop{lt}}
+
 %
 % Set theory
 %
@@ -166,6 +172,9 @@ urlcolor=cyan,
 % Set, use with \set{a | b}, which produces \{ a \mid b \}
 \DeclarePairedDelimiterX{\set}[1]\lbrace\rbrace{\setaux #1||\endsetaux}
 \def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
+
+% Better readability for set exclusion
+\newcommand{\without}{\backslash}
 
 % Number sets
 \newcommand{\naturals}{\mathbb{N}}
