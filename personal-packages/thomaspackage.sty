@@ -22,6 +22,7 @@
 \RequirePackage{listings} % to include code with env. lstlisting
 \RequirePackage{graphicx} % to use \includegraphics
 \RequirePackage{booktabs} % Better spacing for tables
+\RequirePackage{chngcntr} % Customise table/figure counters
 
 
 \renewcommand{\titlepage}{
@@ -64,9 +65,6 @@ urlcolor=cyan,
 \setlength{\parindent}{0pt}
 \renewcommand{\indent}{\hspace*{\tindent}}
 
-% To remove the section numbering
-\renewcommand\@seccntformat[1]{}
-
 % Define new environments
 \theoremstyle{definition}
 
@@ -85,6 +83,16 @@ urlcolor=cyan,
 \newtheorem*{theorem}{Theorem}
 \newtheorem*{answer}{Answer}
 \newtheorem*{notation}{Notation}
+
+% To remove the section numbering
+\renewcommand\@seccntformat[1]{}
+
+% labels can contain a prefixed section number
+%\counterwithin{table}{section}
+%\counterwithin{figure}{section}
+%\counterwithin{definition}{section}
+%\counterwithin{theorem}{section}
+%etc
 
 % Bold theorem titles
 \makeatletter

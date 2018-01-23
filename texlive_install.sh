@@ -75,6 +75,7 @@ tlmgr install   \
   float         \
   booktabs      \
   enumitem      \
+  chngcntr      \
   imakeidx
 
 # Keep no backups (not required, simply makes cache bigger)
