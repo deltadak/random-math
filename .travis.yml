@@ -29,14 +29,16 @@ cache:
 before_script: cd ./src/
 script:
  - tectonic ./random-math.tex --print
+ - cd ../style-guides/src/
  - tectonic ../style-guides/src/latex-style-guide.tex --print
+ - cd ../../
 deploy:
   provider: releases
   api_key:
     secure: jOsB6YZ29f2ATmLgJs4+9+sBYAIGMCCamaZBaUytOW5XBN5MbaPkryuKZhcuwUd/Xn6bDliKkafF3Qw4awq/djwbPUBsVKhi6zbSLEIoNIkUzyxWB7mpu02xACIOQoFjSsiPyAyrvFnpVTTqoAjeE3pC8QObiDyDH/dqI+PlcC4syMUDq4C2u1x9d22vfe6uHP3hJvcusVtc6VrcuC0bEaRtFq5OV2qJkdaIRrccZj+DwP1IoL1l02qxcCvSqg6luY1dLykC5x7c147R2ldt71CldDbh4V0T3bE1ho7rOfpFHDTcYvdEhGdABbr+BWTl7Cc8kyn/vvyWWqbAEnwIvcZHeMe1BZGzENjEsmRuUpP9twaVWkR+6ZZgUtqhH5pWZ8fJtAlCd+xL0XVurbSpgC4LC0Jwf4drScqgW0JVmVb8Ck+KTZ897kaneFghxrPJeK/krtzncP9MHEpmk17z2Pos23tudpkt/yleUgi3O4mv5lS3qP+U0uFEcGQBPwGKwLMb5rYZ3mPWp21dx01css86sABfhnhdTswENVpYoK/orJvYU8whPuwtrm6T5J0sQ9LQ1BJ3mvPJLnBNZ7RwTflppG3xolEKLvakSf/qA1AEBfpZV33qGLE1VLY4N+G+vx0PYHbtpHCLcQsZOZ1YINWc+IvVFTuWja7G9PNTTvU=
   file:
-  - ./random-math.pdf
-  - ../style-guides/src/latex-style-guide.pdf
+  - ./src/random-math.pdf
+  - ./style-guides/src/latex-style-guide.pdf
   skip_cleanup: true
   on:
     tags: true
