@@ -33,6 +33,10 @@ script: # Change working directory each time so including files will work
  - cd ./style-guides/src/
  - tectonic ./latex-style-guide.tex --print
  - cd ../../
+ - cd ./file-templates/
+ - tectonic ./homework.tex --print
+ - tectonic ./presentation-thomas.tex --print
+ - cd ../
 deploy:
   provider: releases
   api_key:
