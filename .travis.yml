@@ -1,20 +1,40 @@
+notifications:
+  email: false
 install:
-- source ./texlive_install.sh
+  # Silent install from conda docs
+  # https://conda.io/docs/user-guide/install/macos.html#install-macos-silent
+  # adapted using
+  # https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
+
+  # Needed to check if conda already installed
+  - export PATH="$HOME/miniconda/bin:$PATH"
+
+  # If not yet installed, obtain Miniconda
+  # and tectonic
+  # From tectonic docs
+  # https://tectonic-typesetting.github.io/en-US/install.html#the-anaconda-method
+  - if ! command -v conda > /dev/null; then
+      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+      bash miniconda.sh -b -p $HOME/miniconda;
+      conda config --add channels conda-forge;
+      conda config --set always_yes yes;
+      conda update --all;
+      conda install tectonic;
+    fi
+  - conda info -a
 cache:
   directories:
-  - "/tmp/texlive"
-  - "$HOME/.texlive"
+    - $HOME/miniconda
 # Change working directory so including files will work
 before_script: cd ./src/
 script:
-- mkdir _build
-- travis_wait 3 pdflatex -output-directory _build ./random-math.tex
+ - tectonic ./random-math.tex --print
 deploy:
   provider: releases
   api_key:
     secure: jOsB6YZ29f2ATmLgJs4+9+sBYAIGMCCamaZBaUytOW5XBN5MbaPkryuKZhcuwUd/Xn6bDliKkafF3Qw4awq/djwbPUBsVKhi6zbSLEIoNIkUzyxWB7mpu02xACIOQoFjSsiPyAyrvFnpVTTqoAjeE3pC8QObiDyDH/dqI+PlcC4syMUDq4C2u1x9d22vfe6uHP3hJvcusVtc6VrcuC0bEaRtFq5OV2qJkdaIRrccZj+DwP1IoL1l02qxcCvSqg6luY1dLykC5x7c147R2ldt71CldDbh4V0T3bE1ho7rOfpFHDTcYvdEhGdABbr+BWTl7Cc8kyn/vvyWWqbAEnwIvcZHeMe1BZGzENjEsmRuUpP9twaVWkR+6ZZgUtqhH5pWZ8fJtAlCd+xL0XVurbSpgC4LC0Jwf4drScqgW0JVmVb8Ck+KTZ897kaneFghxrPJeK/krtzncP9MHEpmk17z2Pos23tudpkt/yleUgi3O4mv5lS3qP+U0uFEcGQBPwGKwLMb5rYZ3mPWp21dx01css86sABfhnhdTswENVpYoK/orJvYU8whPuwtrm6T5J0sQ9LQ1BJ3mvPJLnBNZ7RwTflppG3xolEKLvakSf/qA1AEBfpZV33qGLE1VLY4N+G+vx0PYHbtpHCLcQsZOZ1YINWc+IvVFTuWja7G9PNTTvU=
   file:
-  - ./_build/random-math.pdf
+  - ./random-math.pdf
   skip_cleanup: true
   on:
     tags: true

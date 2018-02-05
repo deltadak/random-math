@@ -1,7 +1,18 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{thomaspackage}[2017/02/01 v2.1 Some mathy stuff]
 
-\RequirePackage[dutch]{babel} % May be necessary to delete auxiliary files after changing.
+% Language option, thanks to Ruben.
+\newcommand{\thom@lang}{dutch}
+\DeclareOption{nl}{
+\renewcommand{\thom@lang}{dutch}
+}
+\DeclareOption{en}{
+\renewcommand{\thom@lang}{british}
+}
+\ProcessOptions\relax
+
+
+\RequirePackage[\thom@lang]{babel} % May be necessary to delete auxiliary files after changing. Use brithish or american instead of english.
 \RequirePackage[fleqn]{amsmath} % left align equations option
 \RequirePackage{amsthm} % proof environments
 \RequirePackage{amssymb} % some symbols like probability P, or real number R
@@ -25,7 +36,7 @@
 \RequirePackage{graphicx} % to use \includegraphics
 \RequirePackage{booktabs} % Better spacing for tables
 \RequirePackage{chngcntr} % Customise table/figure counters
-
+\RequirePackage{array} % Various useful things, e.g. column width m{2cm}
 
 \renewcommand{\titlepage}{
     \maketitle

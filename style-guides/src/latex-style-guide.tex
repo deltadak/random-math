@@ -3,10 +3,11 @@
 %%
 
 % Preamble
+%\batchmode
 \documentclass[11pt]{article}
 
 % Packages
-\usepackage{thomaspackage}
+\usepackage[en]{../personal-packages/thomaspackage}
 \usepackage{showexpl}
 
 % Setup
@@ -77,8 +78,17 @@ This sentence starts on a new line.
 \end{equation}
             \end{lstlisting}
         \item Use backticks for opening quotes, so ``quote'' and `quote'.
-        \item Use non-breaking spaces in front of references and start the referring thing with a capital, so \verb|Figure~\ref{fig:myplaatje}| instead of \verb|figure \ref{fig:myplaatje}|.
-        \item For separators in filenames, references etc. use a hyphen/dash, so eq:power-example.
+        \item Use non-breaking spaces in front of references and start the referring thing with a capital, so \verb|Figure~\ref{fig:myplaatje}| instead of \verb|figure \ref{myplaatje}|.
+        \item For separators in filenames, references etc.\ use a hyphen/dash, so eq:power-example.
+        \item In text the hyphen/dash should be typeset with \verb|--|.
+        \item Regarding styling in tables:
+        \begin{itemize}
+            \item Try to not use vertical lines.
+            \item Use the \verb|booktabs| package for better spacing, then replace \verb|\hrule| with \verb|\midrule|.
+            \item Wrap the table in a figure environment.
+            \item Caption should be below the table, place reference label after caption in any case.
+            \item Right align numeric columns, left align text columns.
+        \end{itemize}
     \end{enumerate}
 
 \end{document}
