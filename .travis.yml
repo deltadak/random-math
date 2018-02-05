@@ -26,10 +26,10 @@ cache:
   directories:
     - $HOME/miniconda
 # Change working directory so including files will work
-before_script: cd ./src/
+#before_script: cd ./src/
 script:
 # - tectonic ./random-math.tex --print
- - cd ../style-guides/src/
+ - cd ./style-guides/src/
  - tectonic ./latex-style-guide.tex --print
  - cd ../../
 deploy:
