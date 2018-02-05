@@ -30,7 +30,7 @@ before_script: cd ./src/
 script:
 # - tectonic ./random-math.tex --print
  - cd ../style-guides/src/
- - tectonic ../style-guides/src/latex-style-guide.tex --print
+ - tectonic ./latex-style-guide.tex --print
  - cd ../../
 deploy:
   provider: releases
