@@ -127,10 +127,14 @@ citecolor=blue
 \DeclarePairedDelimiter{\paren}\lparen\rparen
 \DeclarePairedDelimiter{\brackets}\lbrack\rbrack
 
-\newtheorem*{toprove}{Te bewijzen}
+\newtheorem*{toprove}{To prove}
+\newtheorem*{tebewijzen}{Te bewijzen}
 %% Credits to Sten
 % Inline to prove env. To be used when `toprove' is the first content in a question. Then normally the text would end up on a new line, which is ugly. In these cases, use this environment instead.
 \newenvironment{inlinetoprove}
+{\enskip\textbf{To prove.\space}}% \begin{inlinetoprove}
+{\enskip}% \end{inlinetoprove}
+\newenvironment{inlinetebewijzen}
 {\enskip\textbf{Te bewijzen.\space}}% \begin{inlinetoprove}
 {\enskip}% \end{inlinetoprove}
 
@@ -356,6 +360,19 @@ citecolor=blue
 
 % Mean squared error
 \DeclareMathOperator{\MSE}{MSE}
+
+%
+% Discrete Mathematics
+%
+
+% Fixed elements of permutation.
+\DeclareMathOperator{\fix}{fix}
+
+% Support (not fixed elements) of permutation.
+\DeclareMathOperator{\supp}{supp}
+
+% The order of an element.
+\DeclareMathOperator{\ord}{ord}
 
 %%%%%% Vectors %%%%%%
 % Original vector definitions by Jos Maubach
