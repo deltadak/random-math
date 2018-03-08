@@ -4,6 +4,8 @@
 .idea/
 out/**
 auxil/**
+src/*.ilg
+src/*.ind
 
 # Generated files by SageTeX
 !auxil/*.sagetex.scmd

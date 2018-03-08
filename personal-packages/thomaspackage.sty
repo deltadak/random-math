@@ -17,7 +17,7 @@
 \RequirePackage{amsthm} % proof environments
 \RequirePackage{amssymb} % some symbols like probability P, or real number R
 \RequirePackage{mathtools} % improvement over amsmath, like \coloneqq 
-\RequirePackage{enumerate} % numbered list
+\RequirePackage{enumerate} % numbered list, roman labels with [label=(\roman*)]
 \RequirePackage{enumitem} % Provides [resume] option for enumerate
 \RequirePackage{thmtools} % define custom to prove environments
 \RequirePackage{stmaryrd} % \lightning
@@ -37,6 +37,7 @@
 \RequirePackage{booktabs} % Better spacing for tables
 \RequirePackage{chngcntr} % Customise table/figure counters
 \RequirePackage{array} % Various useful things, e.g. column width m{2cm}
+\RequirePackage{stackengine} % Includes \substack{a \\ b} command, for two lines of math over each other.
 
 \renewcommand{\titlepage}{
     \maketitle
@@ -97,6 +98,8 @@ citecolor=blue
 \newtheorem*{theorem}{Theorem}
 \newtheorem*{answer}{Answer}
 \newtheorem*{notation}{Notation}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{problem}{Problem}
 
 % To remove the section numbering
 \renewcommand\@seccntformat[1]{}
@@ -142,6 +145,16 @@ citecolor=blue
 % \overbar{symb}
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 
+% Define command to put two lines of math over each other in normal text size.
+\newcommand{\stacked}[2]{%
+    \substack{%
+    \textstyle
+    \begin{array}{c}%[t]{@{}c@{}}
+        #1 \\ #2
+    \end{array}
+    }
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Mathematics                      %%
@@ -154,22 +167,11 @@ citecolor=blue
 % Triangle inequality
 \newcommand{\triangleineq}{\overset{\triangle}{\le}}
 
-% binary ops
-\newcommand{\AND}{\wedge}
-\newcommand{\OR}{\vee}
-
-% Underline shortcut
-\newcommand{\ul}[1]{\underline{#1}}
-
 % Better phi
 \renewcommand{\phi}{\varphi}
 
 % Better epsilon
 \renewcommand{\epsilon}{\varepsilon}
-
-% \ep for epsilon, \bep for bold epsilon
-\newcommand{\ep}{\epsilon}
-\newcommand{\bep}{\bm{\epsilon}}
 
 % Circled numbers
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
@@ -177,6 +179,7 @@ citecolor=blue
 
 % Ceiling which scales
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\newcommand{\ceiling}{\ceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 
 % Index as superscript
@@ -192,12 +195,38 @@ citecolor=blue
 \DeclareMathOperator{\lt}{\mathop{lt}}
 
 %
+% General readability improvements
+%
+
+% binary ops
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+
+% \ep for epsilon, \bep for bold epsilon
+\newcommand{\ep}{\epsilon}
+\newcommand{\bep}{\bm{\epsilon}}
+
+% Underline shortcut
+\newcommand{\ul}[1]{\underline{#1}}
+
+% Is defined as.
+\newcommand{\definedby}{\coloneqq}
+
+% Map concatenation.
+\newcommand{\after}{\circ}
+
+%
 % Set theory
 %
 
+% Set which doesn't scale
+
 % Set, use with \set{a | b}, which produces \{ a \mid b \}
-\DeclarePairedDelimiterX{\set}[1]\lbrace\rbrace{\setaux #1||\endsetaux}
-\def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
+%\DeclarePairedDelimiterX{\set}[1]\lbrace\rbrace{\setaux #1||\endsetaux}
+%\def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
+
+% Set which scales
+\newcommand{\set}[1]{\left\{ #1 \right\}}
 
 % Better readability for set exclusion
 \newcommand{\without}{\backslash}
@@ -373,6 +402,31 @@ citecolor=blue
 
 % The order of an element.
 \DeclareMathOperator{\ord}{ord}
+
+% Rotation
+\DeclareMathOperator{\rot}{rot}
+
+% Reflection
+\DeclareMathOperator{\refl}{refl}
+
+% Inverse.
+\DeclareMathOperator{\inv}{inv}
+
+% Special Linear group
+\DeclareMathOperator{\SL}{SL}
+
+% Set of left cosets Z/nZ
+\newcommand{\modint}[1]{\integers / #1 \integers}
+
+%
+% Graph Theory
+%
+
+% Value of an s-t flow
+\DeclareMathOperator{\val}{val}
+
+% Cut capacity
+\DeclareMathOperator{\cap}{cap}
 
 %%%%%% Vectors %%%%%%
 % Original vector definitions by Jos Maubach
