@@ -1,6 +1,9 @@
 notifications:
   slack:
     secure: u+vSv7yZ4NCiBfdBczCV0j5vJARgOoX0EwA7xs8zN7tog5lBgyTB5R8AJbc5LV9jKXzarJLZibXePiBQysZi4zCnkVJGxzoOUO4dV/FDAZRa1v7MyPlIh71yDYK1a5uZPUd6OQWdwC2XlKIj1kUn39YdG60vheGNj6DhHRbPJtya6sk1vrPFqbLIh0qqTPGKifmugDJ5c8hMiT3c9tYQoA03Setl11EdWQGgTbc+dz3k79kbcQQ41xslcRuuHYMXnqFDDopwfqa/Oq4aJy+cFRjOpd8vhtSvKkg0pn4Xek4Hu5iixKIDgV7VWRPF848ePF6Mz8V1Iz/iz61Ro8te2p6jPlKmtE+qWe9YEUtweBTBwvjtQIORINn7YMLUhEqgUhiaLgCPvSCJbrLgEkRLzFxQZ1KpwCBrwaD1UuSTo0zmqblRoIumtm81Jd7LraKl0pA6dIHkAQla8f+NxvfhGeej95tTDvdzTEwZWaFdVsOa4j8CEzvqXr1CGh+Q+vGZYhhEUd9zkMQFfuIRNqk7WyEK1dzXvf+KwH+s1ncl4pXYgdk6Jgf+ItGH6zc1aoU1v+Wg4Ek6KaBxJ2hsNasS3Td2BQahu6a7K0w1ffnRac6HTXlgNEsOyJEt3h/Vz0QV1voyeish7VR2/H1hLGxCfNVo6i7mLesU0MmrFPejYCk=
+  email:
+    on_success: never
+    on_failure: always
 install:
 - export PATH="$HOME/miniconda/bin:$PATH"
 - if ! command -v conda > /dev/null; then wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
