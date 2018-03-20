@@ -217,6 +217,17 @@ citecolor=blue
 % Map concatenation.
 \newcommand{\after}{\circ}
 
+% Division, slightly bigger |
+\newcommand{\divides}{\bigm|}
+
+% Does not divide.
+\newcommand{\ndivides}{%
+\mathrel{\mkern.5mu % small adjustment
+% superimpose \nmid to \big|
+\ooalign{\hidewidth$\big|$\hidewidth\cr$\nmid$\cr}%
+}%
+}
+
 %
 % Set theory
 %
@@ -239,6 +250,7 @@ citecolor=blue
 \newcommand{\complex}{\mathbb{C}}
 \newcommand{\rationals}{\mathbb{Q}}
 \newcommand{\integers}{\mathbb{Z}}
+\newcommand{\ints}{\mathbb{Z}}
 
 % Because as Aart said, they are the same anyway.
 % Defining using \newcommand won't work this way.
@@ -419,6 +431,12 @@ citecolor=blue
 
 % Set of left cosets Z/nZ
 \newcommand{\modint}[1]{\integers / #1 \integers}
+
+% Orbit
+\DeclareMathOperator{\orb}{Orb}
+
+% Stabiliser
+\DeclareMathOperator{\stab}{Stab}
 
 %
 % Graph Theory
