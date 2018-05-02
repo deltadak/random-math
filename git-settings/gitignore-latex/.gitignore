@@ -11,3 +11,7 @@ src/*.ind
 !auxil/*.sagetex.scmd
 !auxil/*.sagetex.sout
 !src/sagetex.sty
+
+# JabRef files
+src/*.bak
+src/*.sav
