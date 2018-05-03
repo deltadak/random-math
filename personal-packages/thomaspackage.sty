@@ -17,10 +17,10 @@
 \RequirePackage{amsthm} % proof environments
 \RequirePackage{amssymb} % some symbols like probability P, or real number R
 \RequirePackage{mathtools} % improvement over amsmath, like \coloneqq 
-\RequirePackage{enumerate} % numbered list, roman labels with [label=(\roman*)]
+\RequirePackage{enumerate} % numbered list, roman labels with option [label=(\roman*)], letters with [label=\alph*)]
 \RequirePackage{enumitem} % Provides [resume] option for enumerate
 \RequirePackage{thmtools} % define custom to prove environments
-\RequirePackage{stmaryrd} % \lightning
+\RequirePackage{stmaryrd} % $\lightning$
 
 \RequirePackage{xcolor} % colors
 \RequirePackage{pdfpages} % to include external pdfs
@@ -39,11 +39,19 @@
 \RequirePackage{array} % Various useful things, e.g. column width m{2cm}
 \RequirePackage{stackengine} % Includes \substack{a \\ b} command, for two lines of math over each other.
 
+% Titlepages are included in article documentclass, but not in exam documentclass.
 \renewcommand{\titlepage}{
     \maketitle
     \thispagestyle{empty}
     \newpage
 }
+
+
+% Disable page numbers for the whole document. Needs to be called after any titlepage, since \maketitle resets the page style.
+\newcommand{\disablepagenumbers}{\pagestyle{empty}}
+
+% Line-breaking email with correct hyperlink.
+\newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
 
 \usepgfplotslibrary{fillbetween}
 
@@ -443,6 +451,9 @@ citecolor=blue
 
 % Stabiliser
 \DeclareMathOperator{\stab}{Stab}
+
+% Gaussian integers
+\newcommand{\gauss}{\integers[i]}
 
 %
 % Graph Theory
