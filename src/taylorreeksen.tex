@@ -1,5 +1,5 @@
 \subsection{Standaard Taylorreeksen}\label{subsec:standaardTaylorreeksen}
-Onthoud: de cosinus is even (symmetrisch rond $y$-as) en deze heeft even machten, evenzo is de sinus oneven.
+Onthoud: de cosinus is even (symmetrisch rond de $y$-as) en deze heeft even machten, evenzo is de sinus oneven.
 De standaard Taylorreeksen rond 0 om te onthouden zijn
 \begin{align*}
 	\cos x &\coloneqq \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!} \\
@@ -37,7 +37,9 @@ waaruit de eerste paar termen snel te vinden zijn, namelijk $c_0=1$ en dus $c_1 
 		\draw [dashed] (.5, .866) -- (0, .866) node [left] {$\frac{1}{2} \sqrt{3}$};
 	\end{tikzpicture}
 \end{figure}
+
 \subsubsection{Verdubbelingsformules}
+
 De verdubbelingsformules kunnen we afleiden met behulp van e-machten.
 We gebruiken
 \begin{align*}
@@ -45,6 +47,7 @@ We gebruiken
 	\sin x = \frac 1 {2i} \left( e^{ix} - e^{-ix} \right) \\
 \end{align*}
 en als je niet meer weet waar de plussen en de minnen zaten dan vul je $\cos 0 = 1$ of $\sin 0 = 0$ in.
+
 Nu schrijven we
 \begin{align*}
 	2 \cos x \sin x &= 2 \cdot \frac 1 2 \left( e^{i x} + e^{-ix} \right) \frac 1 {2i} \left( e^{ix} - e^{-ix} \right) \\
@@ -56,19 +59,51 @@ en evenzo
 	\cos^2 x - \sin^2 x &= \frac 1 4 \left( e^{ix} + e^{-ix} \right)^2  - \frac 1 {2i} \frac 1 {2i} \left( e^{ix} - e^{-ix} \right)^2 \\
 	&= \frac 1 4 \left( e^{2ix} + 2 + e^{-2ix} \right) - \frac {-1} {4} \left( e^{2ix} - 2 + e^{-2ix} \right) \\
 	&= \frac {1} {2} \left( e^{2ix} + e^{-2ix} \right) \\
-	&= \cos 2\alpha \,.
+	&= \cos 2x \,.
 \end{align*}
-\begin{align*}
+en dus weten we nu dat
+\begin{align} \label{verdubbeling1}
 	\cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
-	\sin (2\alpha) &= 2 \cos \alpha \sin \alpha
+	\sin (2\alpha) &= 2 \cos \alpha \sin \alpha. \label{verdubbeling2}
+\end{align}
+
+
+Verder is
+\begin{align*}
+	\cos (2 \alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
+	&= \cos^2 \alpha - (1 - \cos^2 \alpha ) \\
+	&= 2  \cos^2 \alpha - 1
 \end{align*}
+en uit dezelfde regel volgt ook
+\begin{align*}
+	\cos (2 \alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
+	&= (1 - \sin^2 \alpha) - \sin^2 \alpha \\
+	&= 1 - 2 \sin^2 \alpha .
+\end{align*}
+
+\subsection{Andere gonioformules}
+
+Onthoud
+\begin{align*}
+	\sin(\alpha + \beta) &= \sin \alpha \cos \beta + \cos \alpha \sin \beta \\
+	\cos(\alpha + \beta) &= \cos \alpha \cos \beta - \sin \alpha \sin \beta .
+\end{align*}
+Voor de formules voor $\sin(\alpha - \beta)$ en $\cos(\alpha - \beta)$, vul $-\beta$ in voor $\beta$ en gebruik dat $\cos (-\alpha) = \cos \alpha $ en $\sin (-\alpha) = - \sin \alpha $.
+
+Merk op dat voor $\alpha = \beta$ hier de formules uit (\ref{verdubbeling1}) en (\ref{verdubbeling2}) staan.
+
+
+
 \subsection{Cosinus en sinus hyperbolicus}\label{subsec:cosinusEnSinusHyperbolicus}
+
 Merk op dat deze definities gelijk zijn aan de gewone sinus en cosinus maar dan niet alternerend.
 \begin{align*}
 	\cosh z &\coloneqq \frac{1}{2} (e^z + e^{-z}) = \sum_{k=0}^\infty \frac{z^{2k}}{(2k)!} = \text{ alle even termen van de e-machtreeks} \\
 	\sinh z &\coloneqq \frac{1}{2} (e^z - e^{-z}) = \sum_{k=0}^\infty \frac{z^{2k+1}}{(2k+1)!} = \text{ alle oneven termen van de e-machtreeks}
 \end{align*}
+
 \subsection{Versimplificeren van de sinus van de arccosinus en dergelijke}\label{subsec:versimplificerenVanDeSinusVanDeArccosinusEnDergelijke}
+
 In het geval van $\sin (\arccos \alpha)$, noem $\arccos \alpha \eqqcolon \beta$ en denk aan de driehoek met schuine zijde van lengte 1.
 Nu zien we dat, omdat $\alpha = \cos \beta$, er geldt dat de lengte van de aanliggende zijde gelijk is aan $\alpha$ en dus is de overstaande zijde van lengte $\sqrt{1-\alpha^2}$.
 \begin{tikzpicture}[thick]
