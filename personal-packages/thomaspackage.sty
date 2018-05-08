@@ -38,6 +38,7 @@
 \RequirePackage{chngcntr} % Customise table/figure counters
 \RequirePackage{array} % Various useful things, e.g. column width m{2cm}
 \RequirePackage{stackengine} % Includes \substack{a \\ b} command, for two lines of math over each other.
+\RequirePackage{dsfont} % Nice indicator I with \mathds{1}
 
 % Titlepages are included in article documentclass, but not in exam documentclass.
 \renewcommand{\titlepage}{
@@ -403,7 +404,7 @@ citecolor=blue
 \newcommand{\E}[1]{\mathbb{E}\brackets*{#1}}
 
 % Indicator function, less spacing after the 1
-\newcommand{\1}[1]{\mathbbm{1}\mathopen{}\mathclose\bgroup\left\{#1\aftergroup\egroup\right\}}
+\newcommand{\1}[1]{\mathds{1}\mathopen{}\mathclose\bgroup\left\{#1\aftergroup\egroup\right\}}
 
 % Distributions
 \DeclareMathOperator{\Exp}{Exp}
