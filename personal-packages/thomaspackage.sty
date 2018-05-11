@@ -51,6 +51,9 @@
 % Disable page numbers for the whole document. Needs to be called after any titlepage, since \maketitle resets the page style.
 \newcommand{\disablepagenumbers}{\pagestyle{empty}}
 
+% Add a blank page, if called after page numbers are disabled it won't have page numbers.
+\newcommand{\blankpage}{\null\newpage}
+
 % Line-breaking email with correct hyperlink.
 \newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
 
