@@ -3,122 +3,122 @@
 \usetikzlibrary{matrix}
 
 \begin{document}
-	\tableofcontents
-	\newpage
+    \tableofcontents
+    \newpage
 
-	\section{Limieten}\label{sec:limieten}
+    \section{Limieten}\label{sec:limieten}
     Een bekende limiet is
     \[
         \lim_{x\to 0} \frac{x}{\sin x} = 1.
     \]
-	\section{Sommen}\label{sec:sommen}
- 		Onthoud
- 		\begin{align*}
- 			\sum_{k=c}^{\infty} r^k &= \frac{r^c}{1-r} \text{ als $|r|<1$}\\
- 			\sum_{k=1}^{\infty} \frac{1}{k^2} &= \frac{\pi^2}{6} \\
- 			\sum_{k=0}^\infty \frac{x^k}{k!} &= e^x \\
- 		\end{align*}
- 		
- 		Uit de eerste kunnen we andere sommen afleiden.
- 		bijvoorbeeld
- 		$\displaystyle \sum_{k=0}^{\infty} kr^k: $
- 		\begin{align*}
- 				\sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { differenti\"eren aan beide kanten } \to \\
- 				\sum_{k=1}^{\infty} kr^{k-1} &= \frac{1}{(1-r)^2} \\
- 				\sum_{k=0}^{\infty} kr^k &= \frac{r}{(1-r)^2} \\
- 		\end{align*}
- 		Op dezelfde manier $\displaystyle \sum_{k-1}^\infty \frac{1}{k} r^k$, bijvoorbeeld $\displaystyle \sum_{k=1}^{\infty} \frac{1}{k2^k}$:
- 		\begin{align*}
- 				\sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { integreren aan beide kanten } \to \\
- 				\sum_{k=0}^{\infty} \frac{1}{k+1} r^{k+1} &= -\log_e (1-r) \\
- 				\sum_{k-1}^\infty \frac{1}{k} r^k &= \log_e (\frac{1}{1-r})
- 		\end{align*}
- 		Eindige sommen kunnen we nu ook, \textbf{deze formule geldt algemener voor $r\neq 1$} maar dan is de afleiding natuurlijk anders.
- 		\begin{align*}
- 			\sum_{k=c}^n r^k &= \sum_{k=c}^\infty r^k - \sum_{k=n+1}^\infty r^k
- 		\end{align*}
+    \section{Sommen}\label{sec:sommen}
+    Onthoud
+    \begin{align*}
+        \sum_{k=c}^{\infty} r^k &= \frac{r^c}{1-r} \text{ als $|r|<1$}\\
+        \sum_{k=1}^{\infty} \frac{1}{k^2} &= \frac{\pi^2}{6} \\
+        \sum_{k=0}^\infty \frac{x^k}{k!} &= e^x \\
+    \end{align*}
 
-	\section{Taylorreeksen}\label{sec:taylorreeksen}
-	\input{taylorreeksen}
+    Uit de eerste kunnen we andere sommen afleiden.
+    bijvoorbeeld
+    $\displaystyle \sum_{k=0}^{\infty} kr^k: $
+    \begin{align*}
+        \sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { differenti\"eren aan beide kanten } \to \\
+        \sum_{k=1}^{\infty} kr^{k-1} &= \frac{1}{(1-r)^2} \\
+        \sum_{k=0}^{\infty} kr^k &= \frac{r}{(1-r)^2} \\
+    \end{align*}
+    Op dezelfde manier $\displaystyle \sum_{k-1}^\infty \frac{1}{k} r^k$, bijvoorbeeld $\displaystyle \sum_{k=1}^{\infty} \frac{1}{k2^k}$:
+    \begin{align*}
+        \sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { integreren aan beide kanten } \to \\
+        \sum_{k=0}^{\infty} \frac{1}{k+1} r^{k+1} &= -\log_e (1-r) \\
+        \sum_{k-1}^\infty \frac{1}{k} r^k &= \log_e (\frac{1}{1-r})
+    \end{align*}
+    Eindige sommen kunnen we nu ook, \textbf{deze formule geldt algemener voor $r\neq 1$} maar dan is de afleiding natuurlijk anders.
+    \begin{align*}
+        \sum_{k=c}^n r^k &= \sum_{k=c}^\infty r^k - \sum_{k=n+1}^\infty r^k
+    \end{align*}
 
- 	\section{Integralen}\label{sec:integralen}
+    \section{Taylorreeksen}\label{sec:taylorreeksen}
+    \input{taylorreeksen}
 
-		\begin{stelling}[Bell curve]
-			\[ \int_{-\infty}^\infty e^{-\alpha x^2} \d x = \sqrt {\frac \pi \alpha}.\]
-		\end{stelling}
+    \section{Integralen}\label{sec:integralen}
 
-	 	\begin{stelling}[Limiet door de integraal halen]
-		 	Zij $\f_k,\f \: \reals^n \to \reals$, met $\lim_{k \to \infty} \f_k = \f$, dan
-		 	\[ \f_k \text { \textbf{convergeert uniform} naar } \f \implies \lim \int \f_k = \int \lim \f_k = \int \f \,. \]
-	 	\end{stelling}
-	 	
-	\section{Integreren}\label{sec:integreren}
-	\input{integreren}
+    \begin{stelling}[Bell curve]
+        \[ \int_{-\infty}^\infty e^{-\alpha x^2} \d x = \sqrt {\frac \pi \alpha}.\]
+    \end{stelling}
 
-	 \section{Co\"ordinaten}\label{sec:coordinaten}
-		 Bij cilindercoordinaten is een extra \textbf{factor $\bm r$} verplicht als je integreert, bij bolcoordinaten $\rho^2 \sin \phi$
-		 
-		 Om bolco\"ordinaten te onthouden, gebruik poolco\"ordinaten en druk $r$ uit in $\rho$ en $\phi$ met behulp van onderstaand driehoekje, zodat $r=\rho \sin \phi$, en vul deze in, in poolco\"ordinaten $r \cos \theta,r \sin \theta$ om $x$ en $y$ te krijgen.
-		 Vind de $z$-co\"ordinaat op dezelfde manier zodat $z=\rho \cos \phi$.
-		 Zie figuur~\ref{bolMMa} in de appendix om je gekozen co\"ordinaten te controleren met Mathematica.
-		 					
-		\begin{tikzpicture}[thick]
-		\draw(0,0) 
-		-- (90:2cm) node[midway,left]{$z$-as} 
-		-- (30:4cm) node[midway,above]{$r$} % node of point
-		-- (0,0) node[midway,below right]{$\rho$};
-		\draw[fill=lightgray, thick] (0,0) 
-		-- (30:0.8cm) arc (0:112:0.5cm) node at (60:0.5cm) {$\phi$} 
--- cycle;
-		
-		\end{tikzpicture}
+    \begin{stelling}[Limiet door de integraal halen]
+        Zij $\f_k,\f \: \reals^n \to \reals$, met $\lim_{k \to \infty} \f_k = \f$, dan
+        \[ \f_k \text { \textbf{convergeert uniform} naar } \f \implies \lim \int \f_k = \int \lim \f_k = \int \f \,. \]
+    \end{stelling}
 
-	\section{Determinant}\label{sec:determinant}
+    \section{Integreren}\label{sec:integreren}
+    \input{integreren}
 
-		\[
-			\det{
-				a & b & c \\
-				d & e & f \\
-				g & h & i \\
-			}
-			= a \det{e & f \\ h & i} - b \det{d & f \\ g & i} + c \det{d & e \\ g & h}
-		\]
-		\textbf{Let op het minteken!} Mintekens gaan als volgt:
-		\[
-			\det{
-				+ & - & + \\
-				- & + & - \\
-				+ & - & +
-			}
-		 \]
-	\section{Inproduct/uitproduct}\label{sec:inproduct/uitproduct}
-		\paragraph{Inproduct (dot product)}
-		\[ \x \bullet \bm \phi = \matrix{x \\ y \\ z} \bullet \matrix{\phi_1 \\ \phi_2 \\\phi_3} = x \phi_1 + y \phi_2 + z \phi_3 \]
-		\paragraph{Uitproduct (Vector/Cross product)}
-		\[ \matrix{x \\ y \\ z} \times \matrix{\phi_1 \\ \phi_2 \\\phi_3} = \matrix{y \phi_3 - \phi_2 z \\ z \phi_1 - \phi_3 x \\ x \phi_2 - \phi_1 y}  \]
-		eventueel te onthouden door (zie \LaTeX\ comments)
+    \section{Co\"ordinaten}\label{sec:coordinaten}
+    Bij cilindercoordinaten is een extra \textbf{factor $\bm r$} verplicht als je integreert, bij bolcoordinaten $\rho^2 \sin \phi$
 
-		\begin{tikzpicture}[thick]
-		\matrix (m) [matrix of math nodes, row sep = 1em, column sep = 4 em, minimum width=2em]
-		{
-			x & \phi_1 \\
-			y & \phi_2 \\
-			z & \phi_3 \\
-			x & \phi_1 \\
-			y & \phi_2 \\
-		};
-		\path[-stealth]
-			(m-2-1) edge[-] (m-3-2) % y keer phi_3
-			(m-2-2) edge[-] (m-3-1) % min phi_2 keer z,
-			(m-3-1) edge[-] (m-4-2) % z keer phi_1
-			(m-3-2) edge[-] (m-4-1) % min phi_3 keer x,
-			(m-4-1) edge[-] (m-5-2) % x keer phi_2
-			(m-4-2) edge[-] (m-5-1) % min phi_1 keer y
-			;
-		\end{tikzpicture}
+    Om bolco\"ordinaten te onthouden, gebruik poolco\"ordinaten en druk $r$ uit in $\rho$ en $\phi$ met behulp van onderstaand driehoekje, zodat $r=\rho \sin \phi$, en vul deze in, in poolco\"ordinaten $r \cos \theta,r \sin \theta$ om $x$ en $y$ te krijgen.
+    Vind de $z$-co\"ordinaat op dezelfde manier zodat $z=\rho \cos \phi$.
+    Zie figuur~\ref{bolMMa} in de appendix om je gekozen co\"ordinaten te controleren met Mathematica.
 
-	\section{Inhoud bol}\label{sec:inhoudBol}
-		Inhoud is $\frac{4}{3} \pi r^3$, neem afgeleide voor oppervlakte.
+    \begin{tikzpicture}[thick]
+        \draw(0,0)
+        -- (90:2cm) node[midway,left]{$z$-as}
+        -- (30:4cm) node[midway,above]{$r$} % node of point
+        -- (0,0) node[midway,below right]{$\rho$};
+        \draw[fill=lightgray, thick] (0,0)
+        -- (30:0.8cm) arc (0:112:0.5cm) node at (60:0.5cm) {$\phi$}
+        -- cycle;
+
+    \end{tikzpicture}
+
+    \section{Determinant}\label{sec:determinant}
+
+    \[
+        \det{
+        a & b & c \\
+        d & e & f \\
+        g & h & i \\
+        }
+        = a \det{e & f \\ h & i} - b \det{d & f \\ g & i} + c \det{d & e \\ g & h}
+    \]
+    \textbf{Let op het minteken!} Mintekens gaan als volgt:
+    \[
+        \det{
+        + & - & + \\
+        - & + & - \\
+        + & - & +
+        }
+    \]
+    \section{Inproduct/uitproduct}\label{sec:inproduct/uitproduct}
+    \paragraph{Inproduct (dot product)}
+    \[ \x \bullet \bm \phi = \matrix{x \\ y \\ z} \bullet \matrix{\phi_1 \\ \phi_2 \\\phi_3} = x \phi_1 + y \phi_2 + z \phi_3 \]
+    \paragraph{Uitproduct (Vector/Cross product)}
+    \[ \matrix{x \\ y \\ z} \times \matrix{\phi_1 \\ \phi_2 \\\phi_3} = \matrix{y \phi_3 - \phi_2 z \\ z \phi_1 - \phi_3 x \\ x \phi_2 - \phi_1 y}  \]
+    eventueel te onthouden door (zie \LaTeX\ comments)
+
+    \begin{tikzpicture}[thick]
+        \matrix (m) [matrix of math nodes, row sep = 1em, column sep = 4 em, minimum width=2em]
+        {
+        x & \phi_1 \\
+        y & \phi_2 \\
+        z & \phi_3 \\
+        x & \phi_1 \\
+        y & \phi_2 \\
+        };
+        \path[-stealth]
+        (m-2-1) edge[-] (m-3-2) % y keer phi_3
+        (m-2-2) edge[-] (m-3-1) % min phi_2 keer z,
+        (m-3-1) edge[-] (m-4-2) % z keer phi_1
+        (m-3-2) edge[-] (m-4-1) % min phi_3 keer x,
+        (m-4-1) edge[-] (m-5-2) % x keer phi_2
+        (m-4-2) edge[-] (m-5-1) % min phi_1 keer y
+        ;
+    \end{tikzpicture}
+
+    \section{Inhoud bol}\label{sec:inhoudBol}
+    Inhoud is $\frac{4}{3} \pi r^3$, neem afgeleide voor oppervlakte.
 
     \section{Tussenwaarde/middelwaardestelling}\label{sec:tussenwaarde/middelwaardestelling}
     \begin{stelling}[\indx{Tussenwaardestelling}/Intermediate Value Theorem]
@@ -135,49 +135,49 @@
         Zij $f\:[a,b] \to \reals$ continu, $f|_{(a,b)}$ differentieerbaar.
         Dan
         \[
-        \exists_{c \in (a,b)} : f'(c) = \frac{f(b)-b(a)}{b-a}\,.
+            \exists_{c \in (a,b)} : f'(c) = \frac{f(b)-b(a)}{b-a}\,.
         \]
     \end{stelling}
-		
-	\section{Kwadraat afsplitsen}\label{sec:kwadraatAfsplitsen}
-        Om een kwadratische vergelijking $x^2 + ax + b = 0$ op te lossen voor $x$ kunnen we in plaats van de abc-formule ook kwadraat afsplitsen.
-        Let wel op dat de co\"efficient voor de $x^2$ een 1 is.
-        \begin{align*}
-            x^2 + a x + b &= 0 \\
-            \left(x + \frac{1}{2} a\right)^2 - \left( \frac{1}{2}a \right)^2 &= - b \\
-            \left(x + \frac{1}{2} a\right)^2 &= \left( \frac{1}{2}a \right)^2 - b \\
-            x + \frac{1}{2} a &= \pm \sqrt{\left( \frac{1}{2}a \right)^2 - b} \\
-            x &= -  \frac{1}{2} a \pm \sqrt{\left(\frac{1}{2}a \right)^2 - b}
-        \end{align*}
+
+    \section{Kwadraat afsplitsen}\label{sec:kwadraatAfsplitsen}
+    Om een kwadratische vergelijking $x^2 + ax + b = 0$ op te lossen voor $x$ kunnen we in plaats van de abc-formule ook kwadraat afsplitsen.
+    Let wel op dat de co\"efficient voor de $x^2$ een 1 is.
+    \begin{align*}
+        x^2 + a x + b &= 0 \\
+        \left(x + \frac{1}{2} a\right)^2 - \left( \frac{1}{2}a \right)^2 &= - b \\
+        \left(x + \frac{1}{2} a\right)^2 &= \left( \frac{1}{2}a \right)^2 - b \\
+        x + \frac{1}{2} a &= \pm \sqrt{\left( \frac{1}{2}a \right)^2 - b} \\
+        x &= -  \frac{1}{2} a \pm \sqrt{\left(\frac{1}{2}a \right)^2 - b}
+    \end{align*}
 
     \newpage
     \section{Appendix}\label{sec:appendix}
     \begin{lstlisting}{language=mathematica}
-(* Transparent sphere *)
-pp = ParametricPlot3D[
-    {Cos[u] Sin[v],
-    Sin[u] Sin[v],
-    Cos[v]},
-   {u, 0, 2 Pi}, {v, 0, Pi}, Boxed -> False, Axes -> False,
-   PlotStyle -> Opacity[0.05]];
-(* Part on the sphere (hold r) *)
-pp1 = ParametricPlot3D[
-    {Cos[u] Sin[v],
-    Sin[u] Sin[v],
-    Cos[v]},
-   {u, 0, 2 Pi}, {v, 0, Pi/6}, Axes -> False, Boxed -> False];
-(* Cone (hold v) *)
-pp2 = ParametricPlot3D[
-    {r Cos[u] Sin[Pi/6],
-     r Sin[u] Sin[Pi/6],
-    r Cos[Pi/6]},
-   {r, 0, 1}, {u, 0, 2 Pi}, Axes -> False, Boxed -> False];
-(* Combine the three parts *)
-Show[pp, pp1, pp2, ImageSize -> Large]
+        (* Transparent sphere *)
+        pp = ParametricPlot3D[
+        {Cos[u] Sin[v],
+        Sin[u] Sin[v],
+        Cos[v]},
+        {u, 0, 2 Pi}, {v, 0, Pi}, Boxed -> False, Axes -> False,
+        PlotStyle -> Opacity[0.05]];
+        (* Part on the sphere (hold r) *)
+        pp1 = ParametricPlot3D[
+        {Cos[u] Sin[v],
+        Sin[u] Sin[v],
+        Cos[v]},
+        {u, 0, 2 Pi}, {v, 0, Pi/6}, Axes -> False, Boxed -> False];
+        (* Cone (hold v) *)
+        pp2 = ParametricPlot3D[
+        {r Cos[u] Sin[Pi/6],
+        r Sin[u] Sin[Pi/6],
+        r Cos[Pi/6]},
+        {r, 0, 1}, {u, 0, 2 Pi}, Axes -> False, Boxed -> False];
+        (* Combine the three parts *)
+        Show[pp, pp1, pp2, ImageSize -> Large]
     \end{lstlisting}
     \begin{figure}[h!]
         \centering
         \includegraphics[width=.5\textwidth]{bol.png}
-    \caption{Bol in Mathematica}\label{bolMMa}
+        \caption{Bol in Mathematica}\label{bolMMa}
     \end{figure}
 \end{document}
