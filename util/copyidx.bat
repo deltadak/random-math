@@ -1,1 +1,1 @@
-xcopy /s /y /i C:\path\to\project\auxil\main.idx C:\path\to\project\src\
+xcopy /s /y /i auxil\main.idx src\
