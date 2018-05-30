@@ -1,27 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{thomaspackage}[2017/02/01 v2.1 Some mathy stuff]
 
-% Language option, thanks to Ruben.
-\newcommand{\thom@lang}{dutch}
-\DeclareOption{nl}{
-\renewcommand{\thom@lang}{dutch}
-}
-\DeclareOption{en}{
-\renewcommand{\thom@lang}{british}
-}
-\ProcessOptions\relax
-
-
-\RequirePackage[\thom@lang]{babel} % May be necessary to delete auxiliary files after changing. Use brithish or american instead of english.
-\RequirePackage[fleqn]{amsmath} % left align equations option
 \RequirePackage{amsthm} % proof environments
 \RequirePackage{amssymb} % some symbols like probability P, or real number R
 \RequirePackage{mathtools} % improvement over amsmath, like \coloneqq 
-\RequirePackage{enumerate} % numbered list, roman labels with option [label=(\roman*)], letters with [label=\alph*)]
 \RequirePackage{enumitem} % Provides [resume] option for enumerate
 \RequirePackage{thmtools} % define custom to prove environments
 \RequirePackage{stmaryrd} % $\lightning$
-
 \RequirePackage{xcolor} % colors
 \RequirePackage{pdfpages} % to include external pdfs
 \RequirePackage{centernot} % \centernot \implies looks correct
@@ -31,7 +16,9 @@
 \RequirePackage{hyperref} % should make index clickable
 \RequirePackage{bookmark} % Used for pdf bookmarks, needs to be loaded AFTER hyperref
 \RequirePackage{pgfplots} % Drawings!
-\RequirePackage{bm} % bold math, \bm{}
+% bm incompatible, replace by new definition
+%\RequirePackage{bm} % bold math, \bm{}
+\newcommand{\bm}{\boldsymbol}
 \RequirePackage{listings} % to include code with env. lstlisting
 \RequirePackage{graphicx} % to use \includegraphics
 \RequirePackage{booktabs} % Better spacing for tables
@@ -39,17 +26,6 @@
 \RequirePackage{array} % Various useful things, e.g. column width m{2cm}
 \RequirePackage{stackengine} % Includes \substack{a \\ b} command, for two lines of math over each other.
 \RequirePackage{dsfont} % Nice indicator I with \mathds{1}
-
-% Titlepages are included in article documentclass, but not in exam documentclass.
-\renewcommand{\titlepage}{
-    \maketitle
-    \thispagestyle{empty}
-    \newpage
-}
-
-
-% Disable page numbers for the whole document. Needs to be called after any titlepage, since \maketitle resets the page style.
-\newcommand{\disablepagenumbers}{\pagestyle{empty}}
 
 % Add a blank page, if called after page numbers are disabled it won't have page numbers.
 \newcommand{\blankpage}{\null\newpage}
@@ -70,26 +46,26 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 %\pgfplotsset{compat=1.14}
 
 % Hyperlink setup
-\hypersetup{
-colorlinks=true,
-linkcolor=blue,
-filecolor=magenta,
-urlcolor=cyan,
-citecolor=blue
-}
+%\hypersetup{
+%colorlinks=true,
+%linkcolor=blue,
+%filecolor=magenta,
+%urlcolor=cyan,
+%citecolor=blue
+%}
 
 % Adjust margins
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{0in}
-\setlength{\topmargin}{0in}
-\setlength{\headsep}{-.25in}
-\setlength{\textwidth}{6.5in}
-\setlength{\textheight}{8.5in}
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\evensidemargin}{0in}
+%\setlength{\topmargin}{0in}
+%\setlength{\headsep}{-.25in}
+%\setlength{\textwidth}{6.5in}
+%\setlength{\textheight}{8.5in}
 
 % Indention
 \newlength\tindent
 \setlength{\tindent}{\parindent}
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{10pt}
 \renewcommand{\indent}{\hspace*{\tindent}}
 
 % Define new environments
@@ -118,17 +94,17 @@ citecolor=blue
 
 
 % To remove the section numbering
-\renewcommand\@seccntformat[1]{}
+%\renewcommand\@seccntformat[1]{}
 
 % labels can contain a prefixed section number
 % Before use: remove the * in the environment definition and enable section numbering
-%\counterwithin{table}{section}
-%\counterwithin{figure}{section}
-%\counterwithin{definition}{section}
-%\counterwithin{theorem}{section}
-%\counterwithin{assumption}{section}
-%\counterwithin{claim}{section}
-%\counterwithin{equation}{section}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\counterwithin{definition}{section}
+\counterwithin{theorem}{section}
+\counterwithin{assumption}{section}
+\counterwithin{claim}{section}
+\counterwithin{equation}{section}
 
 % Bold theorem titles
 \makeatletter
