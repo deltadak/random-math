@@ -148,6 +148,15 @@ citecolor=blue
 % Shortcut to set question prefix, to get e.g. x.y.q
 \newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1\thequestion}}
 
+% parts and subparts only exist in the exam documentclass
+\makeatletter
+\@ifclassloaded{exam}{
+% Subparts have the formait (i) (ii) etc...
+\renewcommand{\thesubpart}{(\roman{subpart})} % add parentheses
+\renewcommand{\subpartlabel}{\thesubpart} % remove the dot
+}{}
+\makeatother
+
 % Internal helper commands
 \DeclarePairedDelimiter{\paren}\lparen\rparen
 \DeclarePairedDelimiter{\brackets}\lbrack\rbrack
@@ -227,7 +236,14 @@ citecolor=blue
 % General readability improvements
 %
 
-\newcommand{\half}{\frac 1 2}
+% \half already exists in exam class, but not in article class
+\makeatletter
+\@ifclassloaded{exam}{
+    \renewcommand{\half}{\frac 1 2}
+}{
+    \newcommand{\half}{\frac 1 2}
+}
+\makeatother
 
 % binary ops
 \newcommand{\AND}{\wedge}
