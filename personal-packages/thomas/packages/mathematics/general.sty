@@ -1,0 +1,39 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/mathematics/general}
+
+% Triangle inequality
+\newcommand{\triangleineq}{\overset{\triangle}{\le}}
+
+% Better phi
+\renewcommand{\phi}{\varphi}
+
+% Better epsilon
+\renewcommand{\epsilon}{\varepsilon}
+
+% Circled numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% Ceiling which scales
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\newcommand{\ceiling}{\ceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+% Index as superscript
+\newcommand{\up}[1]{#1{^{(#1)}}}
+
+% Absolute value
+\newcommand{\abs}[1]{\left|#1\right|}
+
+% Degree of polynomial
+\DeclareMathOperator{\degree}{deg}
+
+% Leading term of polynomial
+\DeclareMathOperator{\lt}{lt}
+
+% Minimize the expression in the subscript, return the argument.
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+
+% Logit
+\DeclareMathOperator{\logit}{logit}
