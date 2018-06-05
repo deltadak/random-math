@@ -27,7 +27,8 @@ script:
 - cd ../
 # Tests
 - cd ./personal-packages/thomas/
-- tectonic ./package-test.tex --print
+- tectonic ./package-test-article.tex --print
+- tectonic ./package-test-exam.tex --print
 - cd ../../
 deploy:
   provider: releases
