@@ -1,0 +1,97 @@
+%%
+%% Author: Thomas Schouten
+%% %5-6-2018
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/layout-core}
+
+% Titlepages are included in article documentclass, but not in exam documentclass.
+\renewcommand{\titlepage}{
+\maketitle
+\thispagestyle{empty}
+\newpage
+}
+
+
+% Disable page numbers for the whole document. Needs to be called after any titlepage, since \maketitle resets the page style.
+\newcommand{\disablepagenumbers}{\pagestyle{empty}}
+
+% Add a blank page, if called after page numbers are disabled it won't have page numbers.
+\newcommand{\blankpage}{\null\newpage}
+
+\usepgfplotslibrary{fillbetween}
+
+% Listings setup
+\lstset{
+frame=single,
+breaklines=true,
+postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
+
+% To quiet some warning about compatibility mode. Not recognised by tectonic, probably too old package.
+%\pgfplotsset{compat=1.14}
+
+% TikZ setup
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric}
+
+% Hyperlink setup
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta,
+urlcolor=cyan,
+citecolor=blue
+}
+
+% Adjust margins
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{-.25in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.5in}
+
+% Indention
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+% To remove the section numbering
+\renewcommand\@seccntformat[1]{}
+
+% labels can contain a prefixed section number
+% Before use: remove the * in the environment definition and enable section numbering
+%\counterwithin{table}{section}
+%\counterwithin{figure}{section}
+%\counterwithin{definition}{section}
+%\counterwithin{theorem}{section}
+%\counterwithin{assumption}{section}
+%\counterwithin{claim}{section}
+%\counterwithin{equation}{section}
+
+% Bold theorem titles
+\makeatletter
+\def\th@plain{%
+\thm@notefont{}% same as heading font
+\itshape % body font
+}
+\def\th@definition{%
+\thm@notefont{}% same as heading font
+\normalfont % body font
+}
+\makeatother
+
+% parts and subparts only exist in the exam documentclass
+\makeatletter
+\@ifclassloaded{exam}{
+% Subparts have the formait (i) (ii) etc...
+\renewcommand{\thesubpart}{(\roman{subpart})} % add parentheses
+\renewcommand{\subpartlabel}{\thesubpart} % remove the dot
+}{}
+\makeatother
+
+% Internal helper commands
+\DeclarePairedDelimiter{\paren}\lparen\rparen
+\DeclarePairedDelimiter{\brackets}\lbrack\rbrack

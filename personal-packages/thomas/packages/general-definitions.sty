@@ -1,0 +1,58 @@
+%%
+%% Author: Thomas Schouten
+%% %5-6-2018
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/general-definitions}
+
+% Line-breaking email with correct hyperlink.
+\newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+
+% Define new environments
+\theoremstyle{definition}
+
+% Dutch
+\newtheorem*{voorbeeld}{Voorbeeld}
+\newtheorem*{definitie}{Definitie}
+\newtheorem*{stelling}{Stelling}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{opm}{Opmerking}
+\newtheorem*{gevolg}{Gevolg}
+\newtheorem*{notatie}{Notatie}
+\newtheorem*{valkuil}{\textcolor{red}{Valkuil}}
+
+% English
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{answer}{Answer}
+\newtheorem*{notation}{Notation}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{problem}{Problem}
+\newtheorem*{algorithm}{Algorithm}
+\newtheorem*{assumption}{Assumption}
+\newtheorem*{claim}{Claim}
+
+% Shortcut to set question prefix, to get e.g. x.y.q
+\newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1\thequestion}}
+
+\newtheorem*{toprove}{To prove}
+\newtheorem*{tebewijzen}{Te bewijzen}
+%% Credits to Sten
+% Inline to prove env. To be used when `toprove' is the first content in a question. Then normally the text would end up on a new line, which is ugly. In these cases, use this environment instead.
+\newenvironment{inlinetoprove}
+{\enskip\textbf{To prove.\space}}% \begin{inlinetoprove}
+{\enskip}% \end{inlinetoprove}
+\newenvironment{inlinetebewijzen}
+{\enskip\textbf{Te bewijzen.\space}}% \begin{inlinetoprove}
+{\enskip}% \end{inlinetoprove}
+
+% Define command to put two lines of math over each other in normal text size.
+\newcommand{\stacked}[2]{%
+    \substack{%
+        \textstyle
+        \begin{array}{c}%[t]{@{}c@{}}
+            #1 \\ #2
+        \end{array}
+    }
+}

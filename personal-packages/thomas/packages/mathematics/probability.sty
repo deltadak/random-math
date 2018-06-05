@@ -1,0 +1,29 @@
+%%
+%% Author: Thomas Schouten
+%% %5-6-2018
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/mathematics/probability}
+
+% Probability
+\renewcommand{\P}[1]{\mathbb{P}\paren*{#1}}
+
+% Expected value
+\newcommand{\E}[1]{\mathbb{E}\brackets*{#1}}
+
+% Indicator function, less spacing after the 1
+\newcommand{\1}[1]{\mathds{1}\mathopen{}\mathclose\bgroup\left\{#1\aftergroup\egroup\right\}}
+
+% Distributions
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Geo}{Geo}
+\DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\Unif}{Unif}
+\newcommand{\Norm}{\mathcal N}
+
+% Variance
+\DeclareMathOperator{\Var}{Var}
+
+% Mean squared error
+\DeclareMathOperator{\MSE}{MSE}
