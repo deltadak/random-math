@@ -1,0 +1,44 @@
+%%
+%% Author: Thomas Schouten
+%% %4-6-2018
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mathematics/readability}
+
+% \half already exists in exam class, but not in article class
+\makeatletter
+\@ifclassloaded{exam}{
+\renewcommand{\half}{\frac 1 2}
+}{
+\newcommand{\half}{\frac 1 2}
+}
+\makeatother
+
+% binary ops
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+
+% \ep for epsilon, \bep for bold epsilon
+\newcommand{\ep}{\epsilon}
+\newcommand{\bep}{\bm{\epsilon}}
+
+% Underline shortcut
+\newcommand{\ul}[1]{\underline{#1}}
+
+% Is defined as.
+\newcommand{\definedby}{\coloneqq}
+
+% Map concatenation.
+\newcommand{\after}{\circ}
+
+% Division, slightly bigger |
+\newcommand{\divides}{\bigm|}
+
+% Does not divide.
+\newcommand{\ndivides}{%
+\mathrel{\mkern.5mu % small adjustment
+% superimpose \nmid to \big|
+\ooalign{\hidewidth$\big|$\hidewidth\cr$\nmid$\cr}%
+}%
+}
