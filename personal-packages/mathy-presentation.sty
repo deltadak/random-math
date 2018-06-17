@@ -1,6 +1,17 @@
-% thomaspackage adapted to the beamer template
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mathy-presentation}[2018/01/11 Adapted Mathy package for presentations]
 
-\RequirePackage[dutch]{babel} % May be necessary to delete auxiliary files after changing.
+% Language option, thanks to Ruben. Use with \usepackage[nl]{mathy-presentation}
+\newcommand{\thom@lang}{dutch}
+\DeclareOption{nl}{
+\renewcommand{\thom@lang}{dutch}
+}
+\DeclareOption{en}{
+\renewcommand{\thom@lang}{british}
+}
+\ProcessOptions\relax
+
+\RequirePackage[\thom@lang]{babel} % May be necessary to delete auxiliary files after changing.
 %\RequirePackage[fleqn]{amsmath} % left align equations option
 \RequirePackage{amsthm} % proof environments
 \RequirePackage{amssymb} % some symbols like probability P, or real number R
@@ -22,6 +33,13 @@
 \RequirePackage{graphicx} % to use \includegraphics
 \RequirePackage{environ} % Better way to define new environments
 
+% TikZ setup
+\usetikzlibrary{automata, calc, positioning, arrows.meta, shapes.geometric}
+% Default arrow length: (length right, length up)
+\newcommand{\standardlength}{2,0}
+% Default arrowhead.
+\newcommand{\standardarrow}{-{Latex[length=2mm,width=2mm]}}
+\newcommand{\standardbend}{30}
 
 % Internal helper commands
 \DeclarePairedDelimiter{\paren}\lparen\rparen
