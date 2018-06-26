@@ -38,6 +38,14 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 % Scale a tikz picture. Usage: \scaletikzpicture{\textwidth}{ \begin{tikzpicture} ... \end{tikzpicture} }
 \newcommand{\scaletikzpicture}[2]{\resizebox{#1}{!}{#2}}
 
+% Put two items, e.g. figures, side by side.
+\newcommand{\sidebyside}[2]{
+\begin{figure}
+    \begin{minipage}{0.45\textwidth}#1\end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}#2\end{minipage}
+\end{figure}
+}
+
 % Hyperlink setup
 \hypersetup{
 colorlinks=true,
