@@ -44,11 +44,15 @@
 \RequirePackage{dsfont} % Nice indicator I with \mathds{1}
 
 % Titlepages are included in article documentclass, but not in exam documentclass.
+\makeatletter
+\@ifclassloaded{exam}{
 \renewcommand{\titlepage}{
-    \maketitle
-    \thispagestyle{empty}
-    \newpage
+\maketitle
+\thispagestyle{empty}
+\newpage
 }
+}{}
+\makeatother
 
 
 % Disable page numbers for the whole document. Needs to be called after any titlepage, since \maketitle resets the page style.
