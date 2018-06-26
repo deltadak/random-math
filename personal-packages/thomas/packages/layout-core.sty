@@ -35,6 +35,9 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 % TikZ setup
 \usetikzlibrary{positioning, arrows.meta, shapes.geometric}
 
+% Scale a tikz picture. Usage: \scaletikzpicture{\textwidth}{ \begin{tikzpicture} ... \end{tikzpicture} }
+\newcommand{\scaletikzpicture}[2]{\resizebox{#1}{!}{#2}}
+
 % Hyperlink setup
 \hypersetup{
 colorlinks=true,
