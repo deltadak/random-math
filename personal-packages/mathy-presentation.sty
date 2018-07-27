@@ -36,10 +36,21 @@
 % TikZ setup
 \usetikzlibrary{automata, calc, positioning, arrows.meta, shapes.geometric}
 % Default arrow length: (length right, length up)
-\newcommand{\standardlength}{2,0}
+\newcommand{\stdlength}{2,0}
 % Default arrowhead.
-\newcommand{\standardarrow}{-{Latex[length=2mm,width=2mm]}}
-\newcommand{\standardbend}{30}
+\newcommand{\stdarrow}{-{Latex[length=2mm,width=2mm]}}
+\newcommand{\stdbend}{30}
+
+% Scale a tikz picture. Usage: \scaletikzpicture{\textwidth}{ \begin{tikzpicture} ... \end{tikzpicture} }
+\newcommand{\scaletikzpicture}[2]{\resizebox{#1}{!}{#2}}
+
+% Put two items, e.g. figures, side by side.
+\newcommand{\sidebyside}[2]{
+\begin{figure}
+    \begin{minipage}{0.45\textwidth}#1\end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}#2\end{minipage}
+\end{figure}
+}
 
 % Internal helper commands
 \DeclarePairedDelimiter{\paren}\lparen\rparen
@@ -348,5 +359,15 @@
 \protected\def\zero{\vectorstat{0}}
 \protected\def\one{\vectorstat{1}}
 \protected\def\two{\vectorstat{2}}
+
+\protected\def\red#1{{\color{red}#1}}
+\protected\def\ore#1{{\color{orange}#1}}
+\protected\def\grn#1{{\color{green}#1}}
+\protected\def\blu#1{{\color{blue}#1}}
+\protected\def\brn#1{{\color{brown}#1}}
+\protected\def\blk#1{{\color{black}#1}}
+\protected\def\gry#1{{\color{gray}#1}}
+\protected\def\mgn#1{{\color{magenta}#1}}
+\protected\def\prp#1{{\color{purple}#1}}
 
 \endinput
