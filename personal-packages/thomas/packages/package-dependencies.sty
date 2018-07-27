@@ -1,0 +1,34 @@
+%%
+%% Author: Thomas Schouten
+%% %5-6-2018
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/package-dependencies}
+
+\RequirePackage[fleqn]{amsmath} % left align equations option
+\RequirePackage{amsthm} % proof environments
+\RequirePackage{amssymb} % some symbols like probability P, or real number R
+\RequirePackage{mathtools} % improvement over amsmath, like \coloneqq
+\RequirePackage{enumerate} % numbered list, roman labels with option [label=(\roman*)], letters with [label=\alph*)]
+\RequirePackage[shortlabels]{enumitem} % Provides [resume] option for enumerate, roman labels with \begin{enumerate}[a)]
+\RequirePackage{thmtools} % define custom to prove environments
+\RequirePackage{stmaryrd} % $\lightning$
+\RequirePackage{xcolor} % colors
+\RequirePackage{pdfpages} % to include external pdfs
+\RequirePackage{centernot} % \centernot \implies looks correct
+\RequirePackage{tikz} % Used for drawings
+\RequirePackage{imakeidx} % Used for index
+\RequirePackage[makeroom]{cancel} % to draw a diagonal line through formulas
+\RequirePackage{hyperref} % should make index clickable
+\RequirePackage{bookmark} % Used for pdf bookmarks, needs to be loaded AFTER hyperref
+\RequirePackage{pgfplots} % Drawings!
+\RequirePackage{bm} % bold math, \bm{}
+\RequirePackage{listings} % to include code with env. lstlisting
+\RequirePackage{graphicx} % to use \includegraphics
+\RequirePackage{booktabs} % Better spacing for tables
+\RequirePackage{chngcntr} % Customise table/figure counters
+\RequirePackage{array} % Various useful things, e.g. column width m{2cm}
+\RequirePackage{stackengine} % Includes \substack{a \\ b} command, for two lines of math over each other.
+\RequirePackage{dsfont} % Nice indicator I with \mathds{1}
+

@@ -1,0 +1,40 @@
+%%
+%% Author: Thomas Schouten
+%% %5-6-2018
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/mathematics/discrete}
+
+% Fixed elements of permutation.
+\DeclareMathOperator{\fix}{fix}
+
+% Support (not fixed elements) of permutation.
+\DeclareMathOperator{\supp}{supp}
+
+% The order of an element.
+\DeclareMathOperator{\ord}{ord}
+
+% Rotation
+\DeclareMathOperator{\rot}{rot}
+
+% Reflection
+\DeclareMathOperator{\refl}{refl}
+
+% Inverse.
+\DeclareMathOperator{\inv}{inv}
+
+% Special Linear group
+\DeclareMathOperator{\SL}{SL}
+
+% Set of left cosets Z/nZ
+\newcommand{\modint}[1]{\integers / #1 \integers}
+
+% Orbit
+\DeclareMathOperator{\orb}{Orb}
+
+% Stabiliser
+\DeclareMathOperator{\stab}{Stab}
+
+% Gaussian integers
+\newcommand{\gauss}{\integers[i]}

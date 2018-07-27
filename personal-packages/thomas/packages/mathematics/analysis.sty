@@ -1,0 +1,61 @@
+%%
+%% Author: Thomas Schouten
+%% %5-6-2018
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/mathematics/analysis}
+
+% Standard sums
+\newcommand{\sumin}{\sum_{i=0}^n}
+\newcommand{\sumk}{\sum_{k=0}^\infty}
+\newcommand{\sumn}{\sum_{n=0}^\infty}
+\newcommand{\sumi}{\sum_{i=0}^\infty}
+\newcommand{\prodin}{\prod_{i=0}^n}
+
+% Imaginary/real part, use with parameter \re{a}
+% for some reaons \Re won't work
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+
+% Sign function
+\DeclareMathOperator{\sign}{sign}
+
+% Residue
+\DeclareMathOperator{\Res}{Res}
+
+% Main valued logarithm
+\DeclareMathOperator{\Log}{Log}
+
+% Cotangens
+\DeclareMathOperator{\cotan}{cotan}
+
+% Float function
+\DeclareMathOperator{\fl}{fl}
+
+% Volume
+\DeclareMathOperator{\Vol}{Vol}
+
+% d used for integrals
+\renewcommand*\d{\mathop{}\!\mathrm{d}}
+
+% Riemann multi-variable
+\newcommand{\R}{\mathcal{R}}
+
+% Big-O
+\newcommand{\bigO}{\mathcal{O}}
+
+% A \to arrow with optionally something above
+\newcommand{\upto}[1]{\xrightarrow{#1}}
+
+% @Deprecated
+% Function restrictions
+\newcommand\restr[2]{{
+\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+#1 % the function
+\vphantom{\big|} % pretend it's a little taller at normal size
+\right|_{#2} % this is the delimiter
+}}
+
+% Function restrictions, \eval{x^2}_{x=3}
+\newcommand*\eval[1]{\left.#1\right\rvert}

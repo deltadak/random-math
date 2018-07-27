@@ -25,6 +25,11 @@ script:
 - tectonic ./homework.tex --print
 - tectonic ./presentation-thomas.tex --print
 - cd ../
+# Tests
+- cd ./personal-packages/thomas/
+- tectonic ./package-test-article.tex --print
+- tectonic ./package-test-exam.tex --print
+- cd ../../
 deploy:
   provider: releases
   api_key:

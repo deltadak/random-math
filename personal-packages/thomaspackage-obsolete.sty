@@ -1,9 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{thomaspackage}[2017/02/01 v2.1 Some mathy stuff]
+%
+% NOTE This single-file package is replaced by the multi-file package.
+%
 
 \RequirePackage{amsthm} % proof environments
 \RequirePackage{amssymb} % some symbols like probability P, or real number R
-\RequirePackage{mathtools} % improvement over amsmath, like \coloneqq 
+\RequirePackage{mathtools} % improvement over amsmath, like \coloneqq
 \RequirePackage{enumitem} % Provides [resume] option for enumerate
 \RequirePackage{thmtools} % define custom to prove environments
 \RequirePackage{stmaryrd} % $\lightning$
@@ -124,6 +127,15 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 % Shortcut to set question prefix, to get e.g. x.y.q
 \newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1\thequestion}}
 
+% parts and subparts only exist in the exam documentclass
+\makeatletter
+\@ifclassloaded{exam}{
+% Subparts have the formait (i) (ii) etc...
+\renewcommand{\thesubpart}{(\roman{subpart})} % add parentheses
+\renewcommand{\subpartlabel}{\thesubpart} % remove the dot
+}{}
+\makeatother
+
 % Internal helper commands
 \DeclarePairedDelimiter{\paren}\lparen\rparen
 \DeclarePairedDelimiter{\brackets}\lbrack\rbrack
@@ -196,11 +208,21 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 \DeclareMathOperator*{\argmin}{argmin}
 \DeclareMathOperator*{\argmax}{argmax}
 
+% Logit
+\DeclareMathOperator{\logit}{logit}
+
 %
 % General readability improvements
 %
 
-\newcommand{\half}{\frac 1 2}
+% \half already exists in exam class, but not in article class
+\makeatletter
+\@ifclassloaded{exam}{
+    \renewcommand{\half}{\frac 1 2}
+}{
+    \newcommand{\half}{\frac 1 2}
+}
+\makeatother
 
 % binary ops
 \newcommand{\AND}{\wedge}
@@ -267,6 +289,10 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 % Set boundary
 \newcommand{\bound}{\partial}
 \newcommand{\boundary}{\bound}
+
+% Disjoint union of sets
+\newcommand{\disjointcup}{\dot\cup}
+\newcommand{\disjointbigcup}{\dot\bigcup}
 
 %
 % Analysis

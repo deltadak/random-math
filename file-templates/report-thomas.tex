@@ -1,0 +1,98 @@
+%%
+%% Author: Thomas Schouten
+%% 16-1-2018
+%%
+
+\documentclass{article}
+%\usepackage{packages/mathy}
+\usepackage[en]{../personal-packages/thomaspackage-obsolete}
+\usepackage{tikzducks}
+
+% place notes in the margin
+% replace 'draft' with 'final' to compile without notes
+% To override with inline locally, use e.g. \tnote[inline]{}
+\usepackage[margin, draft]{fixme}
+% A 'hack' to replace Author Note: with Author: ...
+\fxsetup{theme=color, mode=multiuser}
+\FXRegisterAuthor{j}{jj}{Jan} % use with \jnote{this is a comment}
+
+% To do List, use with \item[\done] in todolist env
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+
+\begin{document}
+
+    \begin{titlepage}
+        \centering
+
+        \textsc{\LARGE bachelor end project} \\ [2.5em]
+        \textsc{\Large mathematics} \\ [6em]
+
+        \rule{\linewidth}{.4pt} \par
+        \linespread{1.5} % Increase spacing between lines
+        {\Huge \bfseries This is a very very long title \\ of something very interesting \par}
+        \vspace*{.5cm}
+        \rule{\linewidth}{.4pt} \\ [1em]
+
+        {\huge \bfseries Final report or something \par}
+        \vspace*{7em}
+
+        \begin{minipage}[t]{.3\textwidth}
+            \textit{Author:} \\
+            T.M.\ Schouten
+        \end{minipage}%
+        \begin{minipage}[t]{.3\textwidth}
+            \textit{Tutor:} \\
+            D. van Duck MSc
+        \end{minipage}%
+        \begin{minipage}[t]{.3\textwidth}
+            \textit{Supervisor:} \\
+            Prof. van Duck
+        \end{minipage}
+
+
+        \vfill
+
+        \today
+
+        \vfill
+
+        \begin{minipage}{0.5\textwidth}
+            \begin{flushleft}
+                \includegraphics[width=.7\textwidth]{tue-logo} \\
+            \end{flushleft}
+        \end{minipage}%
+        \begin{minipage}{0.5\textwidth}
+            \begin{flushright}
+                \includegraphics[width=0.7\textwidth]{tue-logo} \\
+            \end{flushright}
+        \end{minipage}
+
+
+    \end{titlepage}
+
+
+    \newpage
+    \tableofcontents
+    \newpage
+
+    % list the fix me notes
+    \listoffixmes
+
+    \section{Introduction}
+    %    \input{introduction}
+
+    \cleardoublepage
+    \bibliographystyle{plain}
+    \bibliography{bibliography}
+
+
+\end{document}

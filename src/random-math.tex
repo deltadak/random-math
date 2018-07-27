@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[nl]{../personal-packages/thomaspackage}
+\usepackage[nl]{../personal-packages/thomaspackage-obsolete}
 \usetikzlibrary{matrix}
 
 \begin{document}
@@ -7,9 +7,14 @@
     \newpage
 
     \section{Limieten}\label{sec:limieten}
-    Een bekende limiet is
+    Onthoud
+    \begin{align*}
+        &\lim_{x\to 0} \frac{x}{\sin x} = 1 \\
+        &\lim_{n \to \infty} \left( 1 + \frac a n \right)^n = e^a \\
+        &\lim_{n \to \infty} \sqrt[n]{n} = 1 \\
+    \end{align*}
     \[
-        \lim_{x\to 0} \frac{x}{\sin x} = 1.
+        f(h) \in o(h) \text{ als } \lim_{h \downarrow 0} \frac{f(h)}{h} = 0.
     \]
     \section{Sommen}\label{sec:sommen}
     Onthoud

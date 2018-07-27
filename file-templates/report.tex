@@ -1,5 +1,13 @@
+%%
+%% Author: Thomas Schouten
+%% 16-5-2017
+%%
+
 \documentclass{article}
-\usepackage{thomaspackage}
+%\usepackage{packages/mathy}
+\usepackage{../personal-packages/thomaspackage-obsolete}
+\usepackage{tikzducks}
+
 % place notes in the margin
 % replace 'draft' with 'final' to compile without notes
 % To override with inline locally, use e.g. \tnote[inline]{}
@@ -35,8 +43,15 @@
 
         {\large 2WX42 course X}\\[0.5cm]
         {\large Group Y} \\[0.5cm]
-            
-             \includegraphics[width=0.9\textwidth]{front}\\[1cm]
+
+            \vfill
+
+%             \includegraphics[width=0.9\textwidth]{tue-logo.png}
+            \begin{tikzpicture}
+                \duck[graduate=gray!20!black, tassel=red!70!black]
+            \end{tikzpicture}
+
+            \vfill
 
             % Author and supervisor
             \noindent
@@ -49,9 +64,9 @@
             \begin{minipage}{0.4\textwidth}
                 \begin{flushright} \large
                     \emph{Tutor :} \\
-                    L. Federico MSc \\
+                    D van Duck MSc \\
                     \emph{Lecturer :} \\
-                    prof.dr.ir. O.J. Boxma
+                    Prof. van Duck
                 \end{flushright}
             \end{minipage}
 
@@ -63,18 +78,18 @@
         \end{center}
     \end{titlepage}
 
-\newpage
-\tableofcontents
-\newpage
+    \newpage
+    \tableofcontents
+    \newpage
 
     % list the fix me notes
     \listoffixmes
 
-    % Mocht je je afvragen waar alles is gebleven: zie bestand 'content'
-    \input{content}
+    \section{Introductie}
+%    \input{introductie}
 
-\cleardoublepage
-\bibliographystyle{plain}
-\bibliography{bibliography}
+    \cleardoublepage
+    \bibliographystyle{plain}
+    \bibliography{bibliography}
 
 \end{document}

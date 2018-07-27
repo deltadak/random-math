@@ -1,0 +1,61 @@
+%%
+%% Author: Thomas Schouten
+%% %5-6-2018
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/mathematics/linear-algebra}
+
+% Matrix with vertical lines, use with parameter {cc|c}, for internal use below.
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+\hskip -\arraycolsep
+\let\@ifnextchar\new@ifnextchar
+\array{#1}}
+\makeatother
+
+% Define matrix with optional parameter
+% Use with \matrix[c|c]{1 & 2 \\ 3 & 4 }
+% To improve, could surround with \@ifundefined
+\makeatletter
+% In this case the [ is not part of a pair of brackets enclosing an argument. The \@ifnextchar[ looks at the next character in the stream and tests to see if it is [ to see if there is an optional argument or not. Thus in this case [ is playing the role of just a simple single character.
+\def\matrix{\@ifnextchar[{\@with}{\@without}}
+\def\@with[#1]#2{\begin{bmatrix}[#1] #2 \end{bmatrix}}
+\def\@without#1{\begin{bmatrix} #1 \end{bmatrix}}
+\makeatother
+
+% Sphere
+\DeclareMathOperator{\B}{B}
+
+% Set interior
+\DeclareMathOperator{\intr}{int}
+
+% Distance
+\DeclareMathOperator{\dist}{dist}
+
+% Infinity norm
+\newcommand{\inftynorm}[1]{\left\|#1\right\|_\infty}
+
+% Determinant
+\renewcommand{\det}[1]{\left| \matrix{#1} \right|}
+
+% Linear maps
+\newcommand{\map}[1]{\mathcal{#1}}
+
+% Short colon, to be used for maps
+\renewcommand{\:}{\colon}
+
+% A good looking transpose T
+\renewcommand{\t}{\mathsf{T}}
+
+% Cone
+\DeclareMathOperator{\cone}{cone}
+
+% Set of vertices of polyhedron
+\DeclareMathOperator{\V}{\mathrm{V}}
+
+% Lineality space
+\DeclareMathOperator{\lin}{lin}
+
+% Convex hull
+\DeclareMathOperator{\convhull}{conv.hull}

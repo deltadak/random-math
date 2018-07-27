@@ -15,3 +15,6 @@ src/*.ind
 # JabRef files
 src/*.bak
 src/*.sav
+
+# Generated files by minted
+src/_minted-*/*
