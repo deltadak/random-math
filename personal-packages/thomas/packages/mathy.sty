@@ -3,22 +3,8 @@
 %
 % Instructions: copy directory 'packages' and place next to your main tex file (working directory).
 % Other local packages can go in the same folder.
-% Use the package as \usepackage[nl]{packages/mathy} or \usepackage[en]{packages/mathy}
+% Use the package as \usepackage{packages/mathy}
 % Supported documentclasses are at least article and exam.
-%
-
-% Language option, thanks to Ruben.
-\newcommand{\thom@lang}{dutch}
-\DeclareOption{nl}{
-\renewcommand{\thom@lang}{dutch}
-}
-\DeclareOption{en}{
-\renewcommand{\thom@lang}{british}
-}
-\ProcessOptions\relax
-
-
-\RequirePackage[\thom@lang]{babel} % May be necessary to delete auxiliary files after changing. Use brithish or american instead of english.
 
 % Other packages are included here
 \usepackage{packages/package-dependencies}

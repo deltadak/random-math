@@ -50,40 +50,40 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 }
 
 % Hyperlink setup
-\hypersetup{
-colorlinks=true,
-linkcolor=blue,
-filecolor=magenta,
-urlcolor=cyan,
-citecolor=blue
-}
+%\hypersetup{
+%colorlinks=true,
+%linkcolor=blue,
+%filecolor=magenta,
+%urlcolor=cyan,
+%citecolor=blue
+%}
 
 % Adjust margins
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{0in}
-\setlength{\topmargin}{0in}
-\setlength{\headsep}{-.25in}
-\setlength{\textwidth}{6.5in}
-\setlength{\textheight}{8.5in}
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\evensidemargin}{0in}
+%\setlength{\topmargin}{0in}
+%\setlength{\headsep}{-.25in}
+%\setlength{\textwidth}{6.5in}
+%\setlength{\textheight}{8.5in}
 
 % Indention
 \newlength\tindent
 \setlength{\tindent}{\parindent}
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{10pt}
 \renewcommand{\indent}{\hspace*{\tindent}}
 
 % To remove the section numbering
-\renewcommand\@seccntformat[1]{}
+%\renewcommand\@seccntformat[1]{}
 
 % labels can contain a prefixed section number
 % Before use: remove the * in the environment definition and enable section numbering
-%\counterwithin{table}{section}
-%\counterwithin{figure}{section}
-%\counterwithin{definition}{section}
-%\counterwithin{theorem}{section}
-%\counterwithin{assumption}{section}
-%\counterwithin{claim}{section}
-%\counterwithin{equation}{section}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\counterwithin{definition}{section}
+\counterwithin{theorem}{section}
+\counterwithin{assumption}{section}
+\counterwithin{claim}{section}
+\counterwithin{equation}{section}
 
 % Bold theorem titles
 \makeatletter
