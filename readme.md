@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.org/deltadak/random-math.svg)](https://travis-ci.org/deltadak/random-math)
+[![Build Status](https://travis-ci.org/deltadak/random-math.svg?branch=master)](https://travis-ci.org/deltadak/random-math)
 
 A collection of templates and more which currently consists of
 * A document containing all kinds of mathematical truths.
