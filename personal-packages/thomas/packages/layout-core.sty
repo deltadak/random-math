@@ -36,7 +36,13 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 %\pgfplotsset{compat=1.14}
 
 % TikZ setup
-\usetikzlibrary{positioning, arrows.meta, shapes.geometric}
+\usetikzlibrary{automata, calc, positioning, arrows.meta, shapes.geometric}
+
+% Default arrow length: (length right, length up)
+\newcommand{\stdlength}{2,0}
+% Default arrowhead.
+\newcommand{\stdarrow}{-{Latex[length=2mm,width=2mm]}}
+\newcommand{\stdbend}{30}
 
 % Scale a tikz picture. Usage: \scaletikzpicture{\textwidth}{ \begin{tikzpicture} ... \end{tikzpicture} }
 \newcommand{\scaletikzpicture}[2]{\resizebox{#1}{!}{#2}}
