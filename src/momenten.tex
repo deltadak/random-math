@@ -1,0 +1,40 @@
+Om momenten makkelijk uit te rekenen kun je gebruik maken van kansgenererende functies in het geval van een discrete verdeling, of Laplacetransformaties voor een continue verdeling.
+
+De kansgenererende functie is, voor een random variabele $X$,
+\[
+    P(z) = \E{z^X} = \sum_{k=0}^\infty \P{X=k} z^k.
+\]
+Deze kun je uitrekenen of vinden in een statistisch compendium.
+Als je de afgeleide hiervan neemt, zie je dat
+\[
+    \frac{\d}{\d z} \E{z^X} = \E{Xz^{X-1}}
+\]
+dus
+\[
+    \E{X} = \eval{\frac{\d}{\d z} P(z)}_{z=1}.
+\]
+Evenzo,
+\[
+    \frac{\d^2}{\d z^2} P(z) = \E{X(X-1)z^{X-2}} = \E{X^2} - \E{X}
+\]
+dus
+\[
+    \E{X^2} = \eval{\frac{\d^2}{\d z^2} P(z)}_{z=1} + \E{X}.
+\]
+Enzovoorts voor het $k$-de moment.
+
+\paragraph{Voorbeeld}
+Zij $X \sim \Poi(\lambda)$, dan is $P(z) = e^{\lambda (z-1)}$ dus
+\[
+    \E{X} = \eval{\lambda e^{\lambda (z-1)}}_{z=1} = \lambda
+\]
+en
+\[
+    \E{X^2} = \eval{\lambda^2 e^{\lambda (z-1)}}_{z=1} + \E{X} = \lambda^2 + \lambda .
+\]
+
+Voor Laplacetransformaties geldt
+\[
+    \phi(s) = \int_0^\infty e^{-st} f(t) \d t = \E{e^{-sX}}
+\]
+en de rest kan op dezelfde manier worden afgeleid.
