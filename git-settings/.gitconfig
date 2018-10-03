@@ -4,10 +4,10 @@
 	email = hollandpirates@gmail.com
 	signingkey = BB71073A25B9B76C
 [core]
-	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession
+	editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -nosession
 [mergetool "intellij"]
-	cmd = 'C:/Program Files (x86)/JetBrains/IntelliJ IDEA 2017.1/bin/idea.bat' merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-	trustExitCode = true
+	cmd = 'C:/Users/s156757/AppData/Local/JetBrains/Toolbox/apps/IDEA-U/ch-0/182.4505.22/bin/idea.bat' merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+    	trustExitCode = true
 [merge]
 	tool = intellij
 [mergetool]
@@ -41,3 +41,5 @@
   smtpserverport = 587
   suppresscc = self # Do send email also to author
   confirm = auto # Automatically confirm before sending mail
+[winUpdater]
+	recentlySeenVersion = 2.19.0.windows.1
