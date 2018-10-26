@@ -7,6 +7,14 @@ auxil/**
 src/*.ilg
 src/*.ind
 
+## In case the auxil/ and out/ directories are not used
+src/*.aux
+src/*.log
+src/*.pdf
+src/*.synctex.gz
+src/*.toc
+src/*.upa
+
 # Generated files by SageTeX
 !auxil/*.sagetex.scmd
 !auxil/*.sagetex.sout
