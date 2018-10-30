@@ -30,6 +30,12 @@ script:
 - tectonic ./package-test-article.tex --print
 - tectonic ./package-test-exam.tex --print
 - cd ../../
+# MWEs
+- cd ./mwe/
+- tectonic ./biber-mwe.tex --print
+- tectonic ./bibtex-mwe.tex --print
+- tectonic ./index-mwe.tex --print
+- cd ../
 deploy:
   provider: releases
   api_key:

@@ -1,0 +1,30 @@
+## A gitignore for LaTeX projects
+
+*.iml
+.idea/
+out/**
+auxil/**
+*.ilg
+*.ind
+
+## In case the auxil/ and out/ directories are not used
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+*.toc
+*.upa
+
+*.idx
+
+# Generated files by SageTeX
+!auxil/*.sagetex.scmd
+!auxil/*.sagetex.sout
+!src/sagetex.sty
+
+# JabRef files
+src/*.bak
+src/*.sav
+
+# Generated files by minted
+src/_minted-*/*
