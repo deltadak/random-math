@@ -13,9 +13,6 @@ install:
       conda config --set always_yes yes;
       conda install tectonic==0.1.10;
     fi
-  - conda config --add channels conda-forge;
-  - conda config --set always_yes yes;
-  - conda update tectonic
   - conda info -a
   # Workaround until tectonic 0.1.11 is available
   - sudo mkdir -p ~/.config/Tectonic/
