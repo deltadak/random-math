@@ -21,7 +21,8 @@ install:
   - sudo echo "url = \"https://tectonic.newton.cx/bundles/tlextras-2018.1r0/bundle.tar\"" | sudo tee --append ~/.config/Tectonic/config.toml
 cache:
   directories:
-  - "$HOME/miniconda"
+  - $HOME/miniconda
+  - $HOME/.cache/Tectonic
 script:
 - cd ./src/
 - tectonic ./random-math.tex --print
