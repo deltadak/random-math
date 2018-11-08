@@ -36,16 +36,30 @@
     \section{Integreren}\label{sec:integreren}
     \input{integreren}
 
+    \section{Afgeleides}
+    \subsection{Afgeleide van $z^x$}
+    \[
+        \frac{\d}{\d x} z^x = \frac{\d}{\d x} e^{\log \left( z^x \right)} = \frac{\d}{\d x} e^{x \log z} = \log z e^{x \log z} = z^x \log z.
+    \]
+
     \section{Co\"ordinaten}\label{sec:coordinaten}
     \input{coordinaten}
 
     \section{Momenten uitrekenen}
     \input{momenten}
 
-    \section{Determinant}\label{sec:determinant}
+    \section{Matrices en vectoren}
+
+    \subsection{Inverse 2x2 matrix}
+    \[
+        A = \matrix{a & b \\ c & d} \implies A^{-1} = \frac{1}{\mathrm{det} A} \matrix{d & -b \\ -c & a} = \frac{1}{ad-bc} \matrix{d & -b \\ -c & a}.
+    \]
+    Je kunt controleren of je $-a$ en $-d$ of $-b$ en $-c$ moest nemen door $\matrix{1&0\\0&1}=I=I^{-1}$ in te vullen.
+
+    \subsection{Determinant}\label{sec:determinant}
     \input{determinant}
 
-    \section{Inproduct/uitproduct}\label{sec:inproduct/uitproduct}
+    \subsection{Inproduct/uitproduct}\label{sec:inproduct/uitproduct}
     \input{inproductuitproduct}
 
     \section{Inhoud bol}\label{sec:inhoudBol}
