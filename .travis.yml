@@ -10,6 +10,7 @@ install:
   -O miniconda.sh; bash miniconda.sh -b -p $HOME/miniconda -u; conda config --add
   channels conda-forge; conda config --set always_yes yes; conda update --all; conda
   install tectonic; fi
+- conda update tectonic
 - conda info -a
 cache:
   directories:
