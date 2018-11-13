@@ -43,6 +43,7 @@ script:
 - tectonic ./biber-mwe.tex --print
 - tectonic ./bibtex-mwe.tex --print
 - tectonic ./index-mwe.tex --print
+- tectonic ./lualatex-mwe.tex --print
 - cd ../
 deploy:
   provider: releases

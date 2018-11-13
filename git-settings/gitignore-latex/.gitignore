@@ -9,6 +9,8 @@ src/*.ind
 
 ## In case the auxil/ and out/ directories are not used
 src/*.aux
+src/*.ilg
+src/*.ind
 src/*.log
 src/*.pdf
 src/*.synctex.gz
@@ -17,6 +19,8 @@ src/*.upa
 src/*.bbl
 src/*.bcf
 src/*.blg
+src/*.fls
+src/*.fdb_latexmk
 
 # Generated files by SageTeX
 !auxil/*.sagetex.scmd
