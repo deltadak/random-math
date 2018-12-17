@@ -39,6 +39,7 @@
 
 \newtheorem*{toprove}{To prove}
 \newtheorem*{tebewijzen}{Te bewijzen}
+
 %% Credits to Sten
 % Inline to prove env. To be used when `toprove' is the first content in a question. Then normally the text would end up on a new line, which is ugly. In these cases, use this environment instead.
 \newenvironment{inlinetoprove}
@@ -47,6 +48,10 @@
 \newenvironment{inlinetebewijzen}
 {\enskip\textbf{Te bewijzen.\space}}% \begin{inlinetoprove}
 {\enskip}% \end{inlinetoprove}
+
+\newenvironment{inlinequestion}
+{\enskip\textbf{Question.\space}}%
+{\enskip}%
 
 % Define command to put two lines of math over each other in normal text size.
 \newcommand{\stacked}[2]{%
