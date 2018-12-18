@@ -54,11 +54,7 @@
     <option name="ignorePrivateMethodsAndFields" value="false" />
   </inspection_tool>
   <inspection_tool class="DiamondCanBeReplacedWithExplicitTypeArguments" enabled="false" level="INFORMATION" enabled_by_default="false" />
-  <inspection_tool class="DivideByZero" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="DuplicateBooleanBranch" enabled="true" level="WARNING" enabled_by_default="true" />
-  <inspection_tool class="DuplicateCondition" enabled="true" level="WARNING" enabled_by_default="true">
-    <option name="ignoreSideEffectConditions" value="true" />
-  </inspection_tool>
   <inspection_tool class="EqualsCalledOnEnumConstant" enabled="true" level="INFORMATION" enabled_by_default="true" />
   <inspection_tool class="FeatureEnvy" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="ignoreTestCases" value="false" />
@@ -124,7 +120,7 @@
   <inspection_tool class="LatexDuplicateLabel" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexEllipsis" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexEnDash" enabled="false" level="WARNING" enabled_by_default="false" />
-  <inspection_tool class="LatexEncloseWithLeftRight" enabled="false" level="WARNING" enabled_by_default="false" />
+  <inspection_tool class="LatexEncloseWithLeftRight" enabled="false" level="WARNING" enabled_by_default="false" texify.inspection.latex.LatexEncloseWithLeftRight.textArea="" />
   <inspection_tool class="LatexExtremeInequality" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexFileNotFound" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexGatherEquations" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -135,8 +131,6 @@
   <inspection_tool class="LatexMakeatletter" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexMathOperatorEscape" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexMightBreakTexify" enabled="false" level="WARNING" enabled_by_default="false" />
-  <inspection_tool class="LatexMissingDocumentEnvironment" enabled="false" level="WARNING" enabled_by_default="false" />
-  <inspection_tool class="LatexMissingDocumentclass" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexMissingImport" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexMissingLabel" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LatexMultipleIncludes" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -176,6 +170,7 @@
   </inspection_tool>
   <inspection_tool class="LoopWithImplicitTerminationCondition" enabled="true" level="INFORMATION" enabled_by_default="true" />
   <inspection_tool class="MagicNumber" enabled="true" level="WARNING" enabled_by_default="true" />
+  <inspection_tool class="MemberVisibilityCanBePrivate" enabled="false" level="INFO" enabled_by_default="false" />
   <inspection_tool class="MemberVisibilityCanPrivate" enabled="false" level="INFO" enabled_by_default="false" />
   <inspection_tool class="MethodOnlyUsedFromInnerClass" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="ignoreMethodsAccessedFromAnonymousClass" value="false" />
@@ -246,6 +241,7 @@
   <inspection_tool class="UnclearBinaryExpression" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="UnnecessaryConstructor" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="UnnecessaryToStringCall" enabled="true" level="INFORMATION" enabled_by_default="true" />
+  <inspection_tool class="UnusedSymbol" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="UseOfObsoleteDateTimeApi" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="WeakerAccess" enabled="false" level="WARNING" enabled_by_default="false">
     <option name="SUGGEST_PACKAGE_LOCAL_FOR_MEMBERS" value="true" />
