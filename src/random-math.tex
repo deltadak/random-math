@@ -6,6 +6,13 @@
     \tableofcontents
     \newpage
 
+    \section{Binomiaalco\"efficienten}\label{sec:binomiaalco"efficienten}
+
+    \[
+        \binom n k = \frac{n!}{k! (n-k)!} = \frac{n! / (n-k)!}{k!} = \frac{n (n-1) \dots (n-k+1)}{k!}.
+    \]
+    Merk op dat we voor $n$ ook negatieve en niet-gehele getallen in kunnen vullen als we maar de goede (meest rechtse) definitie gebruiken.
+
     \section{Limieten}\label{sec:limieten}
     Onthoud
     \begin{align*}
@@ -16,7 +23,7 @@
     \[
         f(h) \in o(h) \text{ als } \lim_{h \downarrow 0} \frac{f(h)}{h} = 0.
     \]
-    \section{Sommen}\label{sec:sommen}
+    \section{Machtreeksen}\label{sec:sommen}
     \input{sommen}
 
     \section{Taylorreeksen}\label{sec:taylorreeksen}
@@ -36,8 +43,8 @@
     \section{Integreren}\label{sec:integreren}
     \input{integreren}
 
-    \section{Afgeleides}
-    \subsection{Afgeleide van $z^x$}
+    \section{Afgeleides}\label{sec:afgeleides}
+    \subsection{Afgeleide van $z^x$}\label{subsec:afgeleide-van}
     \[
         \frac{\d}{\d x} z^x = \frac{\d}{\d x} e^{\log \left( z^x \right)} = \frac{\d}{\d x} e^{x \log z} = \log z e^{x \log z} = z^x \log z.
     \]
@@ -45,12 +52,12 @@
     \section{Co\"ordinaten}\label{sec:coordinaten}
     \input{coordinaten}
 
-    \section{Momenten uitrekenen}
+    \section{Momenten uitrekenen}\label{sec:momenten-uitrekenen}
     \input{momenten}
 
-    \section{Matrices en vectoren}
+    \section{Matrices en vectoren}\label{sec:matrices-en-vectoren}
 
-    \subsection{Inverse 2x2 matrix}
+    \subsection{Inverse 2x2 matrix}\label{subsec:inverse-2x2-matrix}
     \[
         A = \matrix{a & b \\ c & d} \implies A^{-1} = \frac{1}{\mathrm{det} A} \matrix{d & -b \\ -c & a} = \frac{1}{ad-bc} \matrix{d & -b \\ -c & a}.
     \]

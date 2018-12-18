@@ -3,22 +3,55 @@ Onthoud
     \sum_{k=c}^{\infty} r^k &= \frac{r^c}{1-r} \text{ als $|r|<1$}\\
     \sum_{k=1}^{\infty} \frac{1}{k^2} &= \frac{\pi^2}{6} \\
     \sum_{k=0}^\infty \frac{x^k}{k!} &= e^x \\
+    \sum_{k=0}^n \binom{n}{k} a^k b^{n-k} &= (a+b)^n \\
 \end{align*}
+
 Uit de eerste kunnen we andere sommen afleiden.
 bijvoorbeeld
-$\displaystyle \sum_{k=0}^{\infty} kr^k: $
+$\displaystyle \sum_{k=0}^{\infty} kr^k $ of $\displaystyle \sum_{k=0}^{\infty} (k+1)r^k: $
 \begin{align*}
     \sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { differenti\"eren aan beide kanten } \to \\
-    \sum_{k=1}^{\infty} kr^{k-1} &= \frac{1}{(1-r)^2} \\
-    \sum_{k=0}^{\infty} kr^k &= \frac{r}{(1-r)^2} \\
+    \iff \sum_{k=1}^{\infty} kr^{k-1} &= \frac{-1}{(1-r)^2} \\
+    \iff \sum_{k=0}^{\infty} kr^k &= \frac{-r}{(1-r)^2} \quad \text{of index verschuiven:} \\
+    \iff \sum_{k=0}^{\infty} (k+1)r^k &= \frac{-1}{(1-r)^2} \\
 \end{align*}
-Op dezelfde manier $\displaystyle \sum_{k-1}^\infty \frac{1}{k} r^k$, bijvoorbeeld $\displaystyle \sum_{k=1}^{\infty} \frac{1}{k2^k}$:
+
+Dit kunnen we natuurlijk voortzetten door nog een afgeleide te nemen, dan krijgen we
+\begin{align*}
+    \sum_{k=1}^{\infty} kr^{k-1} &= \frac{-1}{(1-r)^2} \\
+    \iff \sum_{k=2}^\infty k(k-1) r^{k-2} &= \frac{2}{(1-r)^3} \\
+    \iff \sum_{k=0}^\infty \frac{(k+1)(k+2)}{2} r^k &= \frac{1}{(1-r)^3}.
+\end{align*}
+
+Merk op dat
+\begin{align*}
+    \binom{-3}{n} (-1)^n &= (-1)^n \frac{(-3)(-4)\dots (-3-n+1)}{n!} \\
+    &= \frac{3 \cdot 4 \dots (n+2)}{n!} \\
+    &= \frac{1}{2} \frac{(n+2)!}{n!} \\
+    &= \frac{(n+2)(n+1)}{2}.
+\end{align*}
+
+Hier worden we blij van, want eigenlijk is $\frac{1}{(1-r)^n} $ het binomium van Newton
+\[
+    (1+x)^\alpha = \sum_{k=0}^\infty \binom{\alpha}{k} x^k
+\]
+die we af kunnen leiden (idee van Newton) uit de formule voor $(a+b)^n$ door $a=1$ en voor $n$ een getal $\alpha \in \reals$ in te vullen.
+
+Nu kunnen we ook $\displaystyle \sum_{k-1}^\infty \frac{1}{k} r^k$, bijvoorbeeld $\displaystyle \sum_{k=1}^{\infty} \frac{1}{k2^k}$:
 \begin{align*}
     \sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { integreren aan beide kanten } \to \\
-    \sum_{k=0}^{\infty} \frac{1}{k+1} r^{k+1} &= -\log_e (1-r) \\
-    \sum_{k-1}^\infty \frac{1}{k} r^k &= \log_e (\frac{1}{1-r})
+    \iff \sum_{k=0}^{\infty} \frac{1}{k+1} r^{k+1} &= -\log_e (1-r) \\
+    \iff \sum_{k-1}^\infty \frac{1}{k} r^k &= \log_e (\frac{1}{1-r})
 \end{align*}
-Eindige sommen kunnen we nu ook, \textbf{deze formule geldt algemener voor $r\neq 1$} maar dan is de afleiding natuurlijk anders.
+
+Eindige sommen kunnen we nu ook, \textbf{deze formule geldt algemener voor $r\neq 1$} omdat dit een eindige som is en dus altijd een waarde heeft, maar dan is de afleiding natuurlijk anders.
 \begin{align*}
     \sum_{k=c}^n r^k &= \sum_{k=c}^\infty r^k - \sum_{k=n+1}^\infty r^k
+\end{align*}
+
+\subsection{Producten van sommen}\label{subsec:producten}
+
+\begin{align*}
+    \left( \sum_{k=0}^\infty a_k x^k \right) \left( \sum_{\ell=0}^\infty b_\ell x^\ell \right) &= \sum_{n=0}^\infty \sum_{k+\ell =n} a_k b_\ell x^{k+\ell} \\
+    &= \sum_{n=0}^\infty \sum_{k=0}^n a_k b_{n-k} x^n = \sum_{n=0}^\infty c_n x^n.
 \end{align*}
