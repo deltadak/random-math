@@ -107,6 +107,12 @@ citecolor=blue
 \let\therequirementsaved\therequirement
 \renewcommand{\therequirement}{REQ\therequirementsaved}
 
+\let\theuserreqsaved\theuserreq
+\renewcommand{\theuserreq}{URQ\theuserreqsaved}
+
+\let\thesoftwarereqsaved\thesoftwarereq
+\renewcommand{\thesoftwarereq}{SRQ\thesoftwarereqsaved}
+
 % parts and subparts only exist in the exam documentclass
 \makeatletter
 \@ifclassloaded{exam}{
