@@ -104,14 +104,8 @@ citecolor=blue
 \makeatother
 
 % Specific prefix for requirements, so result is Requirement REQx.
-\newcommand{\requirementprefix}{REQ}
-% Implementation magic
-\makeatletter
-\newcommand{\reqprefix}{}
 \let\therequirementsaved\therequirement
-\renewcommand{\therequirement}{\reqprefix\therequirementsaved}
-\patchcmd{\@startsection}{\par}{\renewcommand{\reqprefix}{\requirementprefix}}{}{}
-\makeatother
+\renewcommand{\therequirement}{REQ\therequirementsaved}
 
 % parts and subparts only exist in the exam documentclass
 \makeatletter
