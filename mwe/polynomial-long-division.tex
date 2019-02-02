@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\usepackage{scalerel}
+\usepackage{stackengine}
+\newcommand\showdiv[1]{\overline{\smash{\hstretch{.5}{)}\mkern-3.2mu\hstretch{.5}{)}}#1}}
+\newcommand\ph[1]{\textcolor{white}{#1}}
+
+\begin{document}
+
+    \setstackgap{S}{1.5pt}
+    \stackMath\def\stackalignment{r}
+    \(
+    \stackunder{%
+    1+x+x^2\ \stackon[2pt]{\showdiv{\ 1 \hspace{108pt}}}{\ 1-x +x^3 - x^4 + x^6 - x^7 }\hspace{85pt}%
+    }{%
+    \Shortstack[l]{{\underline{1+x+x^2} \hspace{50pt}}
+    \ph{1}-x-x^2 {\ph{1}\underline{-x-x^{2}-x^3}}
+    \ph{1-x-x^2-}x^3 {\ph{1-x-x^2-} \underline{x^3 + x^4 + x^5}}
+    \ph{1-x-x^2-x^3}-x^4-x^5 {\ph{1-x-x^2-x^3}\underline{-x^4 - x^5 - x^6}}
+    \ph{1-x-x^2-x^3-x^4-x^5-}x^6 {\ph{1-x-x^2-x^3-x^4-x^5-}\underline{x^6+x^7+x^8}}
+    \ph{1-x-x^2-x^3-x^4-x^5-x^6}-x^7-x^8 {\ph{1-x-x^2-x^3-x^4-x^5-x^6}\underline{-x^7-x^8-x^9}}
+    \ph{1-x-x^2-x^3-x^4-x^5-x^6-x^7-x^8-}x^9 }%
+    }
+    \)
+
+\end{document}

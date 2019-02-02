@@ -6,6 +6,13 @@
     \tableofcontents
     \newpage
 
+    \section{Binomiaalco\"efficienten}\label{sec:binomiaalco"efficienten}
+
+    \[
+        \binom n k = \frac{n!}{k! (n-k)!} = \frac{n! / (n-k)!}{k!} = \frac{n (n-1) \dots (n-k+1)}{k!}.
+    \]
+    Merk op dat we voor $n$ ook negatieve en niet-gehele getallen in kunnen vullen als we maar de goede (meest rechtse) definitie gebruiken.
+
     \section{Limieten}\label{sec:limieten}
     Onthoud
     \begin{align*}
@@ -16,32 +23,8 @@
     \[
         f(h) \in o(h) \text{ als } \lim_{h \downarrow 0} \frac{f(h)}{h} = 0.
     \]
-    \section{Sommen}\label{sec:sommen}
-    Onthoud
-    \begin{align*}
-        \sum_{k=c}^{\infty} r^k &= \frac{r^c}{1-r} \text{ als $|r|<1$}\\
-        \sum_{k=1}^{\infty} \frac{1}{k^2} &= \frac{\pi^2}{6} \\
-        \sum_{k=0}^\infty \frac{x^k}{k!} &= e^x \\
-    \end{align*}
-
-    Uit de eerste kunnen we andere sommen afleiden.
-    bijvoorbeeld
-    $\displaystyle \sum_{k=0}^{\infty} kr^k: $
-    \begin{align*}
-        \sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { differenti\"eren aan beide kanten } \to \\
-        \sum_{k=1}^{\infty} kr^{k-1} &= \frac{1}{(1-r)^2} \\
-        \sum_{k=0}^{\infty} kr^k &= \frac{r}{(1-r)^2} \\
-    \end{align*}
-    Op dezelfde manier $\displaystyle \sum_{k-1}^\infty \frac{1}{k} r^k$, bijvoorbeeld $\displaystyle \sum_{k=1}^{\infty} \frac{1}{k2^k}$:
-    \begin{align*}
-        \sum_{k=0}^{\infty} r^k &= \frac{1}{1-r} \text { integreren aan beide kanten } \to \\
-        \sum_{k=0}^{\infty} \frac{1}{k+1} r^{k+1} &= -\log_e (1-r) \\
-        \sum_{k-1}^\infty \frac{1}{k} r^k &= \log_e (\frac{1}{1-r})
-    \end{align*}
-    Eindige sommen kunnen we nu ook, \textbf{deze formule geldt algemener voor $r\neq 1$} maar dan is de afleiding natuurlijk anders.
-    \begin{align*}
-        \sum_{k=c}^n r^k &= \sum_{k=c}^\infty r^k - \sum_{k=n+1}^\infty r^k
-    \end{align*}
+    \section{Machtreeksen}\label{sec:sommen}
+    \input{sommen}
 
     \section{Taylorreeksen}\label{sec:taylorreeksen}
     \input{taylorreeksen}
@@ -60,70 +43,34 @@
     \section{Integreren}\label{sec:integreren}
     \input{integreren}
 
+    \section{Afgeleides}\label{sec:afgeleides}
+    \subsection{Afgeleide van $z^x$}\label{subsec:afgeleide-van}
+    \[
+        \frac{\d}{\d x} z^x = \frac{\d}{\d x} e^{\log \left( z^x \right)} = \frac{\d}{\d x} e^{x \log z} = \log z e^{x \log z} = z^x \log z.
+    \]
+
     \section{Co\"ordinaten}\label{sec:coordinaten}
-    Bij cilindercoordinaten is een extra \textbf{factor $\bm r$} verplicht als je integreert, bij bolcoordinaten $\rho^2 \sin \phi$
+    \input{coordinaten}
 
-    Om bolco\"ordinaten te onthouden, gebruik poolco\"ordinaten en druk $r$ uit in $\rho$ en $\phi$ met behulp van onderstaand driehoekje, zodat $r=\rho \sin \phi$, en vul deze in, in poolco\"ordinaten $r \cos \theta,r \sin \theta$ om $x$ en $y$ te krijgen.
-    Vind de $z$-co\"ordinaat op dezelfde manier zodat $z=\rho \cos \phi$.
-    Zie figuur~\ref{bolMMa} in de appendix om je gekozen co\"ordinaten te controleren met Mathematica.
+    \section{Momenten uitrekenen}\label{sec:momenten-uitrekenen}
+    \input{momenten}
 
-    \begin{tikzpicture}[thick]
-        \draw(0,0)
-        -- (90:2cm) node[midway,left]{$z$-as}
-        -- (30:4cm) node[midway,above]{$r$} % node of point
-        -- (0,0) node[midway,below right]{$\rho$};
-        \draw[fill=lightgray, thick] (0,0)
-        -- (30:0.8cm) arc (0:112:0.5cm) node at (60:0.5cm) {$\phi$}
-        -- cycle;
+    \section{Matrices en vectoren}\label{sec:matrices-en-vectoren}
 
-    \end{tikzpicture}
-
-    \section{Determinant}\label{sec:determinant}
-
+    \subsection{Inverse 2x2 matrix}\label{subsec:inverse-2x2-matrix}
     \[
-        \det{
-        a & b & c \\
-        d & e & f \\
-        g & h & i \\
-        }
-        = a \det{e & f \\ h & i} - b \det{d & f \\ g & i} + c \det{d & e \\ g & h}
+        A = \matrix{a & b \\ c & d} \implies A^{-1} = \frac{1}{\mathrm{det} A} \matrix{d & -b \\ -c & a} = \frac{1}{ad-bc} \matrix{d & -b \\ -c & a}.
     \]
-    \textbf{Let op het minteken!} Mintekens gaan als volgt:
-    \[
-        \det{
-        + & - & + \\
-        - & + & - \\
-        + & - & +
-        }
-    \]
-    \section{Inproduct/uitproduct}\label{sec:inproduct/uitproduct}
-    \paragraph{Inproduct (dot product)}
-    \[ \x \bullet \bm \phi = \matrix{x \\ y \\ z} \bullet \matrix{\phi_1 \\ \phi_2 \\\phi_3} = x \phi_1 + y \phi_2 + z \phi_3 \]
-    \paragraph{Uitproduct (Vector/Cross product)}
-    \[ \matrix{x \\ y \\ z} \times \matrix{\phi_1 \\ \phi_2 \\\phi_3} = \matrix{y \phi_3 - \phi_2 z \\ z \phi_1 - \phi_3 x \\ x \phi_2 - \phi_1 y}  \]
-    eventueel te onthouden door (zie \LaTeX\ comments)
+    Je kunt controleren of je $-a$ en $-d$ of $-b$ en $-c$ moest nemen door $\matrix{1&0\\0&1}=I=I^{-1}$ in te vullen.
 
-    \begin{tikzpicture}[thick]
-        \matrix (m) [matrix of math nodes, row sep = 1em, column sep = 4 em, minimum width=2em]
-        {
-        x & \phi_1 \\
-        y & \phi_2 \\
-        z & \phi_3 \\
-        x & \phi_1 \\
-        y & \phi_2 \\
-        };
-        \path[-stealth]
-        (m-2-1) edge[-] (m-3-2) % y keer phi_3
-        (m-2-2) edge[-] (m-3-1) % min phi_2 keer z,
-        (m-3-1) edge[-] (m-4-2) % z keer phi_1
-        (m-3-2) edge[-] (m-4-1) % min phi_3 keer x,
-        (m-4-1) edge[-] (m-5-2) % x keer phi_2
-        (m-4-2) edge[-] (m-5-1) % min phi_1 keer y
-        ;
-    \end{tikzpicture}
+    \subsection{Determinant}\label{sec:determinant}
+    \input{determinant}
+
+    \subsection{Inproduct/uitproduct}\label{sec:inproduct/uitproduct}
+    \input{inproductuitproduct}
 
     \section{Inhoud bol}\label{sec:inhoudBol}
-    Inhoud is $\frac{4}{3} \pi r^3$, neem afgeleide voor oppervlakte.
+    \input{inhoud-bol}
 
     \section{Tussenwaarde/middelwaardestelling}\label{sec:tussenwaarde/middelwaardestelling}
     \begin{stelling}[\indx{Tussenwaardestelling}/Intermediate Value Theorem]

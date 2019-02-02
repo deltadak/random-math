@@ -1,0 +1,16 @@
+\documentclass{article}
+
+\usepackage{imakeidx}
+
+\makeindex
+
+% This command makes it possible to use a word and add it to the index at the same time
+\newcommand{\indx}[1]{\index{#1}\textsl{#1}}
+
+\begin{document}
+
+    This \index{this} is in the index. \indx{This} also is.
+
+    \printindex
+
+\end{document}

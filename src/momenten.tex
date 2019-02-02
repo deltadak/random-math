@@ -1,0 +1,89 @@
+Om momenten makkelijk uit te rekenen kun je gebruik maken van kansgenererende functies in het geval van een discrete verdeling, of Laplacetransformaties voor een continue verdeling.
+
+\subsection{Kansgenererende functie}
+
+De kansgenererende functie is, voor een random variabele $X$,
+\[
+    P(z) = \E{z^X} = \sum_{k=0}^\infty \P{X=k} z^k.
+\]
+Deze kun je uitrekenen of vinden in een statistisch compendium.
+Als je de afgeleide hiervan neemt, zie je dat
+\[
+    \frac{\d}{\d z} \E{z^X} = \E{Xz^{X-1}}
+\]
+dus
+\[
+    \E{X} = \eval{\frac{\d}{\d z} P(z)}_{z=1}.
+\]
+Evenzo,
+\[
+    \frac{\d^2}{\d z^2} P(z) = \E{X(X-1)z^{X-2}} = \E{X^2} - \E{X}
+\]
+dus
+\[
+    \E{X^2} = \eval{\frac{\d^2}{\d z^2} P(z)}_{z=1} + \E{X}.
+\]
+Enzovoorts voor het $k$-de moment.
+
+\paragraph{Voorbeeld}
+Zij $X \sim \Poi(\lambda)$, dan is 
+\begin{align*}
+    P(z) &= \E{z^X} \\
+    &= \sumin z^k e^{-\lambda} \frac{\lambda^k}{k!} \\
+    &= e^{-\lambda} \sumin \frac{(z\lambda)^k}{k!} \\
+    &= e^{-\lambda} e^{z\lambda} \\
+    &= e^{\lambda (z-1)}
+\end{align*}
+dus
+\[
+    \E{X} = \eval{\lambda e^{\lambda (z-1)}}_{z=1} = \lambda
+\]
+en
+\[
+    \E{X^2} = \eval{\lambda^2 e^{\lambda (z-1)}}_{z=1} + \E{X} = \lambda^2 + \lambda .
+\]
+
+\subsection{Momentgenererende functie}
+
+De momentgenererende functie is een andere manier om een kansgenererende functie op te schrijven, namelijk
+\[
+    M_X(t) = \E{e^{tX}}
+\]
+dus als je de kansgenererende functie hebt vervang je $z=e^t$ en andersom.
+
+\subsection{Laplacetransformatie}
+
+Voor Laplacetransformaties geldt
+\[
+    \phi(s) = \int_{-\infty}^\infty e^{-st} f(t) \d t = \E{e^{-sX}}.
+\]
+Op dezelfde manier als bij kansgenererende functies kunnen we afgeleiden bepalen en daaruit de momenten halen.
+
+\paragraph{Voorbeeld}
+
+Zij $Z \sim \Norm(0,1)$, de Laplacetransformatie is
+\begin{align*}
+    \phi(s) &= \int_{-\infty}^\infty e^{-st} \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \d t \\
+    &= \int_{-\infty}^\infty \frac{1}{\sqrt{2 \pi}} e^{-st-\frac 1 2 t^2} \d t \\
+    &= \int_{-\infty}^\infty \frac{1}{\sqrt{2 \pi}} e^{-\frac 1 2 (t^2 + 2st)} \d t \\
+    &= \int_{-\infty}^\infty \frac{1}{\sqrt{2 \pi}} e^{- \frac 1 2 (t+s)^2 + \frac 1 2 s^2} \d t \\
+    &= e^{\frac{s^2}{2}} \int_{-\infty}^\infty \frac{1}{\sqrt{2 \pi}} e^{- \frac 1 2 (t+s)^2} \d t \\
+    &= e^{\frac{s^2}{2}}.
+\end{align*}
+We nemen de afgeleide
+\[
+    \frac{\d}{\d s} \phi (s) = \frac{\d}{\d s} \E{e^{-sZ}} = \E{-Z e^{-sZ}}
+\]
+dus 
+\[
+    \E{Z} = - \eval{\frac{\d}{\d s} \phi(s)}_{s=0}.
+\]
+In dit geval,
+\[
+    \eval{-s e^{\frac{s^2}{2}}}_{s=0} = 0
+\]
+en 
+\[
+    \E{Z^2} = \eval{-e^{\frac{s^2}{2}} - s^2 e^{\frac{s^2}{2}}}_{s=0} = -1.
+\]
+Merk verder op dat als $Y \sim \Norm(0,\sigma^2) = \sigma \Norm(0,1)$ dus $\E{Y^2} = \sigma^2 \E{Z^2}$, enzovoorts.

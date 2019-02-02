@@ -33,6 +33,7 @@
 \newtheorem{algorithm}{Algorithm}
 \newtheorem{assumption}{Assumption}
 \newtheorem{claim}{Claim}
+\newtheorem{requirement}{Requirement}
 
 % Shortcut to set question prefix, to get e.g. x.y.q
 \newcommand{\setquestionprefix}[1]{\renewcommand{\questionlabel}{#1\thequestion}}
@@ -47,6 +48,10 @@
 \newenvironment{inlinetebewijzen}
 {\enskip\textbf{Te bewijzen.\space}}% \begin{inlinetoprove}
 {\enskip}% \end{inlinetoprove}
+
+\newenvironment{inlinequestion}
+{\enskip\textbf{Question.\space}}%
+{\enskip}%
 
 % Define command to put two lines of math over each other in normal text size.
 \newcommand{\stacked}[2]{%

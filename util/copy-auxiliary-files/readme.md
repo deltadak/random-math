@@ -1,3 +1,5 @@
+> *Obsolete notice* With any recent version of TeXiFy it should be sufficient to disable the `auxil/` and `out/` folders. If you still want to use those, you can do as described below.
+
 # Automatically copying index file
 
 (Windows only)
