@@ -94,12 +94,12 @@ citecolor=blue
 % Bold theorem titles
 \makeatletter
 \def\th@plain{%
-\thm@notefont{}% same as heading font
-\itshape % body font
+\thm@notefont{\normalfont \itshape}% Title is not bold (\normalfont) and italic (\itshape)
+\normalfont % body font: not italic
 }
 \def\th@definition{%
-\thm@notefont{}% same as heading font
-\normalfont % body font
+\thm@notefont{}% same as heading font: bold
+\normalfont % body font: not italic
 }
 \makeatother
 
