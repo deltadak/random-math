@@ -1,0 +1,51 @@
+%%
+%% basic package
+%% Author: abby
+%% %2/11/19
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/basic}[2019/02/11 abby's basic package]
+
+% Packages needed for this package.
+\RequirePackage{ifthen}         % If then statements.
+\RequirePackage{kvoptions}      % Key-value options.
+\SetupKeyvalOptions{family=abby, prefix=abby@}
+
+\DeclareStringOption[english]{lang}  % Set a language.
+\DeclareStringOption[bold]{vectorstyle}  % Define the vector style.
+
+\ProcessKeyvalOptions*
+
+% Load required packages.
+\RequirePackage[\abby@lang]{babel} % Language support.
+\RequirePackage[fleqn]{amsmath} % Improvement of mathematical environments, left align.
+\RequirePackage{amssymb}        % Symbols like real R, natural N.
+\RequirePackage{amsthm}         % Theorem environments.
+\RequirePackage{thmtools}       % Custom theorem environments.
+\RequirePackage{mathtools}      % Improvement over amsmath, like \coloneqq.
+\RequirePackage{bm}             % Bold math, for example for bold vectors.
+\RequirePackage{booktabs}       % Fancier tables.
+\RequirePackage{enumerate}      % Numbered lists.
+\RequirePackage{imakeidx}       % Index.
+\RequirePackage{tikz}           % Drawings.
+\RequirePackage{pgfplots}       % Drawings.
+\RequirePackage{pdfpages}       % Include external pdfs.
+\RequirePackage{fullpage}       % Use the full page.
+\RequirePackage{hyperref}       % Clickable references.
+\RequirePackage{bookmark}       % Bookmarks, must be loaded AFTER hyperref.
+
+% Load the other packages.
+\usepackage{packages/vector}
+\usepackage{packages/general-math}
+\usepackage{packages/discrete-math}
+\usepackage{packages/analysis}
+\usepackage{packages/theorem}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}

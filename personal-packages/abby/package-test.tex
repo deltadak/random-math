@@ -1,0 +1,77 @@
+%%
+%% Author: abby
+%% 2/11/19
+%%
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage[lang=dutch, vectorstyle=ul]{packages/basic}
+
+
+\title{Abby's Basic Package}
+\author{Abby}
+
+% Document
+\begin{document}
+    \maketitle
+    \clearpage
+    \tableofcontents
+    \clearpage
+
+    \section{Package options}
+    \subsection{Language}
+    Default=english, options=\{english, dutch\}.
+
+    Pass the value on to \verb|babel|, and use theorems etc in the specified language.
+
+    \begin{note}
+        When using texlive, you may need to install the \verb|babel-dutch| package in order for \verb|babel| to be able to know Dutch.
+    \end{note}
+
+    \subsection{Vectorstyle}
+    Default=bold, options=\{bold, ul, arrow\}, giving $\bm u$, $\underline u$, $\vec u$ respectively.
+
+    \section{Mathematics Commands}
+    \subsection{General}
+
+    \paragraph{Number sets} \verb|\naturals| $\to \naturals$, \verb|\reals| $\to \reals$, \verb|complex| $\to \complex$, \verb|\rationals| $\to \rationals$.
+
+    \paragraph{Imaginary i}
+    \verb|\i| $\to \i$.
+
+    \paragraph{Short colon} E.g., the colon in a function definition.
+
+    \verb|f \: \naturals \to \naturals| $\to f \: \naturals \to \naturals$.
+
+
+    \subsection{Discrete Mathematics}
+
+    \paragraph{Vertical vector}
+    \verb|\vvec{1 \\ 0}| $\to \vvec{1 \\ 0}$.
+
+    \subsection{Probability}
+
+    \subsection{Analysis}
+
+    \subsection{Vectors}
+    \begin{table}
+        \centering
+        \begin{tabular}{cl}
+            \toprule
+            \textbf{Excluded Letters} & \textbf{Replaced Command} \\
+            \midrule
+            d & integral $\d$ \\
+            i & imaginary $\i$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Excluded vectors.}
+        \label{tab:excluded-vector}
+    \end{table}
+    To display the vector $\a$, use \verb|\a|.
+    This works for any letter, except the letters in Table~\ref{tab:excluded-vector}.
+
+    \section{Todo}
+    \subsection{Index}
+\end{document}
