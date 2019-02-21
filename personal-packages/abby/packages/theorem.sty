@@ -1,0 +1,37 @@
+%%
+%% PACKAGE_NAME package
+%% Author: abby
+%% %2/12/19
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/theorem}[2019/02/12 abby's Package]
+
+\theoremstyle{definition}
+
+\ifthenelse{\equal\abby@lang{dutch}}{%
+    % Dutch theorem environment definitions.
+    \newtheorem*{thm}{Stelling}
+    \newtheorem*{note}{Opmerking}
+    \newtheorem*{ex}{Voorbeeld}
+    \newtheorem*{toprove}{Te bewijzen}
+    %% Credits to Sten
+    % Inline to prove env. To be used when `toprove' is the first content in a question. Then normally the text would end up on a new line, which is ugly. In these cases, use this environment instead.
+    \newenvironment{inlinetoprove}
+    {\enskip\textbf{Te bewijzen.\space}}% \begin{inlinetoprove}
+    {\enskip}% \end{inlinetoprove}
+}{%
+    % (default) English theorem environment definitions.
+    \newtheorem*{thm}{Theorem}
+    \newtheorem*{note}{Note}
+    \newtheorem*{ex}{Example}
+    \newtheorem*{toprove}{To prove}
+    %% Credits to Sten
+    % Inline to prove env. To be used when `toprove' is the first content in a question. Then normally the text would end up on a new line, which is ugly. In these cases, use this environment instead.
+    \newenvironment{inlinetoprove}
+    {\enskip\textbf{Te prove.\space}}% \begin{inlinetoprove}
+    {\enskip}% \end{inlinetoprove}
+}
+
+% Theorem environments the same for each/both languages.
+\newtheorem*{lem}{Lemma}

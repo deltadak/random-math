@@ -94,24 +94,24 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 % Bold theorem titles
 \makeatletter
 \def\th@plain{%
-\thm@notefont{}% same as heading font
-\itshape % body font
+\thm@notefont{\normalfont \itshape}% Title is not bold (\normalfont) and italic (\itshape)
+\normalfont % body font: not italic
 }
 \def\th@definition{%
-\thm@notefont{}% same as heading font
-\normalfont % body font
+\thm@notefont{}% same as heading font: bold
+\normalfont % body font: not italic
 }
 \makeatother
 
 % Specific prefix for requirements, so result is Requirement REQx.
-\newcommand{\requirementprefix}{REQ}
-% Implementation magic
-\makeatletter
-\newcommand{\reqprefix}{}
 \let\therequirementsaved\therequirement
-\renewcommand{\therequirement}{\reqprefix\therequirementsaved}
-\patchcmd{\@startsection}{\par}{\renewcommand{\reqprefix}{\requirementprefix}}{}{}
-\makeatother
+\renewcommand{\therequirement}{REQ\therequirementsaved}
+
+\let\theuserreqsaved\theuserreq
+\renewcommand{\theuserreq}{URQ\theuserreqsaved}
+
+\let\thesoftwarereqsaved\thesoftwarereq
+\renewcommand{\thesoftwarereq}{SRQ\thesoftwarereqsaved}
 
 % parts and subparts only exist in the exam documentclass
 \makeatletter

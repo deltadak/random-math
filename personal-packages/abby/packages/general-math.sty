@@ -1,0 +1,30 @@
+%%
+%% PACKAGE_NAME package
+%% Author: abby
+%% %2/11/19
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/general-math}[2019/02/11 abby's Package]
+
+% Number sets
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\rationals}{\mathbb{Q}}
+
+% Imaginary i
+\renewcommand\i{\mathrm{i}\mkern1mu}
+
+% Short colon
+\renewcommand{\:}{\colon}
+
+% Better phi
+\let\temp\phi
+\let\phi\varphi
+\let\varphi\temp
+
+% Better epsilon
+\let\temp\epsilon
+\let\epsilon\varepsilon
+\let\varepsilon\temp

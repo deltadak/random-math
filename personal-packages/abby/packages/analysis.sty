@@ -1,0 +1,21 @@
+%%
+%% PACKAGE_NAME package
+%% Author: abby
+%% %2/11/19
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/analysis}[2019/02/11 abby's Package]
+
+% Volume
+\DeclareMathOperator{\Vol}{Vol}
+
+% d used for integrals
+\renewcommand*\d{\mathop{}\!\mathrm{d}}
+
+% Set interior and distance
+\DeclareMathOperator{\intr}{\mathop{int}}
+\DeclareMathOperator{\dist}{\mathop{dist}}
+
+% Infinity norm
+\newcommand{\inftynorm}[1]{\left\|#1\right\|_\infty}
