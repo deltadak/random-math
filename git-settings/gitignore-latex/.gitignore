@@ -21,6 +21,7 @@ src/*.bcf
 src/*.blg
 src/*.fls
 src/*.fdb_latexmk
+src/*.run.xml
 
 # Generated files by SageTeX
 !auxil/*.sagetex.scmd
