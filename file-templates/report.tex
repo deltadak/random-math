@@ -6,6 +6,10 @@
 \documentclass{article}
 %\usepackage{packages/mathy}
 \usepackage{../personal-packages/thomaspackage-obsolete}
+
+\usepackage[firstinits=true]{biblatex}
+\addbibresource{bibliography.bib}
+
 \usepackage{tikzducks}
 
 % place notes in the margin
@@ -66,7 +70,7 @@
                     \emph{Tutor :} \\
                     D van Duck MSc \\
                     \emph{Lecturer :} \\
-                    Prof. van Duck
+                    Prof.\ van Duck
                 \end{flushright}
             \end{minipage}
 
@@ -85,11 +89,12 @@
     % list the fix me notes
     \listoffixmes
 
-    \section{Introductie}
+    \section{Introductie}\label{sec:introductie}
 %    \input{introductie}
 
+    Ik citeer~\cite{knuth1990}.
+
     \cleardoublepage
-    \bibliographystyle{plain}
-    \bibliography{bibliography}
+    \printbibliography
 
 \end{document}
