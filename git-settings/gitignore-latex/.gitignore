@@ -13,6 +13,7 @@ src/*.ilg
 src/*.ind
 src/*.log
 src/*.pdf
+src/*.dvi
 src/*.synctex.gz
 src/*.toc
 src/*.upa
@@ -22,6 +23,9 @@ src/*.blg
 src/*.fls
 src/*.fdb_latexmk
 src/*.run.xml
+src/*.out.ps
+src/*.out
+src/*.synctex
 
 # Generated files by SageTeX
 !auxil/*.sagetex.scmd
