@@ -26,6 +26,8 @@ src/*.run.xml
 src/*.out.ps
 src/*.out
 src/*.synctex
+src/*.sagetex.sage
+src/*doctest.sage
 
 # Generated files by SageTeX
 !auxil/*.sagetex.scmd
