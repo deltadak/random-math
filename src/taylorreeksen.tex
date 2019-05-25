@@ -69,7 +69,7 @@ en evenzo
 en dus weten we nu dat
 \begin{align}
     \label{verdubbeling1}
-    \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
+    \cos (2\alpha) &= \cos^2 \alpha - \sin^2 \alpha  \\
     \sin (2\alpha) &= 2 \cos \alpha \sin \alpha. \label{verdubbeling2}
 \end{align}
 
@@ -85,6 +85,23 @@ en uit dezelfde regel volgt ook
     \cos (2 \alpha) &= \cos^2 \alpha - \sin^2 \alpha \\
     &= (1 - \sin^2 \alpha) - \sin^2 \alpha \\
     &= 1 - 2 \sin^2 \alpha .
+\end{align*}
+
+\subsubsection{Alternatieve afleiding voor~\eqref{verdubbeling1}}
+
+Het idee is om $e^{i(\phi + \theta)}$ uit te schrijven en aan beide kanten het re\"eele deel te nemen.
+
+\begin{align*}
+    \cos(\phi + \theta) + i \sin(\phi + \theta) &= e^{i(\phi + \theta)} \\
+    &= e^{i\phi} e^{i \theta} \\
+    &= (\cos \phi + i \sin \phi )(\cos \theta + i \sin \theta) \\
+    &= \cos \phi \cos \theta + i \cos \phi \sin \theta + i \sin \phi \cos \theta - \sin \phi \sin \theta \\
+\end{align*}
+
+en dus is
+\begin{align*}
+    \cos (\phi + \theta) &= \cos \phi \cos \theta - \sin \phi \sin \theta \\
+    \implies \cos (2 \phi) &= \cos^2 \phi - \sin^2 \phi
 \end{align*}
 
 \subsection{Andere gonioformules}
