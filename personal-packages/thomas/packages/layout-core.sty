@@ -72,11 +72,11 @@ citecolor=blue
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{8.5in}
 
-% Indention
-\newlength\tindent
-\setlength{\tindent}{\parindent}
-\setlength{\parindent}{0pt}
-\renewcommand{\indent}{\hspace*{\tindent}}
+% Remove indention of first line of paragraph
+%\newlength\tindent
+%\setlength{\tindent}{\parindent}
+%\setlength{\parindent}{0pt}
+%\renewcommand{\indent}{\hspace*{\tindent}}
 
 % To remove the section numbering
 %\renewcommand\@seccntformat[1]{}
@@ -116,7 +116,7 @@ citecolor=blue
 % parts and subparts only exist in the exam documentclass
 \makeatletter
 \@ifclassloaded{exam}{
-% Subparts have the formait (i) (ii) etc...
+% Subparts have the format (i) (ii) etc...
 \renewcommand{\thesubpart}{(\roman{subpart})} % add parentheses
 \renewcommand{\subpartlabel}{\thesubpart} % remove the dot
 }{}
