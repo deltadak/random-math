@@ -23,6 +23,7 @@ src/*.run.xml
 src/*.sagetex.sage
 src/*.synctex
 src/*.synctex.gz
+src/*.synctex(busy)
 src/*.toc
 src/*.upa
 src/*doctest.sage
