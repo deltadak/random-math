@@ -9,9 +9,9 @@
 % \half already exists in exam class, but not in article class
 \makeatletter
 \@ifclassloaded{exam}{
-\renewcommand{\half}{\frac 1 2}
+    \renewcommand{\half}{\frac 1 2}
 }{
-\newcommand{\half}{\frac 1 2}
+    \newcommand{\half}{\frac 1 2}
 }
 \makeatother
 
@@ -34,8 +34,8 @@
 
 % Does not divide.
 \newcommand{\ndivides}{%
-\mathrel{\mkern.5mu % small adjustment
-% superimpose \nmid to \big|
-\ooalign{\hidewidth$\big|$\hidewidth\cr$\nmid$\cr}%
-}%
+    \mathrel{\mkern.5mu % small adjustment
+    % superimpose \nmid to \big|
+        \ooalign{\hidewidth$\big|$\hidewidth\cr$\nmid$\cr}%
+    }%
 }
