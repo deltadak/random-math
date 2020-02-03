@@ -42,8 +42,6 @@
 	driver = true
 [commit]
 	gpgsign = true
-[gpg]
-	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 [pull]
 	rebase = true
 [sendemail]

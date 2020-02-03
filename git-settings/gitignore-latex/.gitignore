@@ -4,24 +4,29 @@
 .idea/
 out/**
 auxil/**
-src/*.ilg
-src/*.ind
 
 ## In case the auxil/ and out/ directories are not used
 src/*.aux
-src/*.ilg
-src/*.ind
-src/*.log
-src/*.pdf
-src/*.synctex.gz
-src/*.toc
-src/*.upa
 src/*.bbl
 src/*.bcf
 src/*.blg
-src/*.fls
+src/*.dvi
 src/*.fdb_latexmk
+src/*.fls
+src/*.ilg
+src/*.ind
+src/*.log
+src/*.out
+src/*.out.ps
+src/*.pdf
 src/*.run.xml
+src/*.sagetex.sage
+src/*.synctex
+src/*.synctex.gz
+src/*.synctex(busy)
+src/*.toc
+src/*.upa
+src/*doctest.sage
 
 # Generated files by SageTeX
 !auxil/*.sagetex.scmd

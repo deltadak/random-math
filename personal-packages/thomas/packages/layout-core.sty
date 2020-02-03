@@ -9,11 +9,11 @@
 % Titlepages are included in article documentclass, but not in exam documentclass.
 \makeatletter
 \@ifclassloaded{exam}{
-\renewcommand{\titlepage}{
-\maketitle
-\thispagestyle{empty}
-\newpage
-}
+    \renewcommand{\titlepage}{
+        \maketitle
+        \thispagestyle{empty}
+        \newpage
+    }
 }{}
 \makeatother
 
@@ -27,9 +27,9 @@
 
 % Listings setup
 \lstset{
-frame=single,
-breaklines=true,
-postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+    frame=single,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
 }
 
 % To quiet some warning about compatibility mode. Not recognised by tectonic, probably too old package.
@@ -49,10 +49,14 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 
 % Put two items, e.g. figures, side by side.
 \newcommand{\sidebyside}[2]{
-\begin{figure}
-    \begin{minipage}{0.45\textwidth}#1\end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}#2\end{minipage}
-\end{figure}
+    \begin{figure}
+        \begin{minipage}{0.45\textwidth}
+            #1
+        \end{minipage}\hfill
+        \begin{minipage}{0.45\textwidth}
+            #2
+        \end{minipage}
+    \end{figure}
 }
 
 % Hyperlink setup
@@ -94,12 +98,12 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 % Bold theorem titles
 \makeatletter
 \def\th@plain{%
-\thm@notefont{\normalfont \itshape}% Title is not bold (\normalfont) and italic (\itshape)
-\normalfont % body font: not italic
+    \thm@notefont{\normalfont \itshape}% Title is not bold (\normalfont) and italic (\itshape)
+    \normalfont % body font: not italic
 }
 \def\th@definition{%
-\thm@notefont{}% same as heading font: bold
-\normalfont % body font: not italic
+    \thm@notefont{}% same as heading font: bold
+    \normalfont % body font: not italic
 }
 \makeatother
 
@@ -116,12 +120,8 @@ postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}
 % parts and subparts only exist in the exam documentclass
 \makeatletter
 \@ifclassloaded{exam}{
-% Subparts have the formait (i) (ii) etc...
-\renewcommand{\thesubpart}{(\roman{subpart})} % add parentheses
-\renewcommand{\subpartlabel}{\thesubpart} % remove the dot
+% Subparts have the format (i) (ii) etc...
+    \renewcommand{\thesubpart}{(\roman{subpart})} % add parentheses
+    \renewcommand{\subpartlabel}{\thesubpart} % remove the dot
 }{}
 \makeatother
-
-% Internal helper commands
-\DeclarePairedDelimiter{\paren}\lparen\rparen
-\DeclarePairedDelimiter{\brackets}\lbrack\rbrack
