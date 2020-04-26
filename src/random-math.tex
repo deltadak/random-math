@@ -57,11 +57,17 @@
 
     \section{Matrices en vectoren}\label{sec:matrices-en-vectoren}
 
-    \subsection{Inverse 2x2 matrix}\label{subsec:inverse-2x2-matrix}
+    \subsection{Inverse $2 \times 2$ matrix}\label{subsec:inverse-2x2-matrix}
     \[
         A = \matrix{a & b \\ c & d} \implies A^{-1} = \frac{1}{\mathrm{det} A} \matrix{d & -b \\ -c & a} = \frac{1}{ad-bc} \matrix{d & -b \\ -c & a}.
     \]
     Je kunt controleren of je $-a$ en $-d$ of $-b$ en $-c$ moest nemen door $\matrix{1&0\\0&1}=I=I^{-1}$ in te vullen.
+
+    \subsection{Inverse $n \times n$ matrix}
+    Veeg
+    \[
+        [A|I] \sim \dots \sim [I|A^{-1}].
+    \]
 
     \subsection{Determinant}\label{sec:determinant}
     \input{determinant}
