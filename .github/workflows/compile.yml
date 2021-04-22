@@ -1,0 +1,81 @@
+name: Compile
+
+on: push
+
+env:
+  FILE: random-math
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        name: Tectonic Cache
+        with:
+          path: ~/.cache/Tectonic
+          key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-tectonic-
+      - uses: wtfjoke/setup-tectonic@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Tectonic
+        run: |
+          cd src
+          tectonic $FILE.tex
+          cd ../
+          cd ./style-guides/src/
+          tectonic ./latex-style-guide.tex --print
+          cd ../../
+          cd ./file-templates/
+          tectonic ./homework.tex --print
+          tectonic ./presentation-thomas.tex --print
+          cd ../
+          # Tests
+          cd ./personal-packages/thomas/
+          tectonic ./package-test-article.tex --print
+          tectonic ./package-test-exam.tex --print
+          cd ../../
+          # MWEs
+          cd ./mwe/
+          tectonic ./biber-mwe.tex --print
+          tectonic ./bibtex-mwe.tex --print
+          tectonic ./index-mwe.tex --print
+          tectonic ./polynomial-long-division.tex --print
+          cd ../
+      - name: Upload pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: random-math.zip
+          path: src/*.pdf
+      - name: Create Release
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+        - name: Prepare output path and output name
+          if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+          id: prepare_metadata
+          # upload-release-asset does not support wildcards or environment variables at the moment
+          run: |
+            echo ::set-output name=ARTIFACT_PATH::./src/$FILE.pdf
+            echo ::set-output name=ARTIFACT_NAME::$FILE.pdf
+        - name: Upload Release Asset
+          if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: ${{ steps.prepare_metadata.outputs.ARTIFACT_PATH }}
+            asset_name: ${{ steps.prepare_metadata.outputs.ARTIFACT_NAME }}
+            asset_content_type: application/pdf
