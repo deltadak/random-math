@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/deltadak/random-math.svg?branch=master)](https://travis-ci.org/deltadak/random-math)
+![](https://github.com/deltadak/random-math/workflows/Compile/badge.svg)
 
 A collection of templates and more which currently consists of
 * A document containing all kinds of mathematical truths (in Dutch).

@@ -35,6 +35,7 @@
 % To quiet some warning about compatibility mode. Not recognised by tectonic, probably too old package.
 %\pgfplotsset{compat=1.14}
 
+%! begin preamble = tikz
 % TikZ setup
 \usetikzlibrary{automata, calc, positioning, arrows.meta, shapes.geometric}
 
@@ -43,6 +44,8 @@
 % Default arrowhead.
 \newcommand{\stdarrow}{-{Latex[length=2mm,width=2mm]}}
 \newcommand{\stdbend}{30}
+
+%! end preamble = tikz
 
 % Scale a tikz picture. Usage: \scaletikzpicture{\textwidth}{ \begin{tikzpicture} ... \end{tikzpicture} }
 \newcommand{\scaletikzpicture}[2]{\resizebox{#1}{!}{#2}}

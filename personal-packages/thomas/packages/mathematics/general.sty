@@ -15,10 +15,10 @@
     \node[shape=circle,draw,inner sep=2pt] (char) {#1};
 }}
 
-% Ceiling which scales
-\DeclarePairedDelimiter{\ceil}{\left\lceil}{\right\rceil}
+% Ceiling which scales if you use *, e.g. \ceil*{\frac 1 2}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \newcommand{\ceiling}{\ceil}
-\DeclarePairedDelimiter{\floor}{\left\lfloor}{\right\rfloor}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 % Index as superscript
 \newcommand{\up}[1]{^{(#1)}}
