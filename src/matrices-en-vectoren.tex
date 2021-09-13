@@ -1,0 +1,26 @@
+\subsection{Inverse $2 \times 2$ matrix}\label{subsec:inverse-2x2-matrix}
+\[
+    A = \matrix{a & b \\ c & d} \implies A^{-1} = \frac{1}{\mathrm{det} A} \matrix{d & -b \\ -c & a} = \frac{1}{ad-bc} \matrix{d & -b \\ -c & a}.
+\]
+Je kunt controleren of je $-a$ en $-d$ of $-b$ en $-c$ moest nemen door $\matrix{1&0\\0&1}=I=I^{-1}$ in te vullen.
+
+\subsection{Inverse $n \times n$ matrix}
+Veeg
+\[
+    [A|I] \sim \dots \sim [I|A^{-1}].
+\]
+
+$A$ is non-singulier $\iff$ $|A|=\Pi_i \lambda_i \neq 0$ $\iff$ A heeft een inverse.
+
+\subsection{Determinant}\label{sec:determinant}
+\input{determinant}
+
+\subsection{Inproduct/uitproduct}\label{sec:inproduct/uitproduct}
+\input{inproductuitproduct}
+
+\subsection{Eigenwaarden en eigenvectoren}
+
+Voor matrix $A$, eigenwaarde $\lambda$ en bijbehorende eigenvector $v$, moet gelden $Av = \lambda v$.
+De eigenwaarden zijn de nulpunten van het karakteristieke polynoom $|A - \lambda I|$.
+Bijvoorbeeld voor $A = \matrix{a & b \\ c & d}$, krijgen we $(a - \lambda)(d - \lambda) - bc = 0$.
+% todo eigenvectors
