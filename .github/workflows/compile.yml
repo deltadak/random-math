@@ -25,6 +25,7 @@ jobs:
       - name: Run Tectonic
         run: |
           cd src
+          cp -r personal-packages/thomas/packages src/
           tectonic $FILE.tex
           cd ../
           cd ./style-guides/src/
