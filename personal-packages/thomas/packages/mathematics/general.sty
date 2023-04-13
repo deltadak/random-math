@@ -26,6 +26,13 @@
 % Absolute value
 \newcommand{\abs}[1]{\left|#1\right|}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
+% Swap the definition of \norm*, so that
+% \norm resizes the size of the brackets, and the
+% starred version does not.
+\makeatletter
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
 
 % Degree of polynomial
 \DeclareMathOperator{\degree}{deg}
